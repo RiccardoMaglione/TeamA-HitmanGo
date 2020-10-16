@@ -32,29 +32,29 @@ namespace HGO
             /// <summary>
             /// Registra il nodo che ha di fronte l'intelligenza artificiale
             /// </summary>
-            public void RegisterNode()
+            public void RegisterForwardNode()
             {
                 var rot = gameObject.transform.rotation;
                 Node nod = null;
 
                 if (rot == Quaternion.Euler(0, 0, 0)) //forward
                 {
-                    nod = Pathfinder.GetNeighbourNode(ref lm, Pathfinder.orientation.forward, currentNode);
+                    nod = Pathfinder.GetNeighbourNode(ref lm, AI_ORIENTATION.up, currentNode);
                     if (nod == null) UnityEngine.Debug.LogError("Attention! AI_Vision.RegisterNode(): can't find a node");
                 }
                 else if (rot == Quaternion.Euler(0, 90, 0)) // right
                 {
-                    nod = Pathfinder.GetNeighbourNode(ref lm, Pathfinder.orientation.right, currentNode);
+                    nod = Pathfinder.GetNeighbourNode(ref lm, AI_ORIENTATION.right, currentNode);
                     if (nod == null) UnityEngine.Debug.LogError("Attention! AI_Vision.RegisterNode(): can't find a node");
                 }
                 else if (rot == Quaternion.Euler(0, 180, 0)) // back
                 {
-                    nod = Pathfinder.GetNeighbourNode(ref lm, Pathfinder.orientation.down, currentNode);
+                    nod = Pathfinder.GetNeighbourNode(ref lm, AI_ORIENTATION.down, currentNode);
                     if (nod == null) UnityEngine.Debug.LogError("Attention! AI_Vision.RegisterNode(): can't find a node");
                 }
                 else if(rot == Quaternion.Euler(0,270,0)) // left
                 {
-                    nod = Pathfinder.GetNeighbourNode(ref lm, Pathfinder.orientation.left, currentNode);
+                    nod = Pathfinder.GetNeighbourNode(ref lm, AI_ORIENTATION.left, currentNode);
                     if (nod == null) UnityEngine.Debug.LogError("Attention! AI_Vision.RegisterNode(): can't find a node");
                 }
 
