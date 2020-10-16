@@ -8,7 +8,12 @@ namespace HGO
     {
         public class LevelManager : MonoBehaviour
         {
-            internal List<Node> levelNodes { private set; get; }
+            internal List<Node> levelNodes = new List<Node>();
+
+            private void OnEnable()
+            {
+                levelNodes = FindObjectsOfType<Node>().ToList();
+            }
 
         }
     }

@@ -6,7 +6,7 @@ namespace HGO
     {
         public class PlayerController : CharacterController
         {
-
+            
         }
     }
 }
