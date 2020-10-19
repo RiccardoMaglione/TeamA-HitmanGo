@@ -135,6 +135,7 @@ namespace HGO.core
             }
             else
             {
+                //Questo punto andava in update
                 Player.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y - 0.5f, Player.transform.position.z);
                 FinishTranslate = true;
             }

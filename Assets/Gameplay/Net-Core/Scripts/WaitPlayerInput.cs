@@ -1,4 +1,5 @@
 ﻿using HGO.core;
+using System.Threading;
 using UnityEngine;
 
 
@@ -15,6 +16,7 @@ public class WaitPlayerInput : StateMachineBehaviour
         if(pc.PM.SwipeAction())
         {
             animator.SetTrigger("Move Player");
+            MovePlayer.CanMove = true;
             return;
         }
     }
