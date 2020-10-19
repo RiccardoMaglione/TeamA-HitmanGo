@@ -134,6 +134,8 @@ GameObject:
   - component: {fileID: 75583455}
   - component: {fileID: 75583454}
   - component: {fileID: 75583458}
+  - component: {fileID: 75583460}
+  - component: {fileID: 75583459}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -226,10 +228,46 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &75583459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75583453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d10eca116ebe6e4a80e5907e1de9ed9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PM: {fileID: 0}
+--- !u!114 &75583460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75583453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77af1a2d796e12e43ac6cc097af4081a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TranslateTime: 0.5
+  UnitGrid: 3
+  Player: {fileID: 75583453}
+  NC: {fileID: 0}
+  ND:
+    index: {x: 0, y: 0}
+    sconnections:
+      Nord: 0
+      Sud: 0
+      Est: 0
+      Ovest: 0
 --- !u!1 &135901786
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,10 +405,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03ea328d161f3584ca15e788b339ace2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Nord: 0
-  Sud: 0
-  Est: 1
-  Ovest: 1
+  nodeData:
+    index: {x: 1, y: 0}
+    sconnections:
+      Nord: 0
+      Sud: 0
+      Est: 1
+      Ovest: 1
 --- !u!1 &252232067
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,7 +810,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 475813661}
-  - component: {fileID: 475813660}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -777,21 +817,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &475813660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 475813659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77af1a2d796e12e43ac6cc097af4081a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TranslateTime: 0.5
-  UnitGrid: 3
-  Player: {fileID: 75583453}
 --- !u!4 &475813661
 Transform:
   m_ObjectHideFlags: 0
@@ -1405,10 +1430,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03ea328d161f3584ca15e788b339ace2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Nord: 0
-  Sud: 0
-  Est: 0
-  Ovest: 1
+  nodeData:
+    index: {x: 2, y: 0}
+    sconnections:
+      Nord: 0
+      Sud: 0
+      Est: 0
+      Ovest: 1
 --- !u!1 &950659858
 GameObject:
   m_ObjectHideFlags: 0
@@ -3219,10 +3247,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03ea328d161f3584ca15e788b339ace2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Nord: 0
-  Sud: 0
-  Est: 1
-  Ovest: 0
+  nodeData:
+    index: {x: 0, y: 0}
+    sconnections:
+      Nord: 0
+      Sud: 0
+      Est: 1
+      Ovest: 0
 --- !u!65 &2100349907
 BoxCollider:
   m_ObjectHideFlags: 0
