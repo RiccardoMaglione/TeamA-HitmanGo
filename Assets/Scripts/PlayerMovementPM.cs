@@ -6,7 +6,6 @@ namespace HGO.core
 {
     public class PlayerMovementPM : MonoBehaviour
     {
-        #region Variables
         bool HoldClick = false;
         bool FinishTranslate = true;
 
@@ -16,21 +15,21 @@ namespace HGO.core
         Vector3 PosDown;
         Vector3 PosUp;
         Vector3 DirectionPos;
+        internal Vector3 endPosition = Vector3.zero;
 
         public GameObject Player;
         public Node NC;
         public NodeData ND;
-        #endregion
 
         private void OnTriggerEnter(Collider other)
         {
             if (other.gameObject.GetComponent<Node>() == true)
             {
                 NC = other.gameObject.GetComponent<Node>();
-                ND.connections.up = NC.nodeData.connections.up;
-                ND.connections.right = NC.nodeData.connections.right;
-                ND.connections.down = NC.nodeData.connections.down;
-                ND.connections.left = NC.nodeData.connections.left;
+                ND.connections.up =         NC.nodeData.connections.up;
+                ND.connections.right =      NC.nodeData.connections.right;
+                ND.connections.down =       NC.nodeData.connections.down;
+                ND.connections.left =       NC.nodeData.connections.left;
 
 
             }
@@ -44,10 +43,6 @@ namespace HGO.core
                 print(ValSize);
                 Player.GetComponent<BoxCollider>().size = new Vector3(ValSize, 1, ValSize);
             }
-        }
-        void Update()
-        {
-            if (SwipeAction()) Move();
         }
 
         public bool SwipeAction()
@@ -99,7 +94,6 @@ namespace HGO.core
         /// </summary>
         public void Move()
         {
-            Debug.Log($"direciton: {DirectionPos}");
 
             #region Move Direction
             if (Vector3.up == DirectionPos && ND.connections.up == true)
@@ -109,6 +103,7 @@ namespace HGO.core
                 Player.transform.DOMove(Player.transform.position + Vector3.forward * UnitGrid, MovementTime);
                 StartCoroutine(Timer());
                 DirectionPos = new Vector3(0, 0, 0);
+                endPosition = Player.transform.position + Vector3.forward * UnitGrid;
             }
             else if (Vector3.down == DirectionPos && ND.connections.down == true)
             {
@@ -117,6 +112,8 @@ namespace HGO.core
                 Player.transform.DOMove(Player.transform.position + Vector3.back * UnitGrid, MovementTime);
                 StartCoroutine(Timer());
                 DirectionPos = new Vector3(0, 0, 0);
+                endPosition = Player.transform.position + Vector3.back * UnitGrid;
+
             }
             else if (Vector3.right == DirectionPos && ND.connections.right == true)
             {
@@ -125,6 +122,7 @@ namespace HGO.core
                 Player.transform.DOMove(Player.transform.position + DirectionPos * UnitGrid, MovementTime);
                 StartCoroutine(Timer());
                 DirectionPos = new Vector3(0, 0, 0);
+                endPosition = Player.transform.position + DirectionPos * UnitGrid;
             }
             else if (Vector3.left == DirectionPos && ND.connections.left == true)
             {
@@ -133,6 +131,7 @@ namespace HGO.core
                 Player.transform.DOMove(Player.transform.position + DirectionPos * UnitGrid, MovementTime);
                 StartCoroutine(Timer());
                 DirectionPos = new Vector3(0, 0, 0);
+                endPosition = Player.transform.position + DirectionPos * UnitGrid;
             }
             else
             {
