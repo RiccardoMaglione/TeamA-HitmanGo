@@ -1,11 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
-using UnityEngine.Playables;
-using UnityEngine.EventSystems;
 using DG.Tweening;
-using HitmanGo.NodeGo;
+using HGO.core;
 public class PlayerMovementPM : MonoBehaviour
 {
     #region Variables
@@ -20,15 +17,15 @@ public class PlayerMovementPM : MonoBehaviour
     Vector3 DirectionPos;
     
     public GameObject Player;
-    public NodeCell NC;
+    public Node NC;
     public NodeData ND;
     #endregion
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<NodeCell>() == true)
+        if (other.gameObject.GetComponent<Node>() == true)
         {
-            NC = other.gameObject.GetComponent<NodeCell>();
+            NC = other.gameObject.GetComponent<Node>();
             ND.sconnections.Nord = NC.nodeData.sconnections.Nord;
             ND.sconnections.Sud = NC.nodeData.sconnections.Sud;
             ND.sconnections.Est = NC.nodeData.sconnections.Est;
@@ -47,10 +44,14 @@ public class PlayerMovementPM : MonoBehaviour
     }
     void Update()
     {
-        SwipeAction();
+        if (SwipeAction())
+        {
+            Move();
+        }
+
     }
 
-    public void SwipeAction()
+    public bool SwipeAction()
     {
         #region Press
         if (Input.GetMouseButtonDown(0) && FinishTranslate == true)
@@ -69,6 +70,7 @@ public class PlayerMovementPM : MonoBehaviour
                         Player.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y + 0.5f, Player.transform.position.z);
                         Debug.Log("Press");
                         HoldClick = true;
+                        return false;
                     }
                 }
             }
@@ -84,9 +86,10 @@ public class PlayerMovementPM : MonoBehaviour
             DirectionPos = (PosUp - PosDown).normalized;
             DirectionPos.x = Mathf.Round(DirectionPos.x);
             DirectionPos.y = Mathf.Round(DirectionPos.y);
-
-            Move();
+            return true;
+            //Move();
         }
+        return false;
         #endregion
     }
     public void Move()

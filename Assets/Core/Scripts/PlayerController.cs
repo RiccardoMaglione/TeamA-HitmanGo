@@ -6,7 +6,12 @@ namespace HGO
     {
         public class PlayerController : CharacterController
         {
+            public PlayerMovementPM PM;
 
+            private void Awake()
+            {
+                PM = GetComponent<PlayerMovementPM>();
+            }
         }
     }
 }
