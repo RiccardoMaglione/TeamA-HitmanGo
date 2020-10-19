@@ -308,17 +308,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77af1a2d796e12e43ac6cc097af4081a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TranslateTime: 0.5
+  MovementTime: 0.5
   UnitGrid: 3.5
   Player: {fileID: 120610638}
   NC: {fileID: 0}
   ND:
     index: {x: 0, y: 0}
-    sconnections:
-      Nord: 0
-      Sud: 0
-      Est: 0
-      Ovest: 0
+    connections:
+      up: 0
+      right: 0
+      down: 0
+      left: 0
 --- !u!114 &120610645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -931,11 +931,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeData:
     index: {x: 0, y: 0}
-    sconnections:
-      Nord: 0
-      Sud: 0
-      Est: 1
-      Ovest: 1
+    connections:
+      up: 0
+      right: 1
+      down: 0
+      left: 1
 --- !u!65 &472462213
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1102,8 +1102,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FinalPosition:
   - {fileID: 1006382333}
-  TouchEnemy0: 1
-  TranslateTimeY: 0.15
+  enemyHitted: 1
+  TranslateTimeY: 0.16
+  maxCharacterHeight: 5
   WaitTime: 0.6
 --- !u!1 &528695344
 GameObject:
@@ -1664,11 +1665,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeData:
     index: {x: 0, y: 0}
-    sconnections:
-      Nord: 1
-      Sud: 0
-      Est: 1
-      Ovest: 0
+    connections:
+      up: 1
+      right: 1
+      down: 0
+      left: 0
 --- !u!65 &958618344
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2052,11 +2053,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeData:
     index: {x: 0, y: 0}
-    sconnections:
-      Nord: 0
-      Sud: 0
-      Est: 1
-      Ovest: 1
+    connections:
+      up: 0
+      right: 1
+      down: 0
+      left: 1
 --- !u!65 &1082568798
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2164,11 +2165,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeData:
     index: {x: 0, y: 0}
-    sconnections:
-      Nord: 0
-      Sud: 0
-      Est: 0
-      Ovest: 1
+    connections:
+      up: 0
+      right: 0
+      down: 0
+      left: 1
 --- !u!65 &1172216358
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2668,11 +2669,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeData:
     index: {x: 0, y: 0}
-    sconnections:
-      Nord: 1
-      Sud: 1
-      Est: 0
-      Ovest: 0
+    connections:
+      up: 1
+      right: 0
+      down: 1
+      left: 0
 --- !u!65 &1440476184
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2869,6 +2870,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1522623859}
+  - component: {fileID: 1522623858}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -2876,6 +2878,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1522623858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522623857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53b9d5a27d61d374cbecb35109583283, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1522623859
 Transform:
   m_ObjectHideFlags: 0
@@ -3649,11 +3663,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeData:
     index: {x: 0, y: 0}
-    sconnections:
-      Nord: 0
-      Sud: 1
-      Est: 0
-      Ovest: 0
+    connections:
+      up: 1
+      right: 0
+      down: 0
+      left: 0
 --- !u!65 &2083339837
 BoxCollider:
   m_ObjectHideFlags: 0

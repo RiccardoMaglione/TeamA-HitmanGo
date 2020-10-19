@@ -5,14 +5,13 @@ namespace HGO
 {
     namespace core
     {
-        #region Struct
         [System.Serializable]
         public struct SConnections
         {
-            public bool Nord;
-            public bool Sud;
-            public bool Est;
-            public bool Ovest;
+            public bool up;
+            public bool right;
+            public bool down;
+            public bool left;
         }
 
         [System.Serializable]
@@ -20,9 +19,8 @@ namespace HGO
         {
             public Vector2 index;
             [Header("Available direction of cell")]
-            public SConnections sconnections;
+            public SConnections connections;
         }
-        #endregion
 
         public class Node : MonoBehaviour
         {

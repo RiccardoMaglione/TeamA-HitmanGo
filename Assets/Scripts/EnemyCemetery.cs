@@ -1,7 +1,5 @@
 ﻿using DG.Tweening;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class EnemyCemetery : MonoBehaviour
@@ -9,20 +7,28 @@ public class EnemyCemetery : MonoBehaviour
     public GameObject[] FinalPosition;
     static public int CountEnemy = 0;
 
-    public bool TouchEnemy0 = true;
+    public bool enemyHitted = true;
 
     public float TranslateTimeY = 1;
+    public float maxCharacterHeight = 5;
     public float WaitTime = 1;
 
     private void OnTriggerEnter(Collider other)
     {
+        //enemyHitted = true;
         if (other.gameObject.tag == "Player")
         {
-            StartCoroutine(MoveFunctionDestroyZone());
+            PlayDeathAnimation();
+            //gameObject.transform.DOJump(FinalPosition[0].transform.position , 10, 1, TranslateTimeY);
         }
     }
 
-    IEnumerator MoveFunctionDestroyZone()
+    public void PlayDeathAnimation()
+    {
+        StartCoroutine(MoveToCemeteryArea());
+    }
+
+    IEnumerator MoveToCemeteryArea()
     {
         float timeSinceStarted = 0f;
         transform.DOMoveY(transform.position.y + 10, TranslateTimeY);

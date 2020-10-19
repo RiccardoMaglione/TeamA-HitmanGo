@@ -53,22 +53,22 @@ namespace HGO
                     {
                         case AI_ORIENTATION.up:
 
-                            if (n.index == new UnityEngine.Vector2(currentNode.index.x, currentNode.index.y + 1))
+                            if (n.nodeData.index == new UnityEngine.Vector2(currentNode.nodeData.index.x, currentNode.nodeData.index.y + 1))
                                 return n;
                             break;
                         case AI_ORIENTATION.right:
 
-                            if (n.index == new UnityEngine.Vector2(currentNode.index.x + 1, currentNode.index.y))
+                            if (n.nodeData.index == new UnityEngine.Vector2(currentNode.nodeData.index.x + 1, currentNode.nodeData.index.y))
                                 return n;
                             break;
                         case AI_ORIENTATION.down:
 
-                            if (n.index == new UnityEngine.Vector2(currentNode.index.x, currentNode.index.y - 1))
+                            if (n.nodeData.index == new UnityEngine.Vector2(currentNode.nodeData.index.x, currentNode.nodeData.index.y - 1))
                                 return n;
                             break;
                         case AI_ORIENTATION.left:
 
-                            if (n.index == new UnityEngine.Vector2(currentNode.index.x - 1, currentNode.index.y))
+                            if (n.nodeData.index == new UnityEngine.Vector2(currentNode.nodeData.index.x - 1, currentNode.nodeData.index.y))
                                 return n;
                             break;
                     }
@@ -88,10 +88,10 @@ namespace HGO
                 List<pathfinding_node> nodes = new List<pathfinding_node>();
 
                 /* Verifica delle possibili connessioni e creazioni dei dati per l'intelligenza artificiale*/
-                if(current_node.connections.up)         nodes.Add(new pathfinding_node(current_node, GetNeighbourNode(ref lm, AI_ORIENTATION.up, current_node), goal_node));
-                if(current_node.connections.right)      nodes.Add(new pathfinding_node(current_node, GetNeighbourNode(ref lm, AI_ORIENTATION.right, current_node), goal_node));
-                if(current_node.connections.down)       nodes.Add(new pathfinding_node(current_node, GetNeighbourNode(ref lm, AI_ORIENTATION.down, current_node), goal_node));
-                if(current_node.connections.left)       nodes.Add(new pathfinding_node(current_node, GetNeighbourNode(ref lm, AI_ORIENTATION.left, current_node), goal_node));
+                if(current_node.nodeData.connections.up)         nodes.Add(new pathfinding_node(current_node, GetNeighbourNode(ref lm, AI_ORIENTATION.up, current_node), goal_node));
+                if(current_node.nodeData.connections.right)      nodes.Add(new pathfinding_node(current_node, GetNeighbourNode(ref lm, AI_ORIENTATION.right, current_node), goal_node));
+                if(current_node.nodeData.connections.down)       nodes.Add(new pathfinding_node(current_node, GetNeighbourNode(ref lm, AI_ORIENTATION.down, current_node), goal_node));
+                if(current_node.nodeData.connections.left)       nodes.Add(new pathfinding_node(current_node, GetNeighbourNode(ref lm, AI_ORIENTATION.left, current_node), goal_node));
 
                 if (nodes.Count < 1) return null;       // Breakpoint - means none connection available
 
