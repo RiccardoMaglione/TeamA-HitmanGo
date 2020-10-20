@@ -16,7 +16,7 @@ namespace HGO.core
 
         Vector3 PosDown;
         Vector3 PosUp;
-        Vector3 DirectionPos;
+        static public Vector3 DirectionPos;
         internal Vector3 endPosition = Vector3.zero;
 
         public GameObject Player;
@@ -86,21 +86,32 @@ namespace HGO.core
                 //Debug.Log("Hold");
                 DirectionPos = (PosUp - PosDown).normalized;
                 /*lenght*/
-                float l = DirectionPos.magnitude;
-                if (l > 0.5f) return true;
+                //float l = DirectionPos.magnitude;
+                DirectionPos.x = Mathf.Round(DirectionPos.x);
+                DirectionPos.y = Mathf.Round(DirectionPos.y);
+                if (DirectionPos == Vector3.up || DirectionPos == Vector3.down || DirectionPos == Vector3.left || DirectionPos == Vector3.right)
+                {
+                    return true;
+                }
+                else
+                {
+                    Player.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y - 0.5f, Player.transform.position.z);
+                    FinishTranslate = true;
+                }
                 //DirectionPos.x = Mathf.Round(DirectionPos.x);
                 //DirectionPos.y = Mathf.Round(DirectionPos.y);
 
-                return true;
+                //return true;
 
 
             }
             #endregion
 
-            else if(Input.GetMouseButtonUp(0))
-            {
-                // torno alla posizione di partenza
-            }
+            //else if(Input.GetMouseButtonUp(0))
+            //{
+            //    Player.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y - 0.5f, Player.transform.position.z);
+            //    // torno alla posizione di partenza
+            //}
 
             return false;
         }

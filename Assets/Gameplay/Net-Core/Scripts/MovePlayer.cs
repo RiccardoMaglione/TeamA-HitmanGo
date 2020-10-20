@@ -1,35 +1,54 @@
 ﻿using HGO.core;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class MovePlayer : StateMachineBehaviour
 {
     PlayerController pc;
     static public bool CanMove;
-    Node previousNode;
+    public Node previousNode;
+    public Node currentNode;
+
+    public float timeLeft = 1f;
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (!pc) pc = FindObjectOfType<PlayerController>();
-        previousNode = pc.PM.NC;
+        //currentNode = pc.PM.NC;
+        //previousNode = pc.PM.NC;
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if(CanMove == true) //Deve essere eseguito solo una volta, altrimenti continua a cadere finché non esce dall'update
+        if(CanMove == true && (PlayerMovementPM.DirectionPos == Vector3.up || PlayerMovementPM.DirectionPos == Vector3.down || PlayerMovementPM.DirectionPos == Vector3.left || PlayerMovementPM.DirectionPos == Vector3.right)) //Deve essere eseguito solo una volta, altrimenti continua a cadere finché non esce dall'update
         {
+            Debug.Log("Prendo il nodo");
             pc.PM.Move();
             CanMove = false;
-        }
 
-        if (pc.PM.NC == previousNode)
-        {
-            animator.SetTrigger("Start Player Round");
-            return;
         }
-        else
+        timeLeft -= Time.deltaTime;
+        if (timeLeft < 0)
         {
-            animator.ResetTrigger("Start Player Round");
-            animator.SetTrigger("Check Player Node");
-            return;
+            previousNode = pc.PM.NC; //current quello prima di muoversi questo diventa cell2
+            Debug.Log("Ci entri?");
+            //if (pc.PM.NC == previousNode)
+            if (previousNode == WaitPlayerInput.waitNode) //cell2 = cell1 no
+            {
+                Debug.Log("Sono uguali i nodi");
+                animator.SetTrigger("Start Player Round");
+                WaitPlayerInput.detectNode = true;
+                timeLeft = 1;
+                return;
+            }
+            else
+            {
+                Debug.Log("Sono diversi i nodi");
+                animator.ResetTrigger("Start Player Round");
+                animator.SetTrigger("Check Player Node");
+                WaitPlayerInput.detectNode = true;
+                timeLeft = 1;
+                return;
+            }
         }
         
     }

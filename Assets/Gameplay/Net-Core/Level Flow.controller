@@ -779,6 +779,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b8878e9cb60fa7479b8c685b4c90c5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  previousNode: {fileID: 0}
+  currentNode: {fileID: 0}
+  timeLeft: 1
 --- !u!1101 &3221007268036236527
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
