@@ -1,13 +1,13 @@
 ﻿using DG.Tweening;
 using HGO.core;
 using System;
-using System.Collections;
 using UnityEngine;
 
 namespace HGO
 {
     namespace ai
     {
+        public enum AI_STATE { NONE, SLEEP, PATROL}
 
         public class AI_Controller : core.CharacterController
         {
@@ -18,6 +18,8 @@ namespace HGO
             public Node currentNode; // da cancellare
             LevelManager lm;
             internal AI_Vision eyes;
+            public AI_STATE behaviour = AI_STATE.SLEEP;
+            
 
             #region UnityCallbacks
             protected void Awake()
@@ -44,21 +46,6 @@ namespace HGO
                     Debug.LogWarning("Attention! AI_CONTROLLER: Can't find none node in front of me!\n");
                 }
             }
-
-            public void Update()
-            {
-                if(Input.GetKeyDown(KeyCode.Space)) //CANCELLARE - SOLO TESTING
-                {
-                    /* SEQUENZA D'ATTACCO */
-                    //eyes.RegisterForwardNode();
-                    //gameObject.transform.DOMove(eyes.forwardNode.gameObject.transform.position + new Vector3(0,1,0), MovementDuration);
-                    //eyes.currentNode = eyes.forwardNode;
-
-                    /* AI MOVEMENT */
-                    AI_MOVE();
-
-                }
-            }
             protected void OnDestroy()
             {
                 eyes = null;
@@ -70,12 +57,15 @@ namespace HGO
             #endregion
 
             #region Callbacks
-            public void CheckObservedNode()
+            public bool CheckObservedNode(Node pNode)
             {
                 if (eyes)
                 {
-                    if (eyes.forwardNode) OnPlayerDetected(); //aggiungere collider al nodo per verificare se il giocatore ci si trovi sopra
+                    if (eyes.forwardNode == pNode) return true;
+
                 }
+
+                return false;
             }
             #endregion
 
@@ -93,9 +83,9 @@ namespace HGO
             /// <summary>
             /// Muove il personaggio verso il punto che ha originato il rumore
             /// </summary>
-            public void AI_MOVE()
+            public void AI_MOVE(Node goal_node)
             {
-                if(gn)
+                if(goal_node)
                 {
                     var Node2Move = Pathfinder.GetNearestNodeOnPattern(currentNode, gn, ref lm);
                     if (Node2Move != null)
@@ -125,7 +115,15 @@ namespace HGO
                     }
                 }
             }
-            
+
+            public void AI_ATTACK()
+            {
+                Debug.LogError("AI ATTACK");
+                //eyes.RegisterForwardNode();
+                gameObject.transform.DOMove(eyes.forwardNode.gameObject.transform.position + new Vector3(0,1,0), MovementDuration);
+                eyes.currentNode = eyes.forwardNode;
+            }
+
         }
     }
 }

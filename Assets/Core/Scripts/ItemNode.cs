@@ -59,8 +59,10 @@ namespace HGO
           =================================================================================================
           */
 
-            protected void Awake()
+            protected new void Awake()
             {
+                base.Awake();
+
                 if(OnPickup == null)
                 {
                     //EVENTS SUBSCRIPTION

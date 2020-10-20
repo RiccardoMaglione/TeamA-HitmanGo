@@ -15,12 +15,12 @@ public class EnemyCemetery : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //enemyHitted = true;
-        if (other.gameObject.tag == "Player")
-        {
-            PlayDeathAnimation();
-            //gameObject.transform.DOJump(FinalPosition[0].transform.position , 10, 1, TranslateTimeY);
-        }
+        enemyHitted = true;
+        //if (other.gameObject.tag == "Player")
+        //{
+        //    PlayDeathAnimation();
+        //    //gameObject.transform.DOJump(FinalPosition[0].transform.position , 10, 1, TranslateTimeY);
+        //}
     }
 
     public void PlayDeathAnimation()

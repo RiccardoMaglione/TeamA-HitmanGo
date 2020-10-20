@@ -25,7 +25,7 @@ namespace HGO
             }
             private void OnEnable()
             {
-                
+                RegisterForwardNode();
             }
             #endregion
 
@@ -59,6 +59,11 @@ namespace HGO
                 }
 
                 forwardNode = nod;
+            }
+
+            public void UnregisterForwardNode()
+            {
+                forwardNode = null;
             }
         }
     }

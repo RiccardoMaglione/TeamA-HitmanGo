@@ -930,7 +930,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeData:
-    index: {x: 0, y: 0}
+    index: {x: -2, y: 0}
     connections:
       up: 0
       right: 1
@@ -1007,7 +1007,6 @@ GameObject:
   - component: {fileID: 522480622}
   - component: {fileID: 522480621}
   - component: {fileID: 522480620}
-  - component: {fileID: 522480624}
   - component: {fileID: 522480625}
   - component: {fileID: 522480627}
   - component: {fileID: 522480626}
@@ -1091,24 +1090,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
---- !u!114 &522480624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 522480619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afdf76e54c413774fa6d4866130213d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  FinalPosition:
-  - {fileID: 1006382333}
-  enemyHitted: 1
-  TranslateTimeY: 0.16
-  maxCharacterHeight: 5
-  WaitTime: 0.6
 --- !u!114 &522480625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1121,10 +1102,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32369ba391259a047bfdd2e6fa3df344, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementDuration: 0.5
+  MovementDuration: 0.25
   RotationMovement: 0.25
   gn: {fileID: 0}
   currentNode: {fileID: 472462212}
+  behaviour: 0
 --- !u!143 &522480626
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1714,7 +1696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeData:
-    index: {x: 0, y: 0}
+    index: {x: -3, y: 0}
     connections:
       up: 1
       right: 1
@@ -2102,7 +2084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeData:
-    index: {x: 0, y: 0}
+    index: {x: -1, y: 0}
     connections:
       up: 0
       right: 1
@@ -2718,7 +2700,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeData:
-    index: {x: 0, y: 0}
+    index: {x: -3, y: 1}
     connections:
       up: 1
       right: 0
@@ -3732,7 +3714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeData:
-    index: {x: 0, y: 0}
+    index: {x: -3, y: 2}
     connections:
       up: 0
       right: 0

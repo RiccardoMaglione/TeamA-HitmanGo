@@ -10,6 +10,17 @@ namespace HGO.core
     {
         bool HoldClick = false;
         bool FinishTranslate = true;
+        /// <summary>
+        /// Restituisce il vettore di direzione noto
+        /// i.e (0.1,0.8) = (0,0,1) .../etc.
+        /// </summary>
+        internal Vector3 normalDirection
+        {
+            get
+            {
+                return new Vector3(Mathf.Round(DirectionPos.x), 0, Mathf.Round(DirectionPos.z));
+            }
+        }
 
         [Tooltip("Value for time of translate between cell")] public float MovementTime = 0.5f;
         [Tooltip("Value for size of one unit")] public float UnitGrid = 1;
@@ -32,8 +43,6 @@ namespace HGO.core
                 ND.connections.right =      NC.nodeData.connections.right;
                 ND.connections.down =       NC.nodeData.connections.down;
                 ND.connections.left =       NC.nodeData.connections.left;
-
-
             }
         }
 
