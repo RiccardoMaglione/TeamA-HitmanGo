@@ -66,6 +66,7 @@ namespace HGO
                 }
                 else if(character is AI_Controller)
                 {
+                    Debug.Log($"character on cell {character}");
                     nodeData.overlappedCharacters.Add(character);
                     nodeData.overlappedEnemies.Add(other.gameObject.GetComponent<AI_Controller>());
                 }

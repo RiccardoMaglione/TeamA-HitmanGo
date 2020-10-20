@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using UnityEngine;
 using DG.Tweening;
+using HGO.ai;
 
 namespace HGO.core
 {
+    [RequireComponent(typeof(PlayerController))]
     public class PlayerMovementPM : MonoBehaviour
     {
         bool HoldClick = false;
@@ -44,7 +46,12 @@ namespace HGO.core
                 Player.GetComponent<BoxCollider>().size = new Vector3(ValSize, 1, ValSize);
             }
         }
-
+        /// <summary>
+        /// Controlla se posso muovermi
+        /// Vero: se il movimento e' possibile
+        /// falso: non ci sono celle di prossimita oppure direzione vicina allo zero (lunghezza)
+        /// </summary>
+        /// <returns></returns>
         public bool SwipeAction()
         {
             #region Press
@@ -62,7 +69,7 @@ namespace HGO.core
                             FinishTranslate = false;
                             PosDown = Input.mousePosition;
                             Player.transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y + 0.5f, Player.transform.position.z);
-                            Debug.Log("Press");
+                            //Debug.Log("Press");
                             HoldClick = true;
                             return false;
                         }
@@ -76,16 +83,24 @@ namespace HGO.core
                 FinishTranslate = false;
                 HoldClick = false;
                 PosUp = Input.mousePosition;
-                Debug.Log("Hold");
+                //Debug.Log("Hold");
                 DirectionPos = (PosUp - PosDown).normalized;
-                DirectionPos.x = Mathf.Round(DirectionPos.x);
-                DirectionPos.y = Mathf.Round(DirectionPos.y);
+                /*lenght*/
+                float l = DirectionPos.magnitude;
+                if (l > 0.5f) return true;
+                //DirectionPos.x = Mathf.Round(DirectionPos.x);
+                //DirectionPos.y = Mathf.Round(DirectionPos.y);
 
                 return true;
 
 
             }
             #endregion
+
+            else if(Input.GetMouseButtonUp(0))
+            {
+                // torno alla posizione di partenza
+            }
 
             return false;
         }
@@ -98,6 +113,8 @@ namespace HGO.core
             #region Move Direction
             if (Vector3.up == DirectionPos && ND.connections.up == true)
             {
+                //Pathfinder.GetNeighbourNode(ref FindObjectOfType<LevelManager>(), AI_ORIENTATION.up, NC);
+
                 //ND.index.y += 1;
                 Debug.Log("Up");
                 Player.transform.DOMove(Player.transform.position + Vector3.forward * UnitGrid, MovementTime);

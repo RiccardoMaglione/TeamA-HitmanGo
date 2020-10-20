@@ -7,6 +7,9 @@ namespace HGO
         public class PlayerController : CharacterController
         {
             public PlayerMovementPM PM;
+            // Dove sono
+            // Dove devo andare
+            // Fermo/ In Movimeno/.../ altro
 
             private void Awake()
             {

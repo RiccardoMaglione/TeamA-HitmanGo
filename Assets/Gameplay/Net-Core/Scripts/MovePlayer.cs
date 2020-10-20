@@ -5,9 +5,11 @@ public class MovePlayer : StateMachineBehaviour
 {
     PlayerController pc;
     static public bool CanMove;
+    Node previousNode;
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (!pc) pc = FindObjectOfType<PlayerController>(); 
+        if (!pc) pc = FindObjectOfType<PlayerController>();
+        previousNode = pc.PM.NC;
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -17,16 +19,23 @@ public class MovePlayer : StateMachineBehaviour
             pc.PM.Move();
             CanMove = false;
         }
-        
-        if (pc.gameObject.transform.position == pc.PM.endPosition)
+
+        if (pc.PM.NC == previousNode)
         {
-            
-            animator.SetTrigger("Check Player Node");
+            animator.SetTrigger("Start Player Round");
+            return;
         }
+        else
+        {
+            animator.ResetTrigger("Start Player Round");
+            animator.SetTrigger("Check Player Node");
+            return;
+        }
+        
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        animator.ResetTrigger("Move Player");
+        animator.ResetTrigger("Start Player Round");
     }
 }
