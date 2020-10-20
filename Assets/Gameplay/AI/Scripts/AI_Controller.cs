@@ -17,7 +17,7 @@ namespace HGO
             public Node gn; // da cancellare
             public Node currentNode; // da cancellare
             LevelManager lm;
-            AI_Vision eyes;
+            internal AI_Vision eyes;
 
             #region UnityCallbacks
             protected void Awake()

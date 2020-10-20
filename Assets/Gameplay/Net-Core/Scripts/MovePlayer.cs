@@ -20,6 +20,7 @@ public class MovePlayer : StateMachineBehaviour
         
         if (pc.gameObject.transform.position == pc.PM.endPosition)
         {
+            
             animator.SetTrigger("Check Player Node");
         }
     }
