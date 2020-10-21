@@ -8,7 +8,7 @@ public class MovePlayer : StateMachineBehaviour
     public Node previousNode;
     public Node currentNode;
 
-    public float timeLeft = 1f;
+    public float timeLeft = 0.55f;
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (!pc) pc = FindObjectOfType<PlayerController>();
@@ -23,6 +23,7 @@ public class MovePlayer : StateMachineBehaviour
             Debug.Log("Prendo il nodo");
             pc.PM.Move();
             CanMove = false;
+            timeLeft = 0.55f;
 
         }
         timeLeft -= Time.deltaTime;
@@ -36,7 +37,7 @@ public class MovePlayer : StateMachineBehaviour
                 Debug.Log("Sono uguali i nodi");
                 animator.SetTrigger("Start Player Round");
                 WaitPlayerInput.detectNode = true;
-                timeLeft = 1;
+                timeLeft = 0.55f;
                 return;
             }
             else
@@ -45,7 +46,7 @@ public class MovePlayer : StateMachineBehaviour
                 animator.ResetTrigger("Start Player Round");
                 animator.SetTrigger("Check Player Node");
                 WaitPlayerInput.detectNode = true;
-                timeLeft = 1;
+                timeLeft = 0.55f;
                 return;
             }
         }
