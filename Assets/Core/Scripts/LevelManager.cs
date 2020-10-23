@@ -11,6 +11,7 @@ namespace HGO
         {
             internal List<Node> levelNodes = new List<Node>();
             internal List<AI_Controller> levelEnemies = new List<AI_Controller>();
+            internal ThrowingSystemManager ThrowingSystemManager = new ThrowingSystemManager();
 
             #region UnityCallback
             private void Awake()

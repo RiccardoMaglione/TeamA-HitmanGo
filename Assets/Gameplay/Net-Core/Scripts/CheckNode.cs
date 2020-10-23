@@ -18,29 +18,32 @@ public class CheckNode :  StateMachineBehaviour
 
         foreach (AI_Controller ai in enemies)
         {
-            if (ai.eyes.forwardNode == pc.PM.NC)
+            if (ai.eyes.forwardNode == pc.movementComponent.targetNode)
             {
-                bcanAttack = true;
+                if(ai.currentNode) bcanAttack = true;
                 break;
             }
         }
-
-    }
-
-    public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-        // Controlla se il giocatore si trova sulla cella di fine livello
-        if (pc.PM.NC is EndNode)
+        
+        if (pc.movementComponent.targetNode is EndNode)                                // Controlla se il giocatore si trova sulla cella di fine livello
         {
             animator.SetTrigger("Complete Level");
             return;
         }
-        else if (pc.PM.NC is ItemNode)
+        else if (pc.movementComponent.targetNode is ItemNode)                          // Controlla se mi trovo su di un nodo che permette il lancio di un oggetto
         {
-            animator.SetTrigger("Throw Item");
-            return;
+            if (pc.movementComponent.targetNode.gameObject.GetComponent<ItemNode>().activated)
+            {
+                animator.SetTrigger("Wait Throw Selection");
+                return;
+            }
+            else
+            {
+                animator.SetTrigger("Check Enemy Status");
+                return;
+            }
         }
-        else if (pc.PM.NC.nodeData.overlappedEnemiesCount >= 1)
+        else if (pc.movementComponent.targetNode.nodeData.overlappedEnemiesCount >= 1)
         {
             animator.SetTrigger("Kill Enemy");
             return;
@@ -60,6 +63,11 @@ public class CheckNode :  StateMachineBehaviour
             animator.SetTrigger("Start Player Round");
             return;
         }
+
+    }
+
+    public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
 
     }
 

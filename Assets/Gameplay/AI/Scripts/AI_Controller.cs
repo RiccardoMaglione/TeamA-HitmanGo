@@ -18,7 +18,8 @@ namespace HGO
             public Node currentNode; // da cancellare
             LevelManager lm;
             internal AI_Vision eyes;
-            public AI_STATE behaviour = AI_STATE.SLEEP;
+            internal AI_STATE behaviour = AI_STATE.SLEEP;
+            internal int waitedRound = 0;
             
 
             #region UnityCallbacks
@@ -83,9 +84,9 @@ namespace HGO
             /// <summary>
             /// Muove il personaggio verso il punto che ha originato il rumore
             /// </summary>
-            public void AI_MOVE(Node goal_node)
+            public void AI_MOVE()
             {
-                if(goal_node)
+                if(gn)
                 {
                     var Node2Move = Pathfinder.GetNearestNodeOnPattern(currentNode, gn, ref lm);
                     if (Node2Move != null)
@@ -118,12 +119,15 @@ namespace HGO
 
             public void AI_ATTACK()
             {
-                Debug.LogError("AI ATTACK");
                 //eyes.RegisterForwardNode();
                 gameObject.transform.DOMove(eyes.forwardNode.gameObject.transform.position + new Vector3(0,1,0), MovementDuration);
                 eyes.currentNode = eyes.forwardNode;
             }
 
+            public void AI_CHANGE_STATE(AI_STATE _newstate)
+            {
+                behaviour = _newstate;
+            }
         }
     }
 }

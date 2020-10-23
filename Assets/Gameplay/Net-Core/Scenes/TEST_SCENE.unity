@@ -198,8 +198,8 @@ GameObject:
   - component: {fileID: 120610640}
   - component: {fileID: 120610639}
   - component: {fileID: 120610643}
-  - component: {fileID: 120610644}
   - component: {fileID: 120610645}
+  - component: {fileID: 120610644}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -305,20 +305,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 120610638}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77af1a2d796e12e43ac6cc097af4081a, type: 3}
+  m_Script: {fileID: 11500000, guid: 580292e8b43bc184a9479ce6d6d23704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MovementTime: 0.5
-  UnitGrid: 3.5
-  Player: {fileID: 120610638}
-  NC: {fileID: 0}
-  ND:
-    index: {x: 0, y: 0}
-    connections:
-      up: 0
-      right: 0
-      down: 0
-      left: 0
+  characterSelectionHeight: 2
+  selectionAnimationTime: 0.1
+  characterDelesetionHeight: 1
+  deselectionAnimationTime: 0.25
+  movementAnimationTime: 0.25
 --- !u!114 &120610645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,7 +325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 624fab8a51928b044a5883af8f8506a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PM: {fileID: 0}
+  currentNode: {fileID: 1172216357}
 --- !u!1 &139895101
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,7 +941,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 0, z: 2}
+  m_Size: {x: 4, y: 0, z: 4}
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!23 &472462214
 MeshRenderer:
@@ -1083,13 +1077,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 522480619}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -2.75, y: 1, z: -3.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &522480625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1713,7 +1707,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 0, z: 2}
+  m_Size: {x: 4, y: 0, z: 4}
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!23 &958618345
 MeshRenderer:
@@ -2101,7 +2095,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 0, z: 2}
+  m_Size: {x: 4, y: 0, z: 4}
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!23 &1082568799
 MeshRenderer:
@@ -2213,7 +2207,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 0, z: 2}
+  m_Size: {x: 4, y: 0, z: 4}
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!23 &1172216359
 MeshRenderer:
@@ -2717,7 +2711,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 0, z: 2}
+  m_Size: {x: 4, y: 0, z: 4}
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!23 &1440476185
 MeshRenderer:
@@ -3731,7 +3725,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 0, z: 2}
+  m_Size: {x: 4, y: 0, z: 4}
   m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!23 &2083339838
 MeshRenderer:

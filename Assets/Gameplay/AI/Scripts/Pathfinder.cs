@@ -1,5 +1,6 @@
 ﻿using HGO.core;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace HGO
 {
@@ -73,6 +74,34 @@ namespace HGO
                             break;
                     }
 
+                }
+
+                return null;
+            }
+            public static Node GetNeighbourNode(ref LevelManager lm, Vector3 direction, Node currentNode)
+            {
+                foreach(Node n in lm.levelNodes)
+                {
+                    if (direction == Vector3.forward)
+                    {
+                        if (n.nodeData.index == new Vector2(currentNode.nodeData.index.x, currentNode.nodeData.index.y + 1))
+                            return n;
+                    }
+                    else if (direction == Vector3.right)
+                    {
+                        if (n.nodeData.index == new UnityEngine.Vector2(currentNode.nodeData.index.x + 1, currentNode.nodeData.index.y))
+                            return n;
+                    }
+                    else if(direction == Vector3.back)
+                    {
+                        if (n.nodeData.index == new UnityEngine.Vector2(currentNode.nodeData.index.x, currentNode.nodeData.index.y - 1))
+                            return n;
+                    }
+                    else if(direction == Vector3.left)
+                    {
+                        if (n.nodeData.index == new UnityEngine.Vector2(currentNode.nodeData.index.x - 1, currentNode.nodeData.index.y))
+                            return n;
+                    }
                 }
 
                 return null;

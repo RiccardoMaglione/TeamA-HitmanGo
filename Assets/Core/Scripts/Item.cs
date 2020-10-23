@@ -6,7 +6,11 @@ namespace HGO
     {
         public class Item : MonoBehaviour
         {
-
+            internal bool hitCell = false;
+            private void OnCollisionEnter(Collision collision)
+            {
+                hitCell = true;
+            }
         }
     }
 }

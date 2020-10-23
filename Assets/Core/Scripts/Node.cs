@@ -45,6 +45,7 @@ namespace HGO
         public class Node : MonoBehaviour
         {
             public NodeData nodeData;
+            public float space = 0.5f;
 
             #region UnityCallbacks
             protected void Awake()
@@ -59,31 +60,34 @@ namespace HGO
             {
                 var character = other.gameObject.GetComponent<CharacterController>();
 
-                if(character is PlayerController)
+                if (character is PlayerController)
                 {
-                    Debug.Log($"character on cell {character}");
+                    Debug.Log($"{character.gameObject.name} entered into {gameObject.name}");
                     nodeData.overlappedCharacters.Add(character);
                 }
-                else if(character is AI_Controller)
+                else if (character is AI_Controller)
                 {
-                    Debug.Log($"character on cell {character}");
+                    Debug.Log($"{character.gameObject.name} left the node {gameObject.name}");
                     nodeData.overlappedCharacters.Add(character);
                     nodeData.overlappedEnemies.Add(other.gameObject.GetComponent<AI_Controller>());
                 }
             }
-
             protected void OnTriggerExit(Collider other)
             {
                 var character = other.gameObject.GetComponent<CharacterController>();
 
                 if(character is PlayerController)
                 {
+                    Debug.Log($"{character.gameObject.name} left the node {gameObject.name}");
                     nodeData.overlappedCharacters.Remove(character);
+                    Debug.Log($"new characters on {gameObject.name} count: {nodeData.overlappedCharacters.Count}");
                 }
                 else if(character is AI_Controller)
                 {
+                    Debug.Log($"{character.gameObject.name} left the node {gameObject.name}");
                     nodeData.overlappedCharacters.Remove(character);
                     nodeData.overlappedEnemies.Remove(other.gameObject.GetComponent<AI_Controller>());
+                    Debug.Log($"new enemies on {gameObject.name} count: {nodeData.overlappedEnemies.Count}");
                 }
             }
             #endregion
