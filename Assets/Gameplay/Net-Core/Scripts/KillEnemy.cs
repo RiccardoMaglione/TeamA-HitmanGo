@@ -13,10 +13,10 @@ public class KillEnemy : StateMachineBehaviour
 
         foreach(AI_Controller ai in pc.movementComponent.targetNode.nodeData.overlappedEnemies)
         {
-            ai.gameObject.transform.DOJump(ai.gameObject.transform.position + new Vector3(0, 0, 20), 10, 1, 0.8f);
+            //ai.gameObject.transform.DOJump(ai.gameObject.transform.position + new Vector3(0, 0, 20), 10, 1, 0.8f);
             ai.eyes.UnregisterForwardNode();
             ai.currentNode = null;
-            //ai.gameObject.GetComponent<EnemyCemetery>().PlayDeathAnimation();
+            ai.gameObject.GetComponent<EnemyCemetery>().EnemyToCemetery();
         }
 
     }
