@@ -19,6 +19,8 @@ public class KillEnemy : StateMachineBehaviour
             //ai.gameObject.GetComponent<EnemyCemetery>().PlayDeathAnimation();
         }
 
+        animator.SetTrigger("Check Enemy Status");
+
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
