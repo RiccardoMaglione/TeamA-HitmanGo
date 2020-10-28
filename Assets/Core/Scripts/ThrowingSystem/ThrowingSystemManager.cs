@@ -25,5 +25,9 @@ public class ThrowingSystemManager
     {
         selectedNode = n;
     }
+    public void UnregisterNode()
+    {
+        selectedNode = null;
+    }
  
 }

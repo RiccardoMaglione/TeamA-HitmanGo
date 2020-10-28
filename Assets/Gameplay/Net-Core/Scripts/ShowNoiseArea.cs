@@ -35,6 +35,6 @@ public class ShowNoiseArea : StateMachineBehaviour
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        
+        noiseOriginNode = null;
     }
 }

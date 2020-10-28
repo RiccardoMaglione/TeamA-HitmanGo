@@ -18,9 +18,9 @@ public class CheckNode :  StateMachineBehaviour
 
         foreach (AI_Controller ai in enemies)
         {
-            if (ai.eyes.forwardNode == pc.movementComponent.targetNode)
+            if (ai.eyes.forwardNode == pc.movementComponent.targetNode && ai.behaviour != AI_STATE.NONE)
             {
-                if(ai.currentNode) bcanAttack = true;
+                if(ai.eyes.currentNode) bcanAttack = true;
                 break;
             }
         }
@@ -39,6 +39,12 @@ public class CheckNode :  StateMachineBehaviour
             }
             else
             {
+                if(bcanAttack)
+                {
+                    animator.SetTrigger("Enemy Attack");
+                    return;
+                }
+
                 animator.SetTrigger("Check Enemy Status");
                 return;
             }

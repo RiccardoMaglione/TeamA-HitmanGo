@@ -15,7 +15,8 @@ public class KillEnemy : StateMachineBehaviour
         {
             ai.gameObject.transform.DOJump(ai.gameObject.transform.position + new Vector3(0, 0, 20), 10, 1, 0.8f);
             ai.eyes.UnregisterForwardNode();
-            ai.currentNode = null;
+            ai.AI_CHANGE_STATE(AI_STATE.NONE);
+            //ai.eyes.currentNode = null;
             //ai.gameObject.GetComponent<EnemyCemetery>().PlayDeathAnimation();
         }
 

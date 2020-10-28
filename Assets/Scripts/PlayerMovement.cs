@@ -26,7 +26,7 @@ namespace HGO.core
             {
                 Vector3[] path = new Vector3[2];
                 path[0] = new Vector3(targetPosition.x, characterSelectionHeight, targetPosition.z);
-                path[1] = new Vector3(targetPosition.x, characterDelesetionHeight, targetPosition.z);
+                path[1] = new Vector3(targetPosition.x, characterDeselectionHeight, targetPosition.z);
 
                 return path;
             }
@@ -61,7 +61,7 @@ namespace HGO.core
 
         [Header("Deselection Animartion"), Space(5)]
         [Tooltip("Definisce la massima altezza che un personaggio deve raggiungere quando viene deselezionato")]
-        public float characterDelesetionHeight = 1;
+        public float characterDeselectionHeight = 1;
         [Tooltip("Definisce in quanti tempo il personaggio raggiunge l'altezza desiderata in secondi")]
         public float deselectionAnimationTime = 0.25f;
 
@@ -93,7 +93,8 @@ namespace HGO.core
                 if(Physics.Raycast(r,out hit))
                 {
                     if (hit.collider.gameObject.GetComponent<PlayerController>())
-                    { 
+                    {
+                        Debug.LogWarning(hit.collider.name);
                         startPoint = Input.mousePosition;
                         HoldedCharacter = true;
 
@@ -118,15 +119,23 @@ namespace HGO.core
                     startPoint = Vector3.zero;
                     endPoint = Vector3.zero;
 
+                    HoldedCharacter = false;
+
                     return true;
                 }
                 else
                 {
-                    gameObject.transform.DOMoveY(characterDelesetionHeight, deselectionAnimationTime);
+                    gameObject.transform.DOMoveY(characterDeselectionHeight, deselectionAnimationTime);
+
+                    startPoint = Vector3.zero;
+                    endPoint = Vector3.zero;
+
+                    HoldedCharacter = false;
+
+                    return false;
                 }
 
-                startPoint = Vector3.zero;
-                endPoint = Vector3.zero;
+               
            }
             return false;
         }
@@ -134,6 +143,7 @@ namespace HGO.core
         {
 
             gameObject.transform.DOMove(movementPath[0], movementAnimationTime);
+            gameObject.transform.DOMove(movementPath[1], movementAnimationTime + 0.1f, true);
           
         }
         public void UpdateCurrentNode() { currentNode = targetNode; }
@@ -143,7 +153,7 @@ namespace HGO.core
         }
         public void PlayeDeselectionAnimation()
         {
-            gameObject.transform.DOMoveY(characterDelesetionHeight, deselectionAnimationTime);
+            gameObject.transform.DOMoveY(characterDeselectionHeight, deselectionAnimationTime);
         }
         bool IsValidDirection()
         {

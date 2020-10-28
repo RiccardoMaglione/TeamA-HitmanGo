@@ -11,7 +11,7 @@ public class PlayPlayerDeathAnimation : StateMachineBehaviour
         if (!pc) pc = FindObjectOfType<PlayerController>();
 
         pc.gameObject.transform.DORotate(new Vector3(0, 0, 90), 0.2f);
-        animator.SetTrigger("Lose Level");
+        animator.SetTrigger("Reset Level");
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

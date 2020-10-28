@@ -99,7 +99,7 @@ public class MoveEnemy : StateMachineBehaviour
                     }
                     else
                     {
-                        /* !!! DA COMPLETARE !!!*/
+                        /* !!! DA COMPLETARE !!! */
                         // se gia ci sono dei nemici sulle celle li sposta nella migliore posizione possibile liberando lo spazio per i nuovi arrivati
                         if(mp.goalNode.nodeData.overlappedEnemies.Count > 0)
                         {
@@ -157,7 +157,8 @@ public class MoveEnemy : StateMachineBehaviour
                                     }
 
                                     mp.characters[i].gameObject.transform.DOMove(positions[index], 0.25f);
-                                    mp.characters[i].currentNode = mp.goalNode;
+                                    mp.characters[i].eyes.currentNode = mp.goalNode;
+                                    //mp.characters[i].eyes.RegisterForwardNode();
                                     mp.characters[i].AI_CHANGE_STATE(AI_STATE.SLEEP);
                                 }
                             }
