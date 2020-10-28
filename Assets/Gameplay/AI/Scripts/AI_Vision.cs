@@ -15,7 +15,8 @@ namespace HGO
 
             [Header("Settings"), Space(5)]
             public Node currentNode;
-            internal Node forwardNode;
+            [SerializeField]
+            public Node forwardNode;
 
             #region UnityCallbacks
             protected void Awake()
@@ -25,7 +26,7 @@ namespace HGO
             }
             private void OnEnable()
             {
-                
+                RegisterForwardNode();
             }
             #endregion
 
@@ -59,6 +60,11 @@ namespace HGO
                 }
 
                 forwardNode = nod;
+            }
+
+            public void UnregisterForwardNode()
+            {
+                forwardNode = null;
             }
         }
     }

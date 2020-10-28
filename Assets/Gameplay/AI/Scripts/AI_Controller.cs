@@ -1,13 +1,13 @@
 ﻿using DG.Tweening;
 using HGO.core;
 using System;
-using System.Collections;
 using UnityEngine;
 
 namespace HGO
 {
     namespace ai
     {
+        public enum AI_STATE { NONE, SLEEP, PATROL}
 
         public class AI_Controller : core.CharacterController
         {
@@ -17,7 +17,10 @@ namespace HGO
             public Node gn; // da cancellare
             public Node currentNode; // da cancellare
             LevelManager lm;
-            AI_Vision eyes;
+            internal AI_Vision eyes;
+            internal AI_STATE behaviour = AI_STATE.SLEEP;
+            internal int waitedRound = 0;
+            
 
             #region UnityCallbacks
             protected void Awake()
@@ -44,21 +47,6 @@ namespace HGO
                     Debug.LogWarning("Attention! AI_CONTROLLER: Can't find none node in front of me!\n");
                 }
             }
-
-            public void Update()
-            {
-                if(Input.GetKeyDown(KeyCode.Space)) //CANCELLARE - SOLO TESTING
-                {
-                    /* SEQUENZA D'ATTACCO */
-                    //eyes.RegisterForwardNode();
-                    //gameObject.transform.DOMove(eyes.forwardNode.gameObject.transform.position + new Vector3(0,1,0), MovementDuration);
-                    //eyes.currentNode = eyes.forwardNode;
-
-                    /* AI MOVEMENT */
-                    AI_MOVE();
-
-                }
-            }
             protected void OnDestroy()
             {
                 eyes = null;
@@ -70,12 +58,15 @@ namespace HGO
             #endregion
 
             #region Callbacks
-            public void CheckObservedNode()
+            public bool CheckObservedNode(Node pNode)
             {
                 if (eyes)
                 {
-                    if (eyes.forwardNode) OnPlayerDetected(); //aggiungere collider al nodo per verificare se il giocatore ci si trovi sopra
+                    if (eyes.forwardNode == pNode) return true;
+
                 }
+
+                return false;
             }
             #endregion
 
@@ -125,7 +116,18 @@ namespace HGO
                     }
                 }
             }
-            
+
+            public void AI_ATTACK()
+            {
+                //eyes.RegisterForwardNode();
+                gameObject.transform.DOMove(eyes.forwardNode.gameObject.transform.position + new Vector3(0,1,0), MovementDuration);
+                eyes.currentNode = eyes.forwardNode;
+            }
+
+            public void AI_CHANGE_STATE(AI_STATE _newstate)
+            {
+                behaviour = _newstate;
+            }
         }
     }
 }

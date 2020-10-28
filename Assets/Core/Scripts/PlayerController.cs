@@ -6,11 +6,25 @@ namespace HGO
     {
         public class PlayerController : CharacterController
         {
-            public PlayerMovementPM PM;
+            internal PlayerMovement movementComponent;
+            internal LevelManager lm;
+            public Node currentNode;
+            
 
             private void Awake()
             {
-                PM = GetComponent<PlayerMovementPM>();
+                Init();
+            }
+
+            void Init()
+            {
+                if (!lm) lm = FindObjectOfType<LevelManager>();
+
+                if (!movementComponent) movementComponent = GetComponent<PlayerMovement>();
+                if(movementComponent)
+                {
+                    movementComponent.Init(ref lm, ref currentNode);
+                }
             }
         }
     }

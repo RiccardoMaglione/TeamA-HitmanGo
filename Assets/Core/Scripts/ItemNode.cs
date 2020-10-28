@@ -1,15 +1,15 @@
-﻿using DG.Tweening;
-using HGO.core.data;
-using System;
+﻿using System;
 using UnityEngine;
 
 namespace HGO
 {
     namespace core
     {
-        [RequireComponent(typeof(SpriteRenderer))]
+        
         public class ItemNode : Node
         {
+            internal bool activated { private set;  get; }
+
             [System.Serializable]
             public struct NodeStyle
             {
@@ -29,105 +29,38 @@ namespace HGO
             [Space(5)]
             public NodeStyle style;
 
-            NodeSelectionOperation operation;
+            protected new void Awake()
+            {
+                base.Awake();
 
-            /*
-            =================================================================================================
-                                                      EVENTS
-            =================================================================================================
-            */
+                Enable();
+                
+            }
+
+            protected new void OnTriggerEnter(Collider other)
+            {
+                base.OnTriggerEnter(other);
+
+                var item = other.gameObject.GetComponent<Item>();
+                if(item)
+                {
+                    Debug.Log("Projectile");
+                }
+            }
 
             /// <summary>
-            /// Questo Evento viene chiamato quando il giocatore raggiunge questo nodo
+            /// Abilita il nodo alla procedura di lancio di un'oggetto
             /// </summary>
-            static Action OnPickup;
-
-            /*
-          =================================================================================================
-                                                    EVENTS CALLBACKS
-          =================================================================================================
-          */
-
-            void PickupItem()
+            public void Enable()
             {
-                OnPickup();
+                activated = true;
             }
 
-            /*
-          =================================================================================================
-                                                    UNITY CALLBACKS
-          =================================================================================================
-          */
-
-            protected void Awake()
+            public void Disable()
             {
-                if(OnPickup == null)
-                {
-                    //EVENTS SUBSCRIPTION
-                    OnPickup += CreateNodeSelectionRequest;
-                    OnPickup += PlayEffectSoundSource;
-                }
-                
-            }
-            protected void Update()
-            {
-                if(operation!=null)
-                {
-                    //OPERATION EVENT CALLING BACK
-                    if(operation.OnSelectionCompleted == null)
-                    {
-                        operation.OnSelectionCompleted += CreateLaunch;
-                        operation.OnSelectionCompleted += operation.UndoSelection;
-                    }
-
-                    //INPUT HANDLER
-                    if (Input.GetMouseButtonUp(0))
-                    {
-                        RaycastHit hit;
-                        Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
-                        if (Physics.Raycast(r, out hit))
-                        {
-                            var item = hit.collider.gameObject.GetComponentInParent<Node>();
-                            if (item is Node)
-                            {
-                                operation.RegisterNode(item);
-                                operation.CheckSelectionOperation();
-                            }
-                        }
-                    }
-                }
-
-                if(Input.GetKeyDown(KeyCode.Space))
-                {
-                    OnPickup();
-                }
-                
-                
+                activated = false;
             }
 
-            /*
-          =================================================================================================
-                                                    CLASS METHODS
-          =================================================================================================
-          */
-
-            void CreateNodeSelectionRequest()
-            {
-                operation = NodeSelectionOperator.CreateNodeSelectionOperator(NodeSelectionOperator.nodeTypeOperation.ALL, Resources.Load<ThrowingData>("DATA/ThrowingSystem/ThrowingData"),gameObject.transform.position, this);
-            }
-
-            void PlayEffectSoundSource()
-            {
-
-            }
-
-            void CreateLaunch()
-            {
-                var data = Resources.Load<ThrowingData>("DATA/ThrowingSystem/ThrowingData");
-                var item = GameObject.Instantiate(Resources.Load<GameObject>("Prefabs/Items/Default_ThrowingItem"));
-                item.transform.position = gameObject.transform.position + Vector3.up;
-                item.transform.DOJump(operation.selectedNode.gameObject.transform.position, data.launch_force, 1, data.throw_duration);
-            }
         }
     }
 }
