@@ -18,7 +18,7 @@ namespace HGO
             public Node currentNode; // da cancellare
             LevelManager lm;
             internal AI_Vision eyes;
-            internal AI_STATE behaviour = AI_STATE.SLEEP;
+            public AI_STATE behaviour = AI_STATE.SLEEP;
             internal int waitedRound = 0;
             
 

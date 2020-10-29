@@ -56,8 +56,11 @@ public class CheckNode :  StateMachineBehaviour
         }
         else if (bcanAttack)
         {
-            animator.SetTrigger("Enemy Attack");
-            return;
+            if (bcanAttack)
+            {
+                animator.SetTrigger("Enemy Attack");
+                return;
+            }
         }
         else if(enemies.Count > 0)
         {

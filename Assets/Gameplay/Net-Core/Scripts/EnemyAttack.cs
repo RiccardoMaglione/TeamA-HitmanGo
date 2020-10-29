@@ -17,7 +17,7 @@ public class EnemyAttack : StateMachineBehaviour
 
         foreach (AI_Controller AI in enemies)
         {
-            if(AI.CheckObservedNode(pc.movementComponent.targetNode))
+            if(AI.CheckObservedNode(pc.movementComponent.targetNode) && AI.behaviour != AI_STATE.NONE)
             {   
                 var direction = (pc.gameObject.transform.position - AI.transform.position).normalized;
                 pc.gameObject.transform.DOMove(pc.gameObject.transform.position + direction * 1f, 0.1f);

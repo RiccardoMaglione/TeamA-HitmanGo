@@ -143,7 +143,10 @@ namespace HGO.core
         {
 
             gameObject.transform.DOMove(movementPath[0], movementAnimationTime);
-            gameObject.transform.DOMove(movementPath[1], movementAnimationTime + 0.1f, true);
+            if (gameObject.transform.position == movementPath[0])
+            {
+                gameObject.transform.DOMove(movementPath[1], 0.1f, true);
+            }
           
         }
         public void UpdateCurrentNode() { currentNode = targetNode; }
