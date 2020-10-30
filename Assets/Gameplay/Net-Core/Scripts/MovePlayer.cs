@@ -25,6 +25,5 @@ public class MovePlayer : StateMachineBehaviour
     {
         pc.movementComponent.PlayeDeselectionAnimation();
         pc.movementComponent.UpdateCurrentNode();
-        animator.ResetTrigger("Start Player Round");
     }
 }

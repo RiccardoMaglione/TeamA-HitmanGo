@@ -14,7 +14,8 @@ public class ChangeEnemyStatus : StateMachineBehaviour
         foreach(AI_Controller ai in lm.ThrowingSystemManager.enemiesNoised)
         {
             ai.AI_CHANGE_STATE(AI_STATE.PATROL);
-            ai.gn = lm.ThrowingSystemManager.selectedNode;
+            ai.goalNode = lm.ThrowingSystemManager.selectedNode;
+            ai.questionTag.SetActive(true);
         }
 
         animator.SetTrigger("Check Enemy Status");

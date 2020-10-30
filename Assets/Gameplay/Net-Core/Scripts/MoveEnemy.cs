@@ -45,8 +45,6 @@ public class MoveEnemy : StateMachineBehaviour
             if (ai.waitedRound == 1)
             {
                 movingEnemies.Add(ai);
-                //ai.AI_MOVE();
-                //ai.waitedRound = 0;
             }
             else if(ai.behaviour == AI_STATE.PATROL && ai.waitedRound == 0)
             {
@@ -85,6 +83,9 @@ public class MoveEnemy : StateMachineBehaviour
                 if (mp.characters.Count <= 1)
                 {
                     mp.characters[mp.characters.Count - 1].AI_MOVE();
+                    mp.characters[mp.characters.Count - 1].eyes.currentNode = mp.goalNode;
+
+                   
                 }
                 else
                 {
@@ -93,8 +94,9 @@ public class MoveEnemy : StateMachineBehaviour
                         for(int i = 0; i<mp.characters.Count; i++)
                         {
                             mp.characters[i].gameObject.transform.DOMove(mp.goalNode.gameObject.transform.position + (mp.characters[i].gameObject.transform.position - mp.goalNode.gameObject.transform.position).normalized * 1f, 0.25f);
-                            mp.characters[i].currentNode = mp.goalNode;
+                            mp.characters[i].eyes.currentNode = mp.goalNode;
                             mp.characters[i].AI_CHANGE_STATE(AI_STATE.SLEEP);
+
                         }
                     }
                     else
@@ -158,8 +160,8 @@ public class MoveEnemy : StateMachineBehaviour
 
                                     mp.characters[i].gameObject.transform.DOMove(positions[index], 0.25f);
                                     mp.characters[i].eyes.currentNode = mp.goalNode;
-                                    //mp.characters[i].eyes.RegisterForwardNode();
                                     mp.characters[i].AI_CHANGE_STATE(AI_STATE.SLEEP);
+
                                 }
                             }
                             
@@ -174,6 +176,18 @@ public class MoveEnemy : StateMachineBehaviour
 
         animator.SetTrigger("Register Forward Node");
         return;
+    }
+
+    public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        foreach(AI_Controller ai in movingEnemies)
+        {
+            if (ai.eyes.currentNode == ai.goalNode || ai.currentNode == ai.goalNode)
+            {
+                ai.questionTag.SetActive(false);
+                ai.goalNode = null;
+            }
+        }
     }
 
 

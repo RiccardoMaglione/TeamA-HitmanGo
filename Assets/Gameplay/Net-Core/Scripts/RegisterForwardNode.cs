@@ -8,7 +8,10 @@ public class RegisterForwardNode : StateMachineBehaviour
     {
         foreach(AI_Controller ai in FindObjectsOfType<AI_Controller>().ToList())
         {
-            ai.eyes.RegisterForwardNode();
+            if (ai.behaviour != AI_STATE.NONE && ai.eyes.forwardNode != null)
+            {
+                ai.eyes.RegisterForwardNode();
+            }
         }
 
         animator.SetTrigger("Start Player Round");

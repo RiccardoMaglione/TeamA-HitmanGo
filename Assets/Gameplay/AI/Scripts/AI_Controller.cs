@@ -14,12 +14,13 @@ namespace HGO
             [Header("Settings"), Space(5)]
             public float MovementDuration = 0.5f;
             public float RotationMovement = 0.5f;
-            public Node gn; // da cancellare
+            internal Node goalNode; 
             public Node currentNode; // da cancellare
             LevelManager lm;
             internal AI_Vision eyes;
-            public AI_STATE behaviour = AI_STATE.SLEEP;
+            internal AI_STATE behaviour = AI_STATE.SLEEP;
             internal int waitedRound = 0;
+            public GameObject questionTag;
             
 
             #region UnityCallbacks
@@ -86,9 +87,9 @@ namespace HGO
             /// </summary>
             public void AI_MOVE()
             {
-                if(gn)
+                if(goalNode)
                 {
-                    var Node2Move = Pathfinder.GetNearestNodeOnPattern(currentNode, gn, ref lm);
+                    var Node2Move = Pathfinder.GetNearestNodeOnPattern(currentNode, goalNode, ref lm);
                     if (Node2Move != null)
                     {
                         /* Rotate Character */
@@ -102,11 +103,11 @@ namespace HGO
 
                         gameObject.transform.DORotateQuaternion(rotation, RotationMovement);
 
-                        if (Node2Move == gn)
+                        if (Node2Move == goalNode)
                         {
                             gameObject.transform.DOMove(Node2Move.gameObject.transform.position, MovementDuration);
                             currentNode = Node2Move;
-                            gn = null;
+                            //goalNode = null;
                         }
                         else
                         {
