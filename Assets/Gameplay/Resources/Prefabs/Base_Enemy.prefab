@@ -408,6 +408,7 @@ GameObject:
   - component: {fileID: 5224502454951026927}
   - component: {fileID: 5459842484150119489}
   - component: {fileID: 1499765638046347979}
+  - component: {fileID: 5882384502335510033}
   m_Layer: 0
   m_Name: Base_Enemy
   m_TagString: Untagged
@@ -478,6 +479,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentNode: {fileID: 0}
   forwardNode: {fileID: 0}
+--- !u!114 &5882384502335510033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7363239537744284067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afdf76e54c413774fa6d4866130213d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FinalPosition: []
+  TimeMoveToUp: 1
+  TimeMoveToCemetery: 1
+  TimeMoveToDown: 1
+  heightReached: 10
 --- !u!1001 &2180411387648296658
 PrefabInstance:
   m_ObjectHideFlags: 0

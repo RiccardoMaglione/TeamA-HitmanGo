@@ -4,51 +4,28 @@ using UnityEngine;
 
 public class EnemyCemetery : MonoBehaviour
 {
+    [Tooltip("Insert a gameobjects that indicates a cemetery")]
     public GameObject[] FinalPosition;
-    static public int CountEnemy = 0;
+    static public int CountEnemy = 0; //Count enemy for know a position of cemetery
 
-    public bool enemyHitted = true;
+    [Tooltip("Time for movement of enemy to up")]
+    public float TimeMoveToUp = 1;
+    [Tooltip("Time for movement of enemy horizontal")]
+    public float TimeMoveToCemetery = 1;
+    [Tooltip("Time for movement of enemy to down on position of cemetery")]
+    public float TimeMoveToDown = 1;
+    [Tooltip("Height reached by enemy in 'TimeMoveToUp'")]
+    public float heightReached = 10;
 
-    public float TranslateTimeY = 1;
-    public float maxCharacterHeight = 5;
-    public float WaitTime = 1;
-
-    private void OnTriggerEnter(Collider other)
+    /// <summary>
+    /// Method for movement of enemy from cell to cemetery
+    /// </summary>
+    public void EnemyToCemetery()
     {
-        enemyHitted = true;
-        //if (other.gameObject.tag == "Player")
-        //{
-        //    PlayDeathAnimation();
-        //    //gameObject.transform.DOJump(FinalPosition[0].transform.position , 10, 1, TranslateTimeY);
-        //}
-    }
-
-    public void PlayDeathAnimation()
-    {
-        StartCoroutine(MoveToCemeteryArea());
-    }
-
-    IEnumerator MoveToCemeteryArea()
-    {
-        float timeSinceStarted = 0f;
-        transform.DOMoveY(transform.position.y + 10, TranslateTimeY);
-        yield return new WaitForSeconds(WaitTime);
-        transform.position = Vector3.Lerp(transform.position, new Vector3(FinalPosition[CountEnemy].transform.position.x, transform.position.y + 10, FinalPosition[CountEnemy].transform.position.z), 1);
-        yield return new WaitForSeconds(WaitTime);
-        while (true)
-        {
-            timeSinceStarted += Time.deltaTime;
-            transform.position = Vector3.Lerp(transform.position, FinalPosition[CountEnemy].transform.position, timeSinceStarted);
-
-            // If the object has arrived, stop the coroutine
-            if (transform.position == FinalPosition[CountEnemy].transform.position)
-            {
-                CountEnemy = CountEnemy + 1;
-                yield break;
-            }
-    
-            // Otherwise, continue next frame
-            yield return null;
-        }
+        Sequence MoveSequence = DOTween.Sequence(); //Initialize a sequence of DoTween
+        MoveSequence.Append(transform.DOMoveY(transform.position.y + heightReached, TimeMoveToUp));
+        MoveSequence.Append(transform.DOMove(new Vector3(FinalPosition[CountEnemy].transform.position.x, transform.position.y + heightReached, FinalPosition[CountEnemy].transform.position.z), TimeMoveToCemetery));
+        MoveSequence.Append(transform.DOMove(FinalPosition[CountEnemy].transform.position, TimeMoveToDown));
+        CountEnemy = CountEnemy + 1;
     }
 }
