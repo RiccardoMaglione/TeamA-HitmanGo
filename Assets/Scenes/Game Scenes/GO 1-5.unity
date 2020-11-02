@@ -950,6 +950,21 @@ PrefabInstance:
       propertyPath: FinalPosition.Array.data[0]
       value: 
       objectReference: {fileID: 2133136246}
+    - target: {fileID: 1475793880215190317, guid: 452a744ee6b1487459f9983507a0e42e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5781401577501424760, guid: 452a744ee6b1487459f9983507a0e42e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3205353161226047075, guid: 452a744ee6b1487459f9983507a0e42e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 452a744ee6b1487459f9983507a0e42e, type: 3}
 --- !u!1001 &1328391568
@@ -1667,6 +1682,7 @@ GameObject:
   - component: {fileID: 2043815151}
   - component: {fileID: 2043815150}
   - component: {fileID: 2043815149}
+  - component: {fileID: 2043815152}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -1719,6 +1735,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2043815152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043815148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4376036d99089d547a6982b9a5624f17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainCamera: {fileID: 2082820893}
+  FinalPosition: {x: 0, y: 17, z: 0}
+  DurationTranslate: 1
 --- !u!1 &2074072315 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6755891242823866627, guid: f0aa832fc28b14b4bbf79ab28e92b3da,
@@ -1737,7 +1768,6 @@ GameObject:
   - component: {fileID: 2082820895}
   - component: {fileID: 2082820894}
   - component: {fileID: 2082820898}
-  - component: {fileID: 2082820897}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1810,21 +1840,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 60.000004, y: 0, z: 0}
---- !u!114 &2082820897
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2082820893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4376036d99089d547a6982b9a5624f17, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MainCamera: {fileID: 2082820893}
-  FinalPosition: {x: 0, y: 17, z: 0}
-  DurationTranslate: 1
 --- !u!114 &2082820898
 MonoBehaviour:
   m_ObjectHideFlags: 0
