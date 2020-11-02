@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using UnityEditorInternal;
 
 public class ScroolTopDown : MonoBehaviour
 {
+    public bool CanScrollUp = true;
+    public bool CanScrollDown = true;
     #region Variables
     [Header("Scroll Mouse - Parameters")]
 
@@ -32,13 +35,17 @@ public class ScroolTopDown : MonoBehaviour
     #region Method
     public void ScrollMouseMoveCamera()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f) // forward
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f && CanScrollUp == true) // forward
         {
+            CanScrollUp = false;
             MainCamera.transform.DOMove(FinalPosition, DurationTranslate);
+            CanScrollDown = true;
         }
-        else if (Input.GetAxis("Mouse ScrollWheel") < 0f) // backwards
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f && CanScrollDown == true) // backwards
         {
+            CanScrollDown = false;
             MainCamera.transform.DOMove(InitialPositionScroll, DurationTranslate);
+            CanScrollUp = true;
         }
     }
     #endregion

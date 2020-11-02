@@ -403,8 +403,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4376036d99089d547a6982b9a5624f17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanScrollUp: 1
+  CanScrollDown: 1
   MainCamera: {fileID: 1238042609}
-  FinalPosition: {x: -6, y: 13, z: 0}
+  FinalPosition: {x: -6, y: 13, z: -2}
   DurationTranslate: 1
 --- !u!1001 &546659535
 PrefabInstance:

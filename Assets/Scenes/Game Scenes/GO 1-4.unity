@@ -1178,8 +1178,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4376036d99089d547a6982b9a5624f17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanScrollUp: 1
+  CanScrollDown: 1
   MainCamera: {fileID: 959579676}
-  FinalPosition: {x: 7, y: 17, z: 0}
+  FinalPosition: {x: 7, y: 17, z: -12}
   DurationTranslate: 1
 --- !u!1 &469259266
 GameObject:
