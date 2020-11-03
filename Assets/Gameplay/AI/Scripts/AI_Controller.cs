@@ -97,7 +97,7 @@ namespace HGO
                         Quaternion rotation = Quaternion.identity;
 
                         if (direction.x > 0.5f) rotation = Quaternion.Euler(0, 90, 0);
-                        else if (direction.x < -0.5f) rotation = Quaternion.Euler(0, -90, 0);
+                        else if (direction.x < -0.5f) rotation = Quaternion.Euler(0, 270, 0);
                         else if (direction.z > 0.5f) rotation = Quaternion.Euler(0, 0, 0);
                         else if (direction.z < -0.5f) rotation = Quaternion.Euler(0, 180, 0);
 
