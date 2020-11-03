@@ -878,7 +878,7 @@ PrefabInstance:
     - target: {fileID: 4230389047499521299, guid: 452a744ee6b1487459f9983507a0e42e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.51
       objectReference: {fileID: 0}
     - target: {fileID: 4230389047499521299, guid: 452a744ee6b1487459f9983507a0e42e,
         type: 3}
@@ -953,17 +953,17 @@ PrefabInstance:
     - target: {fileID: 1475793880215190317, guid: 452a744ee6b1487459f9983507a0e42e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5781401577501424760, guid: 452a744ee6b1487459f9983507a0e42e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3205353161226047075, guid: 452a744ee6b1487459f9983507a0e42e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 452a744ee6b1487459f9983507a0e42e, type: 3}
@@ -1747,6 +1747,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4376036d99089d547a6982b9a5624f17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CanScrollUp: 1
+  CanScrollDown: 1
   MainCamera: {fileID: 2082820893}
   FinalPosition: {x: 0, y: 17, z: 0}
   DurationTranslate: 1

@@ -24,6 +24,7 @@ public class EnemyCemetery : MonoBehaviour
     {
         Sequence MoveSequence = DOTween.Sequence(); //Initialize a sequence of DoTween
         MoveSequence.Append(transform.DOMoveY(transform.position.y + heightReached, TimeMoveToUp));
+        print("Count Enemy" + CountEnemy);
         MoveSequence.Append(transform.DOMove(new Vector3(FinalPosition[CountEnemy].transform.position.x, transform.position.y + heightReached, FinalPosition[CountEnemy].transform.position.z), TimeMoveToCemetery));
         MoveSequence.Append(transform.DOMove(FinalPosition[CountEnemy].transform.position, TimeMoveToDown));
         CountEnemy = CountEnemy + 1;

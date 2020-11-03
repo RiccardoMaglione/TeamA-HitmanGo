@@ -33,14 +33,14 @@ public class HeartBeat : MonoBehaviour
     {
         while(true)
         {
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(WaitTime);
             if(isYoyo == true)
             {
-                transform.DOPunchScale(new Vector3(0.5f, 0.5f, 0.5f), 0.5f).SetLoops(2, LoopType.Yoyo);
+                transform.DOPunchScale(new Vector3(xVec3, yVec3, zVec3), Duration).SetLoops(NumLoops, LoopType.Yoyo);
             }
             else
             {
-                transform.DOPunchScale(new Vector3(0.5f, 0.5f, 0.5f), 0.5f).SetLoops(2, LoopType.Restart);
+                transform.DOPunchScale(new Vector3(xVec3, yVec3, zVec3), Duration).SetLoops(NumLoops, LoopType.Restart);
             }
         }
     }
