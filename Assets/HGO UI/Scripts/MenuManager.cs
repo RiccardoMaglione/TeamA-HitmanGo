@@ -3,89 +3,134 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    public GameObject startingScreen;
-    public GameObject exitScreen;
-    public GameObject settingScreen;
-    public GameObject stageSelectionScreen;
-    public GameObject creditsScreen;
-    public GameObject gameScreen;
-    public GameObject pauseScreeen;
+    public GameObject startingScreenPC;
+    public GameObject exitScreenPC;
+    public GameObject settingScreenPC;
+    //public GameObject stageSelectionScreenPC;
+    public GameObject creditsScreenPC;
+   
+    public GameObject startingScreenMobile;
+    public GameObject settingScreenMobile;
+    //public GameObject stageSelectionScreenMobile;
+    public GameObject creditsScreenMobile;
+
 
     public void GoToExitScreen()
     {
-        exitScreen.SetActive(true);
-        startingScreen.SetActive(false);
-        settingScreen.SetActive(false);
-        stageSelectionScreen.SetActive(false);
-        creditsScreen.SetActive(false);
-        gameScreen.SetActive(false);
-        pauseScreeen.SetActive(false);
+        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        {
+            exitScreenPC.SetActive(true);
+            startingScreenPC.SetActive(false);
+            settingScreenPC.SetActive(false);
+            //stageSelectionScreenPC.SetActive(false);
+            creditsScreenPC.SetActive(false);
+        }
     }
 
     public void GoToStartingScreen()
     {
-        startingScreen.SetActive(true);
-        exitScreen.SetActive(false);
-        settingScreen.SetActive(false);
-        stageSelectionScreen.SetActive(false);
-        creditsScreen.SetActive(false);
-        gameScreen.SetActive(false);
-        pauseScreeen.SetActive(false);
+        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        {
+            startingScreenPC.SetActive(true);
+            exitScreenPC.SetActive(false);
+            settingScreenPC.SetActive(false);
+            //stageSelectionScreenPC.SetActive(false);
+            creditsScreenPC.SetActive(false);
+        }
+
+        else
+        {
+            startingScreenMobile.SetActive(true);
+            settingScreenMobile.SetActive(false);
+            //stageSelectionScreenMobile.SetActive(false);
+            creditsScreenMobile.SetActive(false);
+        }
     }
 
     public void GoToSettingScreen()
     {
-        settingScreen.SetActive(true);
-        startingScreen.SetActive(false);
-        exitScreen.SetActive(false);
-        stageSelectionScreen.SetActive(false);
-        creditsScreen.SetActive(false);
-        gameScreen.SetActive(false);
-        pauseScreeen.SetActive(false);
+        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        {
+            settingScreenPC.SetActive(true);
+            startingScreenPC.SetActive(false);
+            exitScreenPC.SetActive(false);
+            //stageSelectionScreenPC.SetActive(false);
+            creditsScreenPC.SetActive(false);
+        }
+
+        else
+        {
+            settingScreenMobile.SetActive(true);
+            startingScreenMobile.SetActive(false);
+            //stageSelectionScreenMobile.SetActive(false);
+            creditsScreenMobile.SetActive(false);
+        }
     }
 
     public void GoToStageSelectionScreen()
     {
-        stageSelectionScreen.SetActive(true);
-        settingScreen.SetActive(false);
-        startingScreen.SetActive(false);
-        exitScreen.SetActive(false);
-        creditsScreen.SetActive(false);
-        gameScreen.SetActive(false);
-        pauseScreeen.SetActive(false);
+        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        {
+            //stageSelectionScreenPC.SetActive(true);
+            settingScreenPC.SetActive(false);
+            startingScreenPC.SetActive(false);
+            exitScreenPC.SetActive(false);
+            creditsScreenPC.SetActive(false);
+        }
+
+        else
+        {
+            //stageSelectionScreenMobile.SetActive(true);
+            settingScreenMobile.SetActive(false);
+            startingScreenMobile.SetActive(false);
+            creditsScreenMobile.SetActive(false);
+        }
     }
 
     public void GoToCreditsScreen()
     {
-        stageSelectionScreen.SetActive(false);
-        settingScreen.SetActive(false);
-        startingScreen.SetActive(false);
-        exitScreen.SetActive(false);
-        creditsScreen.SetActive(true);
-        gameScreen.SetActive(false);
-        pauseScreeen.SetActive(false);
+        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        {
+            //stageSelectionScreenPC.SetActive(false);
+            settingScreenPC.SetActive(false);
+            startingScreenPC.SetActive(false);
+            exitScreenPC.SetActive(false);
+            creditsScreenPC.SetActive(true);
+        }
+
+        else
+        {
+            //stageSelectionScreenMobile.SetActive(false);
+            settingScreenMobile.SetActive(false);
+            startingScreenMobile.SetActive(false);
+            creditsScreenMobile.SetActive(true);
+        }
     }
 
-    public void GoToGameScreen()
+    public void GoToLevelSelectionScreen()
     {
-        gameScreen.SetActive(true);
-        exitScreen.SetActive(false);
-        startingScreen.SetActive(false);
-        settingScreen.SetActive(false);
-        stageSelectionScreen.SetActive(false);
-        creditsScreen.SetActive(false);
-        pauseScreeen.SetActive(false);      
+        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        {
+            //stageSelectionScreenPC.SetActive(false);
+            settingScreenPC.SetActive(false);
+            startingScreenPC.SetActive(false);
+            exitScreenPC.SetActive(false);
+            creditsScreenPC.SetActive(false);         
+        }
+
+        else
+        {
+            //stageSelectionScreenMobile.SetActive(false);
+            settingScreenMobile.SetActive(false);
+            startingScreenMobile.SetActive(false);
+            creditsScreenMobile.SetActive(false);           
+        }
     }
 
-    public void GoToPauseScreen()
+    public void GoToStageSelection()
     {
-        pauseScreeen.SetActive(true);
-        exitScreen.SetActive(false);
-        startingScreen.SetActive(false);
-        settingScreen.SetActive(false);
-        stageSelectionScreen.SetActive(false);
-        creditsScreen.SetActive(false);
-        gameScreen.SetActive(false);     
+        Time.timeScale = 1;
+        SceneManager.LoadScene("StageSelection");
     }
 
     public void ExitApllication()
