@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using UnityEditorInternal;
+
 
 public class ScroolTopDown : MonoBehaviour
 {
