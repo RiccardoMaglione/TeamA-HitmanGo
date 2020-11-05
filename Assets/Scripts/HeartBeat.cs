@@ -8,19 +8,19 @@ public class HeartBeat : MonoBehaviour
     #region Variables
     [Header("Heart Beat parameters - Coordinates Vector3")]
     [Tooltip("X axis scale")]
-    public float xVec3 = 0.5f;
+    public float xVec3;
     [Tooltip("Y axis scale")]
-    public float yVec3 = 0.5f;
+    public float yVec3;
     [Tooltip("Z axis scale")]
-    public float zVec3 = 0.5f;
+    public float zVec3;
     [Header("Heart Beat parameters - Other")]
     [Tooltip("Wait time between each heart beat")]
-    public float WaitTime = 0.5f;
+    public float WaitTime;
     [Range(0,1)]
     [Tooltip("Duration of heart beat")]
-    public float Duration = 0.5f;
+    public float Duration;
     [Tooltip("Number of loops")]
-    public int NumLoops = 2;
+    public int NumLoops;
     [Tooltip("If true = yoyo --> Animation do forward and backward\nElse false = restart --> Animation do only forward")]
     public bool isYoyo = true;
     #endregion

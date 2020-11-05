@@ -7,6 +7,8 @@ namespace HGO.core
     [RequireComponent(typeof(PlayerController))]
     public sealed class PlayerMovement : MonoBehaviour
     {
+        private bool canMove = true;
+
         LevelManager lvManager;
         internal Node currentNode;                                          // Nodo sul quale il personaggio si trovo al momento
         internal Node targetNode;                                           // Nodo dove deve andare il giocatore
@@ -84,59 +86,62 @@ namespace HGO.core
         /// <returns></returns>
         public bool SwipeAction()
         {
+            if (canMove)
+            {
 
-           if(Input.GetMouseButtonDown(0))
-           {
-                Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit hit;
-
-                if(Physics.Raycast(r,out hit))
+                if (Input.GetMouseButtonDown(0))
                 {
-                    if (hit.collider.gameObject.GetComponent<PlayerController>())
+                    Ray r = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    RaycastHit hit;
+
+                    if (Physics.Raycast(r, out hit))
                     {
-                        Debug.LogWarning(hit.collider.name);
-                        startPoint = Input.mousePosition;
-                        HoldedCharacter = true;
+                        if (hit.collider.gameObject.GetComponent<PlayerController>())
+                        {
+                            Debug.LogWarning(hit.collider.name);
+                            startPoint = Input.mousePosition;
+                            HoldedCharacter = true;
 
-                        gameObject.transform.DOMoveY(characterSelectionHeight, selectionAnimationTime);
+                            gameObject.transform.DOMoveY(characterSelectionHeight, selectionAnimationTime);
+                        }
                     }
+
                 }
 
-           }
-
-           if(Input.GetMouseButtonUp(0) && HoldedCharacter)
-           {
-                endPoint = Input.mousePosition;
-
-                /* Controllo se la direzione selezionata e' valida*/
-                if (IsValidDirection())
+                if (Input.GetMouseButtonUp(0) && HoldedCharacter)
                 {
-                    targetNode = Pathfinder.GetNeighbourNode(ref lvManager, swipeDirection, currentNode);
+                    endPoint = Input.mousePosition;
 
-                    tappedDirection = swipeDirection;           // Registro la direzione tracciata prima di annullarla
+                    /* Controllo se la direzione selezionata e' valida*/
+                    if (IsValidDirection())
+                    {
+                        targetNode = Pathfinder.GetNeighbourNode(ref lvManager, swipeDirection, currentNode);
 
-                    /* Blocco movimenti della pre-registrazione delle variabili */
-                    startPoint = Vector3.zero;
-                    endPoint = Vector3.zero;
+                        tappedDirection = swipeDirection;           // Registro la direzione tracciata prima di annullarla
 
-                    HoldedCharacter = false;
+                        /* Blocco movimenti della pre-registrazione delle variabili */
+                        startPoint = Vector3.zero;
+                        endPoint = Vector3.zero;
 
-                    return true;
+                        HoldedCharacter = false;
+
+                        return true;
+                    }
+                    else
+                    {
+                        gameObject.transform.DOMoveY(characterDeselectionHeight, deselectionAnimationTime);
+
+                        startPoint = Vector3.zero;
+                        endPoint = Vector3.zero;
+
+                        HoldedCharacter = false;
+
+                        return false;
+                    }
+
+
                 }
-                else
-                {
-                    gameObject.transform.DOMoveY(characterDeselectionHeight, deselectionAnimationTime);
-
-                    startPoint = Vector3.zero;
-                    endPoint = Vector3.zero;
-
-                    HoldedCharacter = false;
-
-                    return false;
-                }
-
-               
-           }
+            }
             return false;
         }
         public void Move()
@@ -167,5 +172,15 @@ namespace HGO.core
 
             return false;
         }
-    }
+
+        public void Enable()
+        {
+            canMove = true;
+        }
+
+        public void Disable()
+        {
+            canMove = false;
+        }
+    }    
 }

@@ -6,7 +6,7 @@ public class SystemManager : MonoBehaviour
 
     void Awake()
     {
-        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
             pcUi.SetActive(true);
 
         else

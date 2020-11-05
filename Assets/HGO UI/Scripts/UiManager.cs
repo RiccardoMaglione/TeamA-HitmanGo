@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using HGO.core;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class UiManager : MonoBehaviour
@@ -8,10 +9,12 @@ public class UiManager : MonoBehaviour
     public GameObject gameScreenMobile;
     public GameObject pauseScreeenMobile;
 
+    private PlayerMovement playerMovement;
+
     public void GoToGameScreen()
     {
-        Time.timeScale = 1;
-        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        playerMovement.Enable();
+        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             gameScreenPC.SetActive(true);
             pauseScreeenPC.SetActive(false);
@@ -26,8 +29,8 @@ public class UiManager : MonoBehaviour
 
     public void GoToPauseScreen()
     {
-        Time.timeScale = 0f;
-        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        playerMovement.Disable();
+        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             pauseScreeenPC.SetActive(true);
             gameScreenPC.SetActive(false);
@@ -42,13 +45,20 @@ public class UiManager : MonoBehaviour
 
     public void ReloadScene()
     {
-        Time.timeScale = 1;
+        playerMovement.Enable();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void GoToLevelSelection()
     {
-        Time.timeScale = 1;
+        playerMovement.Enable();
         SceneManager.LoadScene("LevelSelection");
+    }
+
+
+    void Awake()
+    {
+        if (!playerMovement)
+            playerMovement = FindObjectOfType<PlayerMovement>();
     }
 }

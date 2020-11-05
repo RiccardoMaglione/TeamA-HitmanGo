@@ -6,35 +6,31 @@ public class MenuManager : MonoBehaviour
     public GameObject startingScreenPC;
     public GameObject exitScreenPC;
     public GameObject settingScreenPC;
-    //public GameObject stageSelectionScreenPC;
     public GameObject creditsScreenPC;
    
     public GameObject startingScreenMobile;
     public GameObject settingScreenMobile;
-    //public GameObject stageSelectionScreenMobile;
     public GameObject creditsScreenMobile;
 
 
     public void GoToExitScreen()
     {
-        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             exitScreenPC.SetActive(true);
             startingScreenPC.SetActive(false);
             settingScreenPC.SetActive(false);
-            //stageSelectionScreenPC.SetActive(false);
             creditsScreenPC.SetActive(false);
         }
     }
 
     public void GoToStartingScreen()
     {
-        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             startingScreenPC.SetActive(true);
             exitScreenPC.SetActive(false);
             settingScreenPC.SetActive(false);
-            //stageSelectionScreenPC.SetActive(false);
             creditsScreenPC.SetActive(false);
         }
 
@@ -42,19 +38,17 @@ public class MenuManager : MonoBehaviour
         {
             startingScreenMobile.SetActive(true);
             settingScreenMobile.SetActive(false);
-            //stageSelectionScreenMobile.SetActive(false);
             creditsScreenMobile.SetActive(false);
         }
     }
 
     public void GoToSettingScreen()
     {
-        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             settingScreenPC.SetActive(true);
             startingScreenPC.SetActive(false);
             exitScreenPC.SetActive(false);
-            //stageSelectionScreenPC.SetActive(false);
             creditsScreenPC.SetActive(false);
         }
 
@@ -62,16 +56,14 @@ public class MenuManager : MonoBehaviour
         {
             settingScreenMobile.SetActive(true);
             startingScreenMobile.SetActive(false);
-            //stageSelectionScreenMobile.SetActive(false);
             creditsScreenMobile.SetActive(false);
         }
     }
 
     public void GoToStageSelectionScreen()
     {
-        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
-            //stageSelectionScreenPC.SetActive(true);
             settingScreenPC.SetActive(false);
             startingScreenPC.SetActive(false);
             exitScreenPC.SetActive(false);
@@ -80,7 +72,6 @@ public class MenuManager : MonoBehaviour
 
         else
         {
-            //stageSelectionScreenMobile.SetActive(true);
             settingScreenMobile.SetActive(false);
             startingScreenMobile.SetActive(false);
             creditsScreenMobile.SetActive(false);
@@ -89,9 +80,8 @@ public class MenuManager : MonoBehaviour
 
     public void GoToCreditsScreen()
     {
-        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
-            //stageSelectionScreenPC.SetActive(false);
             settingScreenPC.SetActive(false);
             startingScreenPC.SetActive(false);
             exitScreenPC.SetActive(false);
@@ -100,7 +90,6 @@ public class MenuManager : MonoBehaviour
 
         else
         {
-            //stageSelectionScreenMobile.SetActive(false);
             settingScreenMobile.SetActive(false);
             startingScreenMobile.SetActive(false);
             creditsScreenMobile.SetActive(true);
@@ -109,9 +98,8 @@ public class MenuManager : MonoBehaviour
 
     public void GoToLevelSelectionScreen()
     {
-        if (Application.platform == RuntimePlatform.WindowsPlayer)
+        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
-            //stageSelectionScreenPC.SetActive(false);
             settingScreenPC.SetActive(false);
             startingScreenPC.SetActive(false);
             exitScreenPC.SetActive(false);
@@ -120,7 +108,6 @@ public class MenuManager : MonoBehaviour
 
         else
         {
-            //stageSelectionScreenMobile.SetActive(false);
             settingScreenMobile.SetActive(false);
             startingScreenMobile.SetActive(false);
             creditsScreenMobile.SetActive(false);           

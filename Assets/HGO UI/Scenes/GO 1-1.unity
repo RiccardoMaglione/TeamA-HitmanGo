@@ -317,6 +317,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Screen (PC)
       objectReference: {fileID: 0}
+    - target: {fileID: 271848915245622321, guid: 3e6fcb3b0380ce04aaba3a88f7750a40,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 271848915245622333, guid: 3e6fcb3b0380ce04aaba3a88f7750a40,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1700,16 +1705,36 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 969553862}
+    - target: {fileID: 8825372290165913129, guid: 449666484cb45014eb48c20c1eac129a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToGameScreen
+      objectReference: {fileID: 0}
     - target: {fileID: 8825372290034745188, guid: 449666484cb45014eb48c20c1eac129a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 969553862}
+    - target: {fileID: 8825372290034745188, guid: 449666484cb45014eb48c20c1eac129a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReloadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825372290052112200, guid: 449666484cb45014eb48c20c1eac129a,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 969553862}
     - target: {fileID: 8825372290052112200, guid: 449666484cb45014eb48c20c1eac129a,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 969553862}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToLevelSelection
+      objectReference: {fileID: 0}
+    - target: {fileID: 8011726280920316790, guid: 449666484cb45014eb48c20c1eac129a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 449666484cb45014eb48c20c1eac129a, type: 3}
 --- !u!1001 &1761676439
