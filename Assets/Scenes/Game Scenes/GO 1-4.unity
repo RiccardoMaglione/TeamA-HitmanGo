@@ -540,6 +540,11 @@ PrefabInstance:
       propertyPath: FinalPosition.Array.data[6]
       value: 
       objectReference: {fileID: 299187053}
+    - target: {fileID: 5224502454951026927, guid: 452a744ee6b1487459f9983507a0e42e,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6573237114755345864, guid: 452a744ee6b1487459f9983507a0e42e,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1226,6 +1231,11 @@ PrefabInstance:
       propertyPath: FinalPosition.Array.data[6]
       value: 
       objectReference: {fileID: 299187053}
+    - target: {fileID: 5224502454951026927, guid: 452a744ee6b1487459f9983507a0e42e,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6573237114755345864, guid: 452a744ee6b1487459f9983507a0e42e,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1295,6 +1305,7 @@ GameObject:
   - component: {fileID: 394726564}
   - component: {fileID: 394726567}
   - component: {fileID: 394726568}
+  - component: {fileID: 394726569}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -1380,6 +1391,25 @@ MonoBehaviour:
   MainCamera: {fileID: 959579676}
   ObjectPosition: []
   CameraPosition: []
+--- !u!114 &394726569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 394726563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d51809c6efc6a438dd0b4c5ee88677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 3
+  QS:
+    LevelComplete: 0
+    NoKill: 0
+    AllKill: 0
+  Completed: 0
+  AmountQuest: 8
 --- !u!1 &469259266
 GameObject:
   m_ObjectHideFlags: 0
@@ -2554,6 +2584,11 @@ PrefabInstance:
       propertyPath: FinalPosition.Array.data[6]
       value: 
       objectReference: {fileID: 299187053}
+    - target: {fileID: 5224502454951026927, guid: 452a744ee6b1487459f9983507a0e42e,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6573237114755345864, guid: 452a744ee6b1487459f9983507a0e42e,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -3354,6 +3389,11 @@ PrefabInstance:
       propertyPath: FinalPosition.Array.data[6]
       value: 
       objectReference: {fileID: 299187053}
+    - target: {fileID: 5224502454951026927, guid: 452a744ee6b1487459f9983507a0e42e,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6573237114755345864, guid: 452a744ee6b1487459f9983507a0e42e,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -3762,6 +3802,11 @@ PrefabInstance:
       propertyPath: FinalPosition.Array.data[6]
       value: 
       objectReference: {fileID: 299187053}
+    - target: {fileID: 5224502454951026927, guid: 452a744ee6b1487459f9983507a0e42e,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6573237114755345864, guid: 452a744ee6b1487459f9983507a0e42e,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -4688,6 +4733,11 @@ PrefabInstance:
       propertyPath: FinalPosition.Array.data[6]
       value: 
       objectReference: {fileID: 299187053}
+    - target: {fileID: 5224502454951026927, guid: 452a744ee6b1487459f9983507a0e42e,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6573237114755345864, guid: 452a744ee6b1487459f9983507a0e42e,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -5189,6 +5239,7 @@ MonoBehaviour:
       down: 0
       left: 0
   space: 0.5
+  LevelManager: {fileID: 394726569}
 --- !u!4 &1858852169 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4230389047499521299, guid: 452a744ee6b1487459f9983507a0e42e,
@@ -5964,6 +6015,11 @@ PrefabInstance:
       propertyPath: FinalPosition.Array.data[6]
       value: 
       objectReference: {fileID: 299187053}
+    - target: {fileID: 5224502454951026927, guid: 452a744ee6b1487459f9983507a0e42e,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6573237114755345864, guid: 452a744ee6b1487459f9983507a0e42e,
         type: 3}
       propertyPath: m_LocalPosition.y

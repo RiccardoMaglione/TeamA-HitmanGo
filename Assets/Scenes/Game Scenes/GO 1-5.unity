@@ -1385,6 +1385,11 @@ PrefabInstance:
       propertyPath: FinalPosition.Array.data[0]
       value: 
       objectReference: {fileID: 2133136246}
+    - target: {fileID: 5224502454951026927, guid: 452a744ee6b1487459f9983507a0e42e,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6573237114755345864, guid: 452a744ee6b1487459f9983507a0e42e,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -2149,6 +2154,7 @@ MonoBehaviour:
       down: 1
       left: 0
   space: 0.5
+  LevelManager: {fileID: 2043815154}
 --- !u!1001 &1810690005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2505,6 +2511,7 @@ GameObject:
   - component: {fileID: 2043815149}
   - component: {fileID: 2043815152}
   - component: {fileID: 2043815153}
+  - component: {fileID: 2043815154}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -2590,6 +2597,25 @@ MonoBehaviour:
   MainCamera: {fileID: 2082820893}
   ObjectPosition: []
   CameraPosition: []
+--- !u!114 &2043815154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2043815148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d51809c6efc6a438dd0b4c5ee88677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 4
+  QS:
+    LevelComplete: 1
+    NoKill: 0
+    AllKill: 0
+  Completed: 0
+  AmountQuest: 8
 --- !u!1001 &2066601193
 PrefabInstance:
   m_ObjectHideFlags: 0

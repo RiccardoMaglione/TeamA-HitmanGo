@@ -809,6 +809,7 @@ GameObject:
   - component: {fileID: 987392973}
   - component: {fileID: 987392974}
   - component: {fileID: 987392975}
+  - component: {fileID: 987392976}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -863,6 +864,25 @@ MonoBehaviour:
   MainCamera: {fileID: 1977129946}
   ObjectPosition: []
   CameraPosition: []
+--- !u!114 &987392976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987392972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d51809c6efc6a438dd0b4c5ee88677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 1
+  QS:
+    LevelComplete: 1
+    NoKill: 0
+    AllKill: 0
+  Completed: 0
+  AmountQuest: 8
 --- !u!1001 &1016542920
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2462,3 +2482,4 @@ MonoBehaviour:
       down: 1
       left: 0
   space: 0.5
+  LevelManager: {fileID: 987392976}

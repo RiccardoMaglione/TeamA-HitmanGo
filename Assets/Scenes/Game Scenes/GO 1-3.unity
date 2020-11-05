@@ -501,6 +501,7 @@ GameObject:
   - component: {fileID: 447418346}
   - component: {fileID: 447418349}
   - component: {fileID: 447418350}
+  - component: {fileID: 447418351}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -586,6 +587,25 @@ MonoBehaviour:
   MainCamera: {fileID: 1238042609}
   ObjectPosition: []
   CameraPosition: []
+--- !u!114 &447418351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 447418345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d51809c6efc6a438dd0b4c5ee88677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 2
+  QS:
+    LevelComplete: 1
+    NoKill: 0
+    AllKill: 0
+  Completed: 0
+  AmountQuest: 8
 --- !u!1001 &546659535
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -663,6 +683,11 @@ PrefabInstance:
       propertyPath: currentNode
       value: 
       objectReference: {fileID: 1141015296}
+    - target: {fileID: 5459842484150119489, guid: 452a744ee6b1487459f9983507a0e42e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1499765638046347979, guid: 452a744ee6b1487459f9983507a0e42e,
         type: 3}
       propertyPath: currentNode
@@ -673,6 +698,11 @@ PrefabInstance:
       propertyPath: forwardNode
       value: 
       objectReference: {fileID: 796327719}
+    - target: {fileID: 1499765638046347979, guid: 452a744ee6b1487459f9983507a0e42e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5882384502335510033, guid: 452a744ee6b1487459f9983507a0e42e,
         type: 3}
       propertyPath: FinalPosition.Array.size
@@ -683,6 +713,16 @@ PrefabInstance:
       propertyPath: FinalPosition.Array.data[0]
       value: 
       objectReference: {fileID: 1602098655}
+    - target: {fileID: 5224502454951026927, guid: 452a744ee6b1487459f9983507a0e42e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5224502454951026927, guid: 452a744ee6b1487459f9983507a0e42e,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6573237114755345864, guid: 452a744ee6b1487459f9983507a0e42e,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -2067,14 +2107,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6337908375566358582, guid: c433f00f6515b924aa960a8446dab4ef,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5119642927123214151, guid: c433f00f6515b924aa960a8446dab4ef,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6337908375566358582, guid: c433f00f6515b924aa960a8446dab4ef,
+        type: 3}
+      propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2195,6 +2235,7 @@ MonoBehaviour:
       down: 1
       left: 0
   space: 0.5
+  LevelManager: {fileID: 447418351}
 --- !u!1001 &1834951321
 PrefabInstance:
   m_ObjectHideFlags: 0

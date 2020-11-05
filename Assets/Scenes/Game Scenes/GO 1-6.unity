@@ -510,6 +510,11 @@ PrefabInstance:
       propertyPath: FinalPosition.Array.data[3]
       value: 
       objectReference: {fileID: 927303315}
+    - target: {fileID: 5224502454951026927, guid: 452a744ee6b1487459f9983507a0e42e,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6573237114755345864, guid: 452a744ee6b1487459f9983507a0e42e,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1493,6 +1498,11 @@ PrefabInstance:
       propertyPath: FinalPosition.Array.data[3]
       value: 
       objectReference: {fileID: 927303315}
+    - target: {fileID: 5224502454951026927, guid: 452a744ee6b1487459f9983507a0e42e,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6573237114755345864, guid: 452a744ee6b1487459f9983507a0e42e,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -1987,6 +1997,7 @@ GameObject:
   - component: {fileID: 1069171440}
   - component: {fileID: 1069171443}
   - component: {fileID: 1069171444}
+  - component: {fileID: 1069171445}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -2072,6 +2083,25 @@ MonoBehaviour:
   MainCamera: {fileID: 932757258}
   ObjectPosition: []
   CameraPosition: []
+--- !u!114 &1069171445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1069171439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4d51809c6efc6a438dd0b4c5ee88677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 5
+  QS:
+    LevelComplete: 1
+    NoKill: 1
+    AllKill: 1
+  Completed: 0
+  AmountQuest: 8
 --- !u!114 &1079839091 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7639863316749716440, guid: c433f00f6515b924aa960a8446dab4ef,
@@ -2243,6 +2273,7 @@ MonoBehaviour:
       down: 1
       left: 0
   space: 0.5
+  LevelManager: {fileID: 1069171445}
 --- !u!4 &1214650779 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5610914855034264918, guid: c433f00f6515b924aa960a8446dab4ef,
@@ -2448,6 +2479,11 @@ PrefabInstance:
       propertyPath: FinalPosition.Array.data[3]
       value: 
       objectReference: {fileID: 927303315}
+    - target: {fileID: 5224502454951026927, guid: 452a744ee6b1487459f9983507a0e42e,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6573237114755345864, guid: 452a744ee6b1487459f9983507a0e42e,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -3378,6 +3414,11 @@ PrefabInstance:
       propertyPath: FinalPosition.Array.data[3]
       value: 
       objectReference: {fileID: 927303315}
+    - target: {fileID: 5224502454951026927, guid: 452a744ee6b1487459f9983507a0e42e,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6573237114755345864, guid: 452a744ee6b1487459f9983507a0e42e,
         type: 3}
       propertyPath: m_LocalPosition.y

@@ -12,6 +12,8 @@ public class CameraCinematic : MonoBehaviour
     public GameObject[] ObjectPosition;
     public Vector3[] CameraPosition;
 
+    public object Kill;
+
     void Start()
     {
         CameraPosition = new Vector3[ObjectPosition.Length];
@@ -19,7 +21,7 @@ public class CameraCinematic : MonoBehaviour
         {
             CameraPosition[i] = ObjectPosition[i].transform.position;
         }
-        MainCamera.transform.DOPath(CameraPosition, 30, PathType.CatmullRom, PathMode.Full3D, 10, Color.black).OnWaypointChange(MyCallback);
+        MainCamera.transform.DOPath(CameraPosition, 30, PathType.CatmullRom, PathMode.Full3D, 10, Color.black).OnWaypointChange(MyCallback).id=1;
     }
 
     void Update()
@@ -29,7 +31,8 @@ public class CameraCinematic : MonoBehaviour
         //}
         if (Input.GetMouseButtonDown(0)) //Se schiaccio la camera va nell'ultima posizione assegnata
         {
-            DOTween.KillAll();
+            //DOTween.KillAll();
+            DOTween.Kill(1);
             MainCamera.transform.DOMove(CameraPosition[CameraPosition.Length - 1], 1);
         }
         MainCamera.transform.DOLookAt(Target.transform.position, 1);
