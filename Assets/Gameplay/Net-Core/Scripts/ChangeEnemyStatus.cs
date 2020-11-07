@@ -15,6 +15,7 @@ public class ChangeEnemyStatus : StateMachineBehaviour
         {
             ai.AI_CHANGE_STATE(AI_STATE.PATROL);
             ai.goalNode = lm.ThrowingSystemManager.selectedNode;
+            ai.AI_ROTATE(Pathfinder.GetNearestNodeOnPattern(ai.currentNode, ai.goalNode, ref lm));
             ai.questionTag.SetActive(true);
         }
 
