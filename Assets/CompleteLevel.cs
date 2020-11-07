@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using HGO.core;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
@@ -7,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class CompleteLevel : StateMachineBehaviour
 {
     public float WaitTime = 0;
+
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -17,6 +19,7 @@ public class CompleteLevel : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         WaitTime += Time.deltaTime;
+
         if (WaitTime > 1)
         {
             SceneManager.LoadScene("LevelSelection");

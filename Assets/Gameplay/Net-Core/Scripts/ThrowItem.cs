@@ -9,6 +9,7 @@ public class ThrowItem : StateMachineBehaviour
     GameObject obj;
     PlayerController pc;
     Node targetNode;
+    
 
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -33,10 +34,12 @@ public class ThrowItem : StateMachineBehaviour
             if (obj.GetComponent<Item>().hitCell)
             {
                 Destroy(obj);
-                animator.SetTrigger("Show Noise Area");
+                animator.SetTrigger("Show Noise Area");                               
                 return;
             }
+
         }
+        
     }
 
     public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

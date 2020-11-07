@@ -34,10 +34,14 @@ public class CameraMoveAxis : MonoBehaviour
     float RotationVertical;
     [Tooltip("Indicate if ray of mouse is on player or not, for the start of camera's movement")]
     bool CanMove = true;
-    [Tooltip("Duration of DoMove for return camera in initial position")]
-    public float DurationInitPos = 0;
+    [Tooltip("Duration of DelayTime for return camera in initial position")]
+    public float DelayTime = 20;
+    //[Tooltip("Duration of DoMove for return camera in initial position")]
+    //public float DurationInitPos = 0;
     [Tooltip("Duration of DoRotation for return camera in initial rotation")]
     public float DurationInitRot = 0;
+    bool CanLerp = true;
+
     #endregion
 
     private void Start()
@@ -51,6 +55,7 @@ public class CameraMoveAxis : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+            CanLerp = false;
             DetectCanMove();
         }
         if (Input.GetMouseButton(0) && CanMove == true)
@@ -73,7 +78,7 @@ public class CameraMoveAxis : MonoBehaviour
     {
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
+    
         if (Physics.Raycast(ray, out hit))
         {
             if (hit.collider != null)
@@ -101,24 +106,53 @@ public class CameraMoveAxis : MonoBehaviour
         // Calculate the current angle in degrees (Not very reliable using Euler angles in all situations. Keep this in mind!)
         float verticalAngle = transform.localEulerAngles.x > 180 ? transform.localEulerAngles.x - 360 : transform.localEulerAngles.x;
         float horizontalAngle = transform.localEulerAngles.y > 180 ? transform.localEulerAngles.y - 360 : transform.localEulerAngles.y;
-
+      
         // Set verticalRotation to zero if min or max value is reached
         if (verticalAngle > AD.MaxX && RotationVertical > 0) RotationVertical = 0;
         else if (verticalAngle < AD.MinX && RotationVertical < 0) RotationVertical = 0;
-
+      
         if (horizontalAngle > AD.MaxY && RotationHorizontal > 0) RotationHorizontal = 0;
         else if (horizontalAngle < AD.MinY && RotationHorizontal < 0) RotationHorizontal = 0;
 
-
+        
         // Rotate the camera
         transform.RotateAround(Target.transform.position, Vector3.up, RotationHorizontal);
         transform.RotateAround(Target.transform.position, transform.right, RotationVertical);
 
     }
-    public void ReturnInitial()
+    public void ReturnInitial() //il domove non fa triggerare il click del mouse se spammo
     {
-        transform.DOMove(InitialPosition, DurationInitPos);
+        CanLerp = true;
+        StartCoroutine(IEnumMoveCam());
+        //transform.DOMove(InitialPosition, DurationInitPos);
         transform.DORotateQuaternion(InitialRotation, DurationInitRot);
+    }
+    IEnumerator IEnumMoveCam()
+    {
+        float timeSinceStarted = 0f;
+        while (true)
+        {
+            timeSinceStarted += Time.deltaTime/DelayTime;
+            if(CanLerp == true)
+            {
+                transform.position = Vector3.Lerp(transform.position, InitialPosition, timeSinceStarted);
+            }
+            else
+            {
+                yield return new WaitForSeconds(1);
+                yield break;
+            }
+    
+            // If the object has arrived, stop the coroutine
+            if (transform.position == InitialPosition)
+            {
+                yield return new WaitForSeconds(1);
+                yield break;
+            }
+    
+            // Otherwise, continue next frame
+            yield return null;
+        }
     }
     #endregion
 }
