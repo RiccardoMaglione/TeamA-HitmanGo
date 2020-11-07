@@ -1,5 +1,6 @@
 ﻿using HGO.core;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace HGO
@@ -27,13 +28,16 @@ namespace HGO
             public pathfinding_node(Node current, Node next, Node goal)
             {
                 node_distance = (next.gameObject.transform.position - current.gameObject.transform.position).magnitude;
-                goal_distance = (goal.gameObject.transform.position - next.gameObject.transform.position).magnitude;
+                //goal_distance = (goal.gameObject.transform.position - next.gameObject.transform.position).magnitude;
+                goal_distance = Mathf.Abs(goal.gameObject.transform.position.x - next.gameObject.transform.position.x) + Mathf.Abs(goal.gameObject.transform.position.z - next.gameObject.transform.position.z);
                 pointedNode = next;
 
             }
         }
 
-        public static class Pathfinder
+
+
+        public class Pathfinder
         {
 
             /// <summary>
@@ -106,6 +110,17 @@ namespace HGO
 
                 return null;
             }
+            public static Node[] GetNeighbourNodes(ref LevelManager lm, Node current_node)
+            {
+                List<Node> result = new List<Node>();
+
+                if (current_node.nodeData.connections.up)               result.Add(GetNeighbourNode(ref lm, AI_ORIENTATION.up, current_node));
+                if (current_node.nodeData.connections.right)            result.Add(GetNeighbourNode(ref lm, AI_ORIENTATION.right, current_node));
+                if (current_node.nodeData.connections.down)             result.Add(GetNeighbourNode(ref lm, AI_ORIENTATION.down, current_node));
+                if (current_node.nodeData.connections.left)             result.Add(GetNeighbourNode(ref lm, AI_ORIENTATION.left, current_node));
+
+                return result.ToArray();
+            }
             /// <summary>
             /// Restituisce il Nodo piu vicino per raggiungere il nodo obiettivo
             /// </summary>
@@ -114,46 +129,81 @@ namespace HGO
             /// <returns></returns>
             public static Node GetNearestNodeOnPattern(Node current_node, Node goal_node, ref LevelManager lm)
             {
-                List<pathfinding_node> nodes = new List<pathfinding_node>();
+                List<Node> openNodes = new List<Node>();
+                List<Node> closedNodes = new List<Node>();
+                List<Node> bannedNodes = new List<Node>();
 
-                /* Verifica delle possibili connessioni e creazioni dei dati per l'intelligenza artificiale*/
-                if(current_node.nodeData.connections.up)         nodes.Add(new pathfinding_node(current_node, GetNeighbourNode(ref lm, AI_ORIENTATION.up, current_node), goal_node));
-                if(current_node.nodeData.connections.right)      nodes.Add(new pathfinding_node(current_node, GetNeighbourNode(ref lm, AI_ORIENTATION.right, current_node), goal_node));
-                if(current_node.nodeData.connections.down)       nodes.Add(new pathfinding_node(current_node, GetNeighbourNode(ref lm, AI_ORIENTATION.down, current_node), goal_node));
-                if(current_node.nodeData.connections.left)       nodes.Add(new pathfinding_node(current_node, GetNeighbourNode(ref lm, AI_ORIENTATION.left, current_node), goal_node));
+                openNodes.Add(current_node);
 
-                if (nodes.Count < 1) return null;       // Breakpoint - means none connection available
-
-                float path_lenght = 0;
-                int index = -1;
-
-                /* Controllo il percorso piu breve */
-                for(int i = 0; i < nodes.Count; i++)
+                while (!openNodes.Contains(goal_node))
                 {
-                    // controllo se sono esattamente a 1 nodo di distanza
-                    foreach(pathfinding_node n in nodes)
+                    int index = -1;
+                    float value = 1E10f;
+
+                    var neighbours = GetNeighbourNodes(ref lm, openNodes[openNodes.Count - 1]);
+                    /* Find nearest Node*/
+                    for (int i = 0; i < neighbours.Length; i++)
                     {
-                        if (n.pointedNode == goal_node) return n.pointedNode;
+
+                        if (GetDistance(neighbours[i].gameObject.transform.position, openNodes[openNodes.Count - 1].gameObject.transform.position) + GetDistance(neighbours[i].gameObject.transform.position, goal_node.gameObject.transform.position) <= value)
+                        {
+                            if (!closedNodes.Contains(neighbours[i]))
+                            {
+                                index = i;
+                                value = GetDistance(neighbours[i].gameObject.transform.position, openNodes[openNodes.Count - 1].gameObject.transform.position) + GetDistance(neighbours[i].gameObject.transform.position, goal_node.gameObject.transform.position);
+                            }
+                        }
+                       
                     }
 
-                    if (i == 0)
+                    if (index == -1) // NODE NOT FOUND
                     {
-                        path_lenght = nodes[i].value;
-                        index = i;
-                    }
-                    else
-                    {
-                        if(nodes[i].value < path_lenght)
+                        if(openNodes[openNodes.Count - 1] == goal_node) // IF TARGET NODE
                         {
-                            index = i ;
-                            path_lenght = nodes[i].value;
+                            break;
+                        }
+                        else
+                        {
+                            bannedNodes.Add(openNodes[openNodes.Count - 1]);
+                            bannedNodes.Remove(current_node);
+
+                            closedNodes.Clear();
+                            openNodes.Clear();
+
+                            openNodes.Add(current_node);
+                            
+                            foreach(Node n in bannedNodes)
+                            {
+                                closedNodes.Add(n);
+                            }
                         }
                     }
+                    else // NODE FOUND
+                    {
+                        closedNodes.Add(openNodes[openNodes.Count - 1]);
+                        openNodes.Add(neighbours[index]);
+                    }
+                    
+                    value = 1E10f;
+
                 }
 
-                return nodes[index].pointedNode;
+                for(int i = 1; i <= openNodes.Count; i++)
+                {
+                    Debug.LogError($"{i - 1}. {openNodes[i - 1].name}");
+                }
+
+                return openNodes[1];
             }
 
+           
+
+            static float GetDistance(Vector3 from, Vector3 to)
+            {
+                return Mathf.Abs(from.x - to.x) + Mathf.Abs(from.z - to.z);
+            }
+
+            
         }
     }
 }

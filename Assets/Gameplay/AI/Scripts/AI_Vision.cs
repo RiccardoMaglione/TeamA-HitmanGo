@@ -53,7 +53,7 @@ namespace HGO
                     nod = Pathfinder.GetNeighbourNode(ref lm, AI_ORIENTATION.down, currentNode);
                     if (nod == null) UnityEngine.Debug.LogError("Attention! AI_Vision.RegisterNode(): can't find a node");
                 }
-                else if(rot == Quaternion.Euler(0,270,0)) // left
+                else if(rot == Quaternion.Euler(0,270,0) || rot == Quaternion.Euler(0,-90,0)) // left
                 {
                     nod = Pathfinder.GetNeighbourNode(ref lm, AI_ORIENTATION.left, currentNode);
                     if (nod == null) UnityEngine.Debug.LogError("Attention! AI_Vision.RegisterNode(): can't find a node");

@@ -64,11 +64,23 @@ public class MoveEnemy : StateMachineBehaviour
                 else
                 {
                     /* Crea un numero di procedure in base a quanti sono i personaggi che si devono muovere su caselle diverse*/
-                    foreach (MovementProcedure mp in movementProcedures)
+                    //foreach (MovementProcedure mp in movementProcedures)
+                    //{
+                    //    if (movingEnemies[i].eyes.forwardNode == mp.goalNode)
+                    //    {
+                    //        mp.characters.Add(movingEnemies[i]);
+                    //    }
+                    //    else
+                    //    {
+                    //        movementProcedures.Add(new MovementProcedure(movingEnemies[i], movingEnemies[i].eyes.forwardNode));
+                    //    }
+                    //}
+
+                    for(int w = 0; w < movementProcedures.Count; w++)
                     {
-                        if (movingEnemies[i].eyes.forwardNode == mp.goalNode)
+                        if(movingEnemies[i].eyes.forwardNode == movementProcedures[w].goalNode)
                         {
-                            mp.characters.Add(movingEnemies[i]);
+                            movementProcedures[w].characters.Add(movingEnemies[i]);
                         }
                         else
                         {

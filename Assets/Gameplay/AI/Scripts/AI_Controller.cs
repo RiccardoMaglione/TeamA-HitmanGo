@@ -95,12 +95,12 @@ namespace HGO
                         /* Rotate Character */
                         var direction = (Node2Move.gameObject.transform.position - gameObject.transform.position).normalized;
                         Quaternion rotation = Quaternion.identity;
-
+                        
                         if (direction.x > 0.5f) rotation = Quaternion.Euler(0, 90, 0);
-                        else if (direction.x < -0.5f) rotation = Quaternion.Euler(0, -90, 0);
+                        else if (direction.x < -0.5f) rotation = Quaternion.Euler(0, 270, 0);
                         else if (direction.z > 0.5f) rotation = Quaternion.Euler(0, 0, 0);
                         else if (direction.z < -0.5f) rotation = Quaternion.Euler(0, 180, 0);
-
+                        
                         gameObject.transform.DORotateQuaternion(rotation, RotationMovement);
 
                         if (Node2Move == goalNode)
@@ -123,6 +123,18 @@ namespace HGO
                 //eyes.RegisterForwardNode();
                 gameObject.transform.DOMove(eyes.forwardNode.gameObject.transform.position + new Vector3(0,1,0), MovementDuration);
                 eyes.currentNode = eyes.forwardNode;
+            }
+            public void AI_ROTATE(Node node2move)
+            {
+                var direction = (node2move.gameObject.transform.position - gameObject.transform.position).normalized;
+                Quaternion rotation = Quaternion.identity;
+
+                if (direction.x > 0.5f) rotation = Quaternion.Euler(0, 90, 0);
+                else if (direction.x < -0.5f) rotation = Quaternion.Euler(0, 270, 0);
+                else if (direction.z > 0.5f) rotation = Quaternion.Euler(0, 0, 0);
+                else if (direction.z < -0.5f) rotation = Quaternion.Euler(0, 180, 0);
+
+                gameObject.transform.DORotateQuaternion(rotation, RotationMovement);
             }
 
             public void AI_CHANGE_STATE(AI_STATE _newstate)
