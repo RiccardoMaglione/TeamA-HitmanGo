@@ -20,6 +20,14 @@ public class KillEnemy : StateMachineBehaviour
             ai.gameObject.GetComponent<EnemyCemetery>().EnemyToCemetery();
         }
 
+        foreach(AI_Controller ai in FindObjectOfType<LevelManager>().levelEnemies)
+        {
+            if(ai.eyes.forwardNode == pc.movementComponent.currentNode)
+            {
+                animator.SetTrigger("Check Player Node");
+                return;
+            }
+        }
         animator.SetTrigger("Check Enemy Status");
 
     }
