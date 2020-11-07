@@ -38,6 +38,7 @@ namespace HGO
             private void Awake()
             {
                 levelNodes = FindObjectsOfType<Node>().ToList();
+                Debug.LogError($"level nodes: {levelNodes.Count}");
                 levelEnemies = FindObjectsOfType<AI_Controller>().ToList();
                 #region breakpoint
 

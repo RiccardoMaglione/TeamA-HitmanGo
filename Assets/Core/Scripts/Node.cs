@@ -46,6 +46,7 @@ namespace HGO
         {
             public NodeData nodeData;
             public float space = 0.5f;
+            public GameObject selectableTargetObj = null;
 
             #region UnityCallbacks
             protected void Awake()

@@ -20,7 +20,7 @@ public class WaitNodeSelection : StateMachineBehaviour
 
         foreach(Node n in nearbyNodes)
         {
-            n.gameObject.GetComponentInChildren<SpriteRenderer>().material.color = Color.red;           // Cambiare debug grafico nella release
+            n.selectableTargetObj.SetActive(true);           
         }
     }
 
@@ -36,10 +36,19 @@ public class WaitNodeSelection : StateMachineBehaviour
                 if (hit.collider.gameObject.GetComponent<Node>())
                 {
                     var node = hit.collider.gameObject.GetComponent<Node>();
-                    lm.ThrowingSystemManager.RegisterNode(ref node);
+                    foreach(Node n in nearbyNodes)
+                    {
+                        if (n == node)
+                        {
+                            lm.ThrowingSystemManager.RegisterNode(ref node);
 
-                    animator.SetTrigger("Throw Item");
-                    return;
+                            animator.SetTrigger("Throw Item");
+                            return;
+                        }
+                    
+                    }
+
+
                 }
             }
         }
@@ -49,7 +58,7 @@ public class WaitNodeSelection : StateMachineBehaviour
     {
         foreach (Node n in nearbyNodes)
         {
-            n.gameObject.GetComponentInChildren<SpriteRenderer>().material.color = Color.white;           // Cambiare debug grafico nella release
+            n.selectableTargetObj.SetActive(false);
         }
 
         pc.movementComponent.currentNode.gameObject.GetComponent<ItemNode>().Disable();
