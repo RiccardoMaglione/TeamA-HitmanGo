@@ -11,7 +11,8 @@ public class CameraCinematic : MonoBehaviour
     [Tooltip("Array of position of cinematic")]
     public GameObject[] ObjectPosition;
     public Vector3[] CameraPosition;
-
+    public Vector3[] RotCamera;
+    public Vector3 RotDef;
     public object Kill;
 
     public static bool CanTarget;
@@ -19,6 +20,8 @@ public class CameraCinematic : MonoBehaviour
 
     public int NumWaypoint = 99;
     public float SpeedMultiplier = 1;
+    public float DurationRotation = 5;
+
 
     void Start()
     {
@@ -28,41 +31,47 @@ public class CameraCinematic : MonoBehaviour
         for (int i = 0; i < ObjectPosition.Length; i++)
         {
             CameraPosition[i] = ObjectPosition[i].transform.position;
+            RotCamera[i] = ObjectPosition[i].transform.eulerAngles;
         }
         CanStart = true;
     }
 
     void Update()
     {
-       // if (transform.position == CameraPosition[CameraPosition.Length - 1]) 
-       // {
-       //     CanTarget = true;
-       // }
-       
         if (CanStart == true)
         {
             CanStart = false;
-            MainCamera.transform.DOPath(CameraPosition, 30, PathType.CatmullRom, PathMode.Full3D, 10, Color.black).OnWaypointChange(MyCallback);
+
+            MainCamera.transform.DOPath(CameraPosition, 30, PathType.CatmullRom, PathMode.Full3D, 10, Color.black).OnWaypointChange(MyCallback).id = 1;
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
-            DOTween.KillAll();
+            DOTween.Kill(1);
             MainCamera.transform.DOMove(CameraPosition[CameraPosition.Length - 1], 1);
         }
-        // MainCamera.transform.DOLookAt(Target.transform.position, 1); 
     }
 
     void MyCallback(int waypointIndex)
     {
+        if (waypointIndex + 1 <= CameraPosition.Length - 1)
+        {
+            RotDef = RotCamera[waypointIndex + 1];
+            MainCamera.transform.DORotate(RotDef, DurationRotation);
+        }
         Debug.Log("Waypoint index changed to " + waypointIndex);
+        Debug.Log("cam index changed to " + RotDef);
         if (waypointIndex >= NumWaypoint)
         {
             DOTween.timeScale = SpeedMultiplier;
         }
-        if (waypointIndex >= 2)
+        if (waypointIndex >= CameraPosition.Length - 2)
         {
             CanTarget = true;
         }
+        if (waypointIndex >= CameraPosition.Length - 1)
+        {
+            MainCamera.GetComponent<ScroolTopDown>().enabled = true;
+            MainCamera.GetComponent<CameraMoveAxis>().enabled = true;
+        }
     }
-    
 }
