@@ -14,36 +14,49 @@ public class CameraCinematic : MonoBehaviour
 
     public object Kill;
 
+    public static bool CanTarget;
+    public bool CanStart = false;
+
+    public int NumWaypoint = 99;
+    public float SpeedMultiplier = 1;
+
     void Start()
     {
+        CanStart = false;
+        CanTarget = false;
         CameraPosition = new Vector3[ObjectPosition.Length];
         for (int i = 0; i < ObjectPosition.Length; i++)
         {
             CameraPosition[i] = ObjectPosition[i].transform.position;
         }
-        MainCamera.transform.DOPath(CameraPosition, 30, PathType.CatmullRom, PathMode.Full3D, 10, Color.black).OnWaypointChange(MyCallback).id=1;
+        CanStart = true;
     }
 
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //}
-        if (Input.GetMouseButtonDown(0)) //Se schiaccio la camera va nell'ultima posizione assegnata
+        if (transform.position == CameraPosition[CameraPosition.Length - 1])
         {
-            //DOTween.KillAll();
-            DOTween.Kill(1);
+            CanTarget = true;
+        }
+        if (CanStart == true)
+        {
+            CanStart = false;
+            MainCamera.transform.DOPath(CameraPosition, 30, PathType.CatmullRom, PathMode.Full3D, 10, Color.black).OnWaypointChange(MyCallback);
+        }
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            DOTween.KillAll();
             MainCamera.transform.DOMove(CameraPosition[CameraPosition.Length - 1], 1);
         }
-       // MainCamera.transform.DOLookAt(Target.transform.position, 1); 
+        // MainCamera.transform.DOLookAt(Target.transform.position, 1); 
     }
 
     void MyCallback(int waypointIndex)
     {
         Debug.Log("Waypoint index changed to " + waypointIndex);
-        if (waypointIndex >= 3)
+        if (waypointIndex >= NumWaypoint)
         {
-            DOTween.timeScale = 30;
+            DOTween.timeScale = SpeedMultiplier;
         }
     }
 }
