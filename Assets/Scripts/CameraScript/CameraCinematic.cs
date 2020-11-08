@@ -35,7 +35,7 @@ public class CameraCinematic : MonoBehaviour
             DOTween.Kill(1);
             MainCamera.transform.DOMove(CameraPosition[CameraPosition.Length - 1], 1);
         }
-        MainCamera.transform.DOLookAt(Target.transform.position, 1);
+       // MainCamera.transform.DOLookAt(Target.transform.position, 1); 
     }
 
     void MyCallback(int waypointIndex)
