@@ -51,9 +51,11 @@ public class CameraMoveAxis : MonoBehaviour
 
     private void Update()
     {
-        if(CameraCinematic.CanTarget == true)
+        Debug.Log("Peni"+ CameraCinematic.CanTarget);
+        if (CameraCinematic.CanTarget == true)
         {
             transform.LookAt(Target.transform);
+            
         }
 
         if (Input.GetMouseButtonDown(0))

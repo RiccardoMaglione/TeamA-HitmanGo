@@ -34,10 +34,11 @@ public class CameraCinematic : MonoBehaviour
 
     void Update()
     {
-        if (transform.position == CameraPosition[CameraPosition.Length - 1])
-        {
-            CanTarget = true;
-        }
+       // if (transform.position == CameraPosition[CameraPosition.Length - 1]) 
+       // {
+       //     CanTarget = true;
+       // }
+       
         if (CanStart == true)
         {
             CanStart = false;
@@ -58,5 +59,10 @@ public class CameraCinematic : MonoBehaviour
         {
             DOTween.timeScale = SpeedMultiplier;
         }
+        if (waypointIndex >= 2)
+        {
+            CanTarget = true;
+        }
     }
+    
 }
