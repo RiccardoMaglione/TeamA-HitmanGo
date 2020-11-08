@@ -1678,6 +1678,7 @@ MonoBehaviour:
   CanStart: 0
   NumWaypoint: 0
   SpeedMultiplier: 2
+  SpeedInitial: 1
   DurationRotation: 5
 --- !u!114 &744318263
 MonoBehaviour:
@@ -1694,7 +1695,7 @@ MonoBehaviour:
   CanScrollUp: 1
   CanScrollDown: 1
   MainCamera: {fileID: 744318257}
-  FinalPosition: {x: -4, y: 10, z: 0}
+  FinalPosition: {x: -4.5, y: 10, z: 0}
   DurationTranslate: 1
 --- !u!1001 &796391582
 PrefabInstance:

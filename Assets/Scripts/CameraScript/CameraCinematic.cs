@@ -20,11 +20,13 @@ public class CameraCinematic : MonoBehaviour
 
     public int NumWaypoint = 99;
     public float SpeedMultiplier = 1;
+    public float SpeedInitial = 1;
     public float DurationRotation = 5;
 
 
     void Start()
     {
+        DOTween.timeScale = SpeedInitial;
         CanStart = false;
         CanTarget = false;
         CameraPosition = new Vector3[ObjectPosition.Length];
@@ -46,8 +48,11 @@ public class CameraCinematic : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
-            DOTween.Kill(1);
+            //DOTween.Kill(1);
+            DOTween.KillAll();
             MainCamera.transform.DOMove(CameraPosition[CameraPosition.Length - 1], 1);
+            MainCamera.transform.DORotate(RotCamera[CameraPosition.Length - 1], DurationRotation);
+            DOTween.timeScale = 1;
         }
     }
 
@@ -72,6 +77,7 @@ public class CameraCinematic : MonoBehaviour
         {
             MainCamera.GetComponent<ScroolTopDown>().enabled = true;
             MainCamera.GetComponent<CameraMoveAxis>().enabled = true;
+            DOTween.timeScale = 1;
         }
     }
 }
