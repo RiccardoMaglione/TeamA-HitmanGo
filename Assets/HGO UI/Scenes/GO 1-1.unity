@@ -399,7 +399,7 @@ PrefabInstance:
     - target: {fileID: 271848915245622321, guid: 3e6fcb3b0380ce04aaba3a88f7750a40,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 271848915245622333, guid: 3e6fcb3b0380ce04aaba3a88f7750a40,
         type: 3}
@@ -2417,6 +2417,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Board3X4_LP
       objectReference: {fileID: 0}
+    - target: {fileID: -4331229588441322541, guid: a1dab91ad69692145982c8858f564882,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4331229588441322541, guid: a1dab91ad69692145982c8858f564882,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 18.2
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a1dab91ad69692145982c8858f564882,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2471,16 +2481,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -4331229588441322541, guid: a1dab91ad69692145982c8858f564882,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: -4331229588441322541, guid: a1dab91ad69692145982c8858f564882,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 18.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1dab91ad69692145982c8858f564882, type: 3}
