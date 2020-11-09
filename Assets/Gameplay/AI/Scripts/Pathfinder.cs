@@ -187,16 +187,14 @@ namespace HGO
                     value = 1E10f;
 
                 }
-
-                for(int i = 1; i <= openNodes.Count; i++)
-                {
-                    Debug.LogError($"{i - 1}. {openNodes[i - 1].name}");
-                }
+                  /*Debug*/
+                //for(int i = 1; i <= openNodes.Count; i++)
+                //{
+                //    Debug.LogError($"{i - 1}. {openNodes[i - 1].name}");
+                //}
 
                 return openNodes[1];
             }
-
-           
 
             static float GetDistance(Vector3 from, Vector3 to)
             {
