@@ -5,7 +5,8 @@ public class LevelSelection : MonoBehaviour
 {
     public void GoToLevelSelection()
     {
-        SceneManager.LoadScene("LevelSelection");
+        FindObjectOfType<AudioManager>().Play("Selection Sound");
+        SceneManager.LoadScene("LevelSelection");        
     }
 
     public void GoToStartingScreen()

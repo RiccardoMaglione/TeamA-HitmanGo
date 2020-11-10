@@ -2961,7 +2961,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 637689666}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1972842976}
+        m_MethodName: GoToCreditsScreen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &637689666
@@ -8160,14 +8171,14 @@ MonoBehaviour:
     volume: 1
     loop: 0
     source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
+  - name: Kill Sound
+    clip: {fileID: 8300000, guid: 3a50832e5b2a81c4fa1019ee3106796d, type: 3}
+    volume: 1
     loop: 0
     source: {fileID: 0}
-  - name: 
-    clip: {fileID: 0}
-    volume: 0
+  - name: Move Sound
+    clip: {fileID: 8300000, guid: 751fc741da2708b4e85e68ca9d233660, type: 3}
+    volume: 1
     loop: 0
     source: {fileID: 0}
   - name: 

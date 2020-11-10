@@ -22,6 +22,7 @@ public class EnemyCemetery : MonoBehaviour
     /// </summary>
     public void EnemyToCemetery()
     {
+        FindObjectOfType<AudioManager>().Play("Kill Sound");
         Sequence MoveSequence = DOTween.Sequence(); //Initialize a sequence of DoTween
         MoveSequence.Append(transform.DOMoveY(transform.position.y + heightReached, TimeMoveToUp));
         print("Count Enemy" + CountEnemy);

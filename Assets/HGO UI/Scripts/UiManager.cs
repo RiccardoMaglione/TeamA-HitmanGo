@@ -53,8 +53,11 @@ public class UiManager : MonoBehaviour
     }
 
     public void GoToLevelSelection()
-    {
+    {       
+        FindObjectOfType<AudioManager>().Stop("Water Sound");
+        FindObjectOfType<AudioManager>().Stop("Bird Sound");
         FindObjectOfType<AudioManager>().Play("Selection Sound");
+        FindObjectOfType<AudioManager>().Play("Soundtrack");
         playerMovement.Enable();
         SceneManager.LoadScene("LevelSelection");
     }
