@@ -12,9 +12,9 @@ public class MenuManager : MonoBehaviour
     public GameObject settingScreenMobile;
     public GameObject creditsScreenMobile;
 
-
     public void GoToExitScreen()
     {
+        FindObjectOfType<AudioManager>().Play("Selection Sound");
         if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             exitScreenPC.SetActive(true);
@@ -26,6 +26,7 @@ public class MenuManager : MonoBehaviour
 
     public void GoToStartingScreen()
     {
+        FindObjectOfType<AudioManager>().Play("Selection Sound");
         if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             startingScreenPC.SetActive(true);
@@ -44,6 +45,7 @@ public class MenuManager : MonoBehaviour
 
     public void GoToSettingScreen()
     {
+        FindObjectOfType<AudioManager>().Play("Selection Sound");
         if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             settingScreenPC.SetActive(true);
@@ -62,6 +64,7 @@ public class MenuManager : MonoBehaviour
 
     public void GoToStageSelectionScreen()
     {
+        FindObjectOfType<AudioManager>().Play("Selection Sound");
         if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             settingScreenPC.SetActive(false);
@@ -80,6 +83,7 @@ public class MenuManager : MonoBehaviour
 
     public void GoToCreditsScreen()
     {
+        FindObjectOfType<AudioManager>().Play("Selection Sound");
         if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             settingScreenPC.SetActive(false);
@@ -98,6 +102,7 @@ public class MenuManager : MonoBehaviour
 
     public void GoToLevelSelectionScreen()
     {
+        FindObjectOfType<AudioManager>().Play("Selection Sound");
         if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             settingScreenPC.SetActive(false);
@@ -116,17 +121,19 @@ public class MenuManager : MonoBehaviour
 
     public void GoToStageSelection()
     {
-        Time.timeScale = 1;
+        FindObjectOfType<AudioManager>().Play("Selection Sound");
         SceneManager.LoadScene("StageSelection");
     }
 
     public void ExitApllication()
     {
+        FindObjectOfType<AudioManager>().Play("Selection Sound");
         Application.Quit();
     }
 
     public void ReloadScene()
     {
+        FindObjectOfType<AudioManager>().Play("Selection Sound");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

@@ -51,7 +51,12 @@ public class CameraMoveAxis : MonoBehaviour
 
     private void Update()
     {
-        transform.LookAt(Target.transform);
+        Debug.Log("Il target è "+ CameraCinematic.CanTarget);
+        if (CameraCinematic.CanTarget == true)
+        {
+            transform.DOLookAt(Target.transform.position, 1);
+            
+        }
 
         if (Input.GetMouseButtonDown(0))
         {
