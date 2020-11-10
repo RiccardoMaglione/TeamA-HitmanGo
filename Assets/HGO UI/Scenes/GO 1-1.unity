@@ -1640,10 +1640,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AD:
-    MinX: 5
-    MaxX: 70
-    MinY: -50
-    MaxY: 50
+    MinX: 15
+    MaxX: 50
+    MinY: -40
+    MaxY: 40
   Target: {fileID: 1824665068}
   TurnSpeed: 3
   DelayTime: 20
@@ -1676,8 +1676,8 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   RotDef: {x: 0, y: 0, z: 0}
   CanStart: 0
-  NumWaypoint: 0
-  SpeedMultiplier: 2
+  NumWaypoint: 1
+  SpeedMultiplier: 6
   SpeedInitial: 1
   DurationRotation: 5
 --- !u!114 &744318263

@@ -53,6 +53,7 @@ public class CameraCinematic : MonoBehaviour
             MainCamera.transform.DOMove(CameraPosition[CameraPosition.Length - 1], 1);
             MainCamera.transform.DORotate(RotCamera[CameraPosition.Length - 1], DurationRotation);
             DOTween.timeScale = 1;
+            StartCoroutine(ActiveScript());
         }
     }
 
@@ -79,5 +80,11 @@ public class CameraCinematic : MonoBehaviour
             MainCamera.GetComponent<CameraMoveAxis>().enabled = true;
             DOTween.timeScale = 1;
         }
+    }
+    public IEnumerator ActiveScript()
+    {
+        yield return new WaitForSeconds(2.25f);
+        MainCamera.GetComponent<ScroolTopDown>().enabled = true;
+        MainCamera.GetComponent<CameraMoveAxis>().enabled = true;
     }
 }
