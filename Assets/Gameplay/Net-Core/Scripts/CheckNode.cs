@@ -34,6 +34,7 @@ public class CheckNode :  StateMachineBehaviour
         {
             if (pc.movementComponent.targetNode.gameObject.GetComponent<ItemNode>().activated)
             {
+                AudioManager.instance.Play("Pick Rock Sound");
                 animator.SetTrigger("Wait Throw Selection");
                 return;
             }
