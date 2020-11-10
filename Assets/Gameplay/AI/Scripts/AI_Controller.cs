@@ -15,7 +15,7 @@ namespace HGO
             public float MovementDuration = 0.5f;
             public float RotationMovement = 0.5f;
             internal Node goalNode; 
-            public Node currentNode; // da cancellare
+            public Node currentNode;
             LevelManager lm;
             internal AI_Vision eyes;
             internal AI_STATE behaviour = AI_STATE.SLEEP;
@@ -107,12 +107,14 @@ namespace HGO
                         {
                             gameObject.transform.DOMove(Node2Move.gameObject.transform.position, MovementDuration);
                             currentNode = Node2Move;
+                            eyes.currentNode = Node2Move;
                             //goalNode = null;
                         }
                         else
                         {
                             gameObject.transform.DOMove(Node2Move.gameObject.transform.position, MovementDuration);
                             currentNode = Node2Move;
+                            eyes.currentNode = Node2Move;
                         }
                     }
                 }
