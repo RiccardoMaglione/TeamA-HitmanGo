@@ -23,6 +23,9 @@ public class CameraCinematic : MonoBehaviour
     public float SpeedInitial = 1;
     public float DurationRotation = 5;
 
+    public bool PathCatmullRom = true;
+    public bool PathLinear = false;
+
 
     void Start()
     {
@@ -44,7 +47,17 @@ public class CameraCinematic : MonoBehaviour
         {
             CanStart = false;
 
-            MainCamera.transform.DOPath(CameraPosition, 30, PathType.CatmullRom, PathMode.Full3D, 10, Color.black).OnWaypointChange(MyCallback).id = 1;
+            if (PathCatmullRom == true)
+            {
+                PathLinear = false;
+                MainCamera.transform.DOPath(CameraPosition, 30, PathType.CatmullRom, PathMode.Full3D, 10, Color.black).OnWaypointChange(MyCallback).id = 1;
+            }
+            if (PathLinear == true)
+            {
+                PathCatmullRom = false;
+                MainCamera.transform.DOPath(CameraPosition, 30, PathType.Linear, PathMode.Full3D, 10, Color.black).OnWaypointChange(MyCallback).id = 1;
+            }
+
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
