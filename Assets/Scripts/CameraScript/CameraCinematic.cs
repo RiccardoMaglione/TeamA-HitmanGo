@@ -76,15 +76,29 @@ public class CameraCinematic : MonoBehaviour
         }
         if (waypointIndex >= CameraPosition.Length - 1)
         {
-            MainCamera.GetComponent<ScroolTopDown>().enabled = true;
-            MainCamera.GetComponent<CameraMoveAxis>().enabled = true;
+            if (ActivateCamereDevice.PCVersion == true)
+            {
+                MainCamera.GetComponent<ScroolTopDown>().enabled = true;
+                MainCamera.GetComponent<CameraMoveAxis>().enabled = true;
+            }
+            if (ActivateCamereDevice.MobileVersion == true)
+            {
+                MainCamera.GetComponent<CameraAndroidAxis>().enabled = true;
+            }
             DOTween.timeScale = 1;
         }
     }
     public IEnumerator ActiveScript()
     {
         yield return new WaitForSeconds(2.25f);
-        MainCamera.GetComponent<ScroolTopDown>().enabled = true;
-        MainCamera.GetComponent<CameraMoveAxis>().enabled = true;
+        if(ActivateCamereDevice.PCVersion == true)
+        {
+            MainCamera.GetComponent<ScroolTopDown>().enabled = true;
+            MainCamera.GetComponent<CameraMoveAxis>().enabled = true;
+        }
+        if (ActivateCamereDevice.MobileVersion == true)
+        {
+            MainCamera.GetComponent<CameraAndroidAxis>().enabled = true;
+        }
     }
 }
