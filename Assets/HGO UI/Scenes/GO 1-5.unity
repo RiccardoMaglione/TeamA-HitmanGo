@@ -673,6 +673,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 462213299}
     m_Modifications:
+    - target: {fileID: 6755891243576144137, guid: f0aa832fc28b14b4bbf79ab28e92b3da,
+        type: 3}
+      propertyPath: m_Name
+      value: PATH 5
+      objectReference: {fileID: 0}
     - target: {fileID: 6755891243576144136, guid: f0aa832fc28b14b4bbf79ab28e92b3da,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -727,11 +732,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6755891243576144137, guid: f0aa832fc28b14b4bbf79ab28e92b3da,
-        type: 3}
-      propertyPath: m_Name
-      value: PATH 5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6755891243576144143, guid: f0aa832fc28b14b4bbf79ab28e92b3da, type: 3}
@@ -2394,6 +2394,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: End level Screen (PC)
       objectReference: {fileID: 0}
+    - target: {fileID: 6964772855307133059, guid: 3abe1a34c7c7b174eb598c5c71b1d178,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6964772855307133119, guid: 3abe1a34c7c7b174eb598c5c71b1d178,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2412,17 +2417,17 @@ PrefabInstance:
     - target: {fileID: 6964772855307133119, guid: 3abe1a34c7c7b174eb598c5c71b1d178,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6964772855307133119, guid: 3abe1a34c7c7b174eb598c5c71b1d178,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6964772855307133119, guid: 3abe1a34c7c7b174eb598c5c71b1d178,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6964772855307133119, guid: 3abe1a34c7c7b174eb598c5c71b1d178,
         type: 3}
@@ -3074,6 +3079,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: End level Screen (Mobile)
       objectReference: {fileID: 0}
+    - target: {fileID: 7673415781452565315, guid: 1f6a2e3fddc0ea84bb346a823a3b9dcf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7673415781452565319, guid: 1f6a2e3fddc0ea84bb346a823a3b9dcf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3092,17 +3102,17 @@ PrefabInstance:
     - target: {fileID: 7673415781452565319, guid: 1f6a2e3fddc0ea84bb346a823a3b9dcf,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7673415781452565319, guid: 1f6a2e3fddc0ea84bb346a823a3b9dcf,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7673415781452565319, guid: 1f6a2e3fddc0ea84bb346a823a3b9dcf,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7673415781452565319, guid: 1f6a2e3fddc0ea84bb346a823a3b9dcf,
         type: 3}
@@ -3957,6 +3967,13 @@ MonoBehaviour:
   MainCamera: {fileID: 2082820893}
   ObjectPosition: []
   CameraPosition: []
+  RotCamera: []
+  RotDef: {x: 0, y: 0, z: 0}
+  CanStart: 0
+  NumWaypoint: 99
+  SpeedMultiplier: 1
+  SpeedInitial: 1
+  DurationRotation: 5
 --- !u!114 &2082820898
 MonoBehaviour:
   m_ObjectHideFlags: 0
