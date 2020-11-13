@@ -1903,7 +1903,7 @@ BoxCollider:
   m_GameObject: {fileID: 1419143594}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -1961,7 +1961,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1419143594}
   m_LocalRotation: {x: 0.17643148, y: 0.41129613, z: -0.059738345, w: 0.89226615}
-  m_LocalPosition: {x: -11.895, y: 6.329, z: 0.898}
+  m_LocalPosition: {x: -11.518, y: 6.329, z: 1.437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4030,7 +4030,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1977129946}
   m_LocalRotation: {x: 0.17643148, y: 0.41129613, z: -0.059738345, w: 0.89226615}
-  m_LocalPosition: {x: -11.895, y: 6.329, z: 0.898}
+  m_LocalPosition: {x: -11.518, y: 6.329, z: 1.437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4066,8 +4066,10 @@ MonoBehaviour:
   CanStart: 0
   NumWaypoint: 1
   SpeedMultiplier: 10
-  SpeedInitial: 1
-  DurationRotation: 5
+  SpeedInitial: 0.01
+  DurationRotation: 10
+  PathCatmullRom: 0
+  PathLinear: 1
 --- !u!114 &1977129951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4652,7 +4654,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146444157}
   m_LocalRotation: {x: 0.14494303, y: 0.4334711, z: -0.066494666, w: 0.8869458}
-  m_LocalPosition: {x: -9.749, y: 6.329, z: 0.869}
+  m_LocalPosition: {x: -10.261, y: 6.329, z: 0.437}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

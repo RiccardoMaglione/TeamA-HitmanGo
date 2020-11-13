@@ -3091,9 +3091,11 @@ MonoBehaviour:
   RotDef: {x: 0, y: 0, z: 0}
   CanStart: 1
   NumWaypoint: 1
-  SpeedMultiplier: 8
+  SpeedMultiplier: 17
   SpeedInitial: 0.001
   DurationRotation: 5
+  PathCatmullRom: 0
+  PathLinear: 1
 --- !u!114 &1238042614
 MonoBehaviour:
   m_ObjectHideFlags: 0
