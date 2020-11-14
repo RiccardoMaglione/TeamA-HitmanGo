@@ -15,9 +15,14 @@ namespace HGO.core
         void OnTriggerEnter(Collider other)
         {
             var ai = other.gameObject.GetComponent<AI_Controller>();
+           
             if(ai)
             {
                 lm.ThrowingSystemManager.enemiesNoised.Add(ai);
+            }
+            else
+            {
+                Debug.LogError(other.gameObject.name);
             }
         }
     }

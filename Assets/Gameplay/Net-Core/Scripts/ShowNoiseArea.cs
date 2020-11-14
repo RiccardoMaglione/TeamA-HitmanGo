@@ -13,13 +13,14 @@ public class ShowNoiseArea : StateMachineBehaviour
         if (!noiseOriginNode) noiseOriginNode = FindObjectOfType<LevelManager>().ThrowingSystemManager.selectedNode;
 
         noiseArea = GameObject.Instantiate(Resources.Load("Prefabs/NoiseArea") as GameObject, noiseOriginNode.gameObject.transform);
-        noiseArea.transform.position = noiseOriginNode.gameObject.transform.position + Vector3.up;
+        noiseArea.transform.position = noiseOriginNode.gameObject.transform.position + Vector3.up*0.2f;
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (!noiseArea)
         {
+            Debug.LogError($"noised enemies: {lm.ThrowingSystemManager.enemiesNoised.Count}");
             if (lm.ThrowingSystemManager.enemiesNoised.Count > 0)
             {
                 animator.SetTrigger("Change Enemy Behaviour");
