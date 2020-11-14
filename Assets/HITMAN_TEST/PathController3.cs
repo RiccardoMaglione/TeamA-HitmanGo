@@ -28,7 +28,7 @@ public class PathController3 : MonoBehaviour
 
         StartCoroutine(Percorso3());
 
-        Debug.Log("DioPorco");
+        
     }
 
     private IEnumerator Percorso3()
