@@ -45,6 +45,7 @@ public class CameraCinematic : MonoBehaviour
     {
         if (CanStart == true)
         {
+            DOTween.timeScale = SpeedInitial;
             CanStart = false;
 
             if (PathCatmullRom == true)

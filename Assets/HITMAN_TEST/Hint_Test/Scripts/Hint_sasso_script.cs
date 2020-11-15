@@ -13,6 +13,7 @@ public class Hint_sasso_script : MonoBehaviour
 
     private void Start()
     {
+        Areadistrutta = false;
         Script_Sasso = GameObject.FindObjectOfType<ThrowItem>();
 
     }
