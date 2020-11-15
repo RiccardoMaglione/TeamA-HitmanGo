@@ -30,10 +30,10 @@ public class CameraLevelSelection : MonoBehaviour
             transform.position = MainCamera.transform.position;
         }
         ZoomMouseSnap();
-        if (Application.platform == RuntimePlatform.Android)
-        {
-            ZoomSmoothMobile();
-        }
+        //if (Application.platform == RuntimePlatform.Android)
+        //{
+        //    ZoomSmoothMobile();
+        //}
     }
 
     public void ZoomMouseSnap()
@@ -55,36 +55,36 @@ public class CameraLevelSelection : MonoBehaviour
             }
         }
     }
-    public void ZoomSmoothMobile()
-    {
-        if (Input.touchCount >= 2)
-        {
-            Vector2 touch0, touch1;
-            float distance1;
-            touch0 = Input.GetTouch(0).position;
-            touch1 = Input.GetTouch(1).position;
-            distance1 = Vector2.Distance(touch0, touch1);
-            float distance2;
-            touch0 = Input.GetTouch(0).position;
-            touch1 = Input.GetTouch(1).position;
-            distance2 = Vector2.Distance(touch0, touch1);
-
-            if ((distance1 + distance2) > 1 && transform.position.y > 5)
-            {
-                transform.DOMove(transform.position + new Vector3(0, SnapZoom, 0), 1);
-                if (transform.position.y < 5)
-                {
-                    transform.position = new Vector3(transform.position.x, 5, transform.position.z);
-                }
-            }
-            if ((distance1 + distance2) < 0.5f && transform.position.y < 40)
-            {
-                transform.DOMove(transform.position - new Vector3(0, SnapZoom, 0), 1);
-                if (transform.position.y > 40)
-                {
-                    transform.position = new Vector3(transform.position.x, 40, transform.position.z);
-                }
-            }
-        }
-    }
+    //public void ZoomSmoothMobile()
+    //{
+    //    if (Input.touchCount >= 2)
+    //    {
+    //        Vector2 touch0, touch1;
+    //        float distance1;
+    //        touch0 = Input.GetTouch(0).position;
+    //        touch1 = Input.GetTouch(1).position;
+    //        distance1 = Vector2.Distance(touch0, touch1);
+    //        float distance2;
+    //        touch0 = Input.GetTouch(0).position;
+    //        touch1 = Input.GetTouch(1).position;
+    //        distance2 = Vector2.Distance(touch0, touch1);
+    //
+    //        if ((distance1 + distance2) > 1 && transform.position.y > 5)
+    //        {
+    //            transform.DOMove(transform.position + new Vector3(0, SnapZoom, 0), 1);
+    //            if (transform.position.y < 5)
+    //            {
+    //                transform.position = new Vector3(transform.position.x, 5, transform.position.z);
+    //            }
+    //        }
+    //        if ((distance1 + distance2) < 0.5f && transform.position.y < 40)
+    //        {
+    //            transform.DOMove(transform.position - new Vector3(0, SnapZoom, 0), 1);
+    //            if (transform.position.y > 40)
+    //            {
+    //                transform.position = new Vector3(transform.position.x, 40, transform.position.z);
+    //            }
+    //        }
+    //    }
+    //}
 }
