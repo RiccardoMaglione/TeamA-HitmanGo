@@ -1235,6 +1235,7 @@ GameObject:
   - component: {fileID: 407837686}
   - component: {fileID: 407837685}
   - component: {fileID: 407837687}
+  - component: {fileID: 407837688}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -1292,6 +1293,20 @@ MonoBehaviour:
   - {fileID: 783109054}
   - {fileID: 398331827}
   - {fileID: 1533633885}
+--- !u!114 &407837688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407837684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b11148fc1bbdb48ad02116f50c4ab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TotQuestCompletedPC: {fileID: 526328031}
+  TotQuestCompletedMOBILE: {fileID: 526328031}
 --- !u!1 &526328029
 GameObject:
   m_ObjectHideFlags: 0
@@ -1613,7 +1628,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: NaN, y: 6e-44, z: 0, w: 4.9e-44}
+  m_BoundingSphereOverride: {x: -7.1874453e+27, y: -78526.836, z: 1.4184062e-37, w: -3.9745717e-35}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2341,7 +2356,9 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194231}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2421,7 +2438,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: af73ec992604db14ca386ce95eae693a, type: 3}
   m_Name: 
@@ -2435,6 +2452,34 @@ MonoBehaviour:
   SpeedAxisX: 1
   SpeedAxisY: 1
   SnapZoom: 1
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aead158470d19dd498a3a87fc07b31eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Cam: {fileID: 963194227}
+  groundZ: 0
+  zoomOutMin: 1
+  zoomOutMax: 8
+--- !u!114 &963194231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc813f08bc0e85f4f9fb5f14938150f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &977168900
 GameObject:
   m_ObjectHideFlags: 0

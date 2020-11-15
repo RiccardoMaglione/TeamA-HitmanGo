@@ -14,6 +14,7 @@ public class CameraCinematic : MonoBehaviour
     public Vector3[] RotCamera;
     public Vector3 RotDef;
     public object Kill;
+    public GameObject Path;
 
     public static bool CanTarget;
     public bool CanStart = false;
@@ -23,9 +24,18 @@ public class CameraCinematic : MonoBehaviour
     public float SpeedInitial = 1;
     public float DurationRotation = 5;
 
+    public bool PathCatmullRom = true;
+    public bool PathLinear = false;
+
 
     void Start()
     {
+        if (Path != null)
+        {
+            Path.SetActive(false);
+        }
+       
+
         DOTween.timeScale = SpeedInitial;
         CanStart = false;
         CanTarget = false;
@@ -42,9 +52,20 @@ public class CameraCinematic : MonoBehaviour
     {
         if (CanStart == true)
         {
+            DOTween.timeScale = SpeedInitial;
             CanStart = false;
+            DOTween.timeScale = SpeedInitial;
+            if (PathCatmullRom == true)
+            {
+                PathLinear = false;
+                MainCamera.transform.DOPath(CameraPosition, 30, PathType.CatmullRom, PathMode.Full3D, 10, Color.black).OnWaypointChange(MyCallback).id = 1;
+            }
+            if (PathLinear == true)
+            {
+                PathCatmullRom = false;
+                MainCamera.transform.DOPath(CameraPosition, 30, PathType.Linear, PathMode.Full3D, 10, Color.black).OnWaypointChange(MyCallback).id = 1;
+            }
 
-            MainCamera.transform.DOPath(CameraPosition, 30, PathType.CatmullRom, PathMode.Full3D, 10, Color.black).OnWaypointChange(MyCallback).id = 1;
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
@@ -53,6 +74,7 @@ public class CameraCinematic : MonoBehaviour
             MainCamera.transform.DOMove(CameraPosition[CameraPosition.Length - 1], 1);
             MainCamera.transform.DORotate(RotCamera[CameraPosition.Length - 1], DurationRotation);
             DOTween.timeScale = 1;
+            StartCoroutine(ActiveScript());
         }
     }
 
@@ -75,9 +97,41 @@ public class CameraCinematic : MonoBehaviour
         }
         if (waypointIndex >= CameraPosition.Length - 1)
         {
+            if (Path != null)
+            {
+                Path.SetActive(true);
+            }
+
+            if (ActivateCamereDevice.PCVersion == true)
+            {
+                MainCamera.GetComponent<ScroolTopDown>().enabled = true;
+                MainCamera.GetComponent<CameraMoveAxis>().enabled = true;
+            }
+            if (ActivateCamereDevice.MobileVersion == true)
+            {
+                MainCamera.GetComponent<CameraAndroidAxis>().enabled = true;
+            }
+            DOTween.timeScale = 1;
+        }
+    }
+    public IEnumerator ActiveScript()
+    {
+        yield return new WaitForSeconds(2.25f);
+
+        if (Path != null)
+        {
+            Path.SetActive(true);
+        }
+        
+
+        if (ActivateCamereDevice.PCVersion == true)
+        {
             MainCamera.GetComponent<ScroolTopDown>().enabled = true;
             MainCamera.GetComponent<CameraMoveAxis>().enabled = true;
-            DOTween.timeScale = 1;
+        }
+        if (ActivateCamereDevice.MobileVersion == true)
+        {
+            MainCamera.GetComponent<CameraAndroidAxis>().enabled = true;
         }
     }
 }

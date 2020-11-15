@@ -9,6 +9,9 @@ public class IconLevel : MonoBehaviour
 {
     public GameObject[] IconNotComplete;
     public GameObject[] IconComplete;
+
+    public static int[] IDQuest = new int[5];
+
     // Start is called before the first frame update
     void Start()
     {

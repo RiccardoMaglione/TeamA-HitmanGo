@@ -36,7 +36,12 @@ namespace HGO.core
             {
                 currentTime += Time.deltaTime;
 
-                if (currentTime >= lifetime) Destroy(gameObject);
+                if (currentTime >= lifetime)
+
+                {
+                    Hint_sasso_script.Areadistrutta = true;
+                    Destroy(gameObject);
+                }
             }
         }
         #endregion
