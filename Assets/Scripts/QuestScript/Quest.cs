@@ -112,6 +112,7 @@ public class Quest : MonoBehaviour
                             LevelQuest[ID] = true;
                             OnlyOnce = true;
                             TotalQuest += 1;
+                            Debug.Log("ciao3");
                             PlayerPrefs.SetInt("TotalQuest", TotalQuest);
                         }
                     }
@@ -134,6 +135,7 @@ public class Quest : MonoBehaviour
                             LevelQuest[ID] = true;
                             OnlyOnce = true;
                             TotalQuest += 1;
+                            Debug.Log("ciao2");
                             PlayerPrefs.SetInt("TotalQuest", TotalQuest);
                         }
                     }
@@ -156,6 +158,7 @@ public class Quest : MonoBehaviour
                             LevelQuest[ID] = true;
                             OnlyOnce = true;
                             TotalQuest += 1;
+                            Debug.Log("ciao1");
                             PlayerPrefs.SetInt("TotalQuest", TotalQuest);
                         }
                     }
