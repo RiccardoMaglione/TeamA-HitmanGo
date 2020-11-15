@@ -8,7 +8,7 @@ public class SoundButtonController : MonoBehaviour
     public Sprite spriteNotActive;
     public Image image;
 
-    public void SetAudio()
+    public void SetSound()
     {
         if (PlayerPrefs.GetInt("setSound") == 1)
         {
