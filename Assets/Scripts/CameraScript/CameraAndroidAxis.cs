@@ -98,10 +98,10 @@ public class CameraAndroidAxis : MonoBehaviour
         {
             CanLerp = true;
 
-            Vector3 eulerAngles = Vector3.zero;//The Euler angle of the current object
-            //Vector3 eulerAngles = this.transform.eulerAngles;//The Euler angle of the current object  
-            this.eulerAngles_x = eulerAngles.y;
-            this.eulerAngles_y = eulerAngles.x;
+        //    Vector3 eulerAngles = Vector3.zero;//The Euler angle of the current object
+        //    //Vector3 eulerAngles = this.transform.eulerAngles;//The Euler angle of the current object  
+        //    this.eulerAngles_x = eulerAngles.y;
+        //    this.eulerAngles_y = eulerAngles.x;
 
             StartCoroutine(IEnumMoveCam());
             StartCoroutine(IEnumRotCam());

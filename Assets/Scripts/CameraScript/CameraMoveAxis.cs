@@ -51,6 +51,11 @@ public class CameraMoveAxis : MonoBehaviour
 
     private void Update()
     {
+        if (ChangeCameraNode.CanChange == true)
+        {
+            InitialPosition = ChangeCameraNode.InitialPos;
+            ChangeCameraNode.CanChange = false;
+        }
         Debug.Log("Il target è "+ CameraCinematic.CanTarget);
         if (CameraCinematic.CanTarget == true)
         {
