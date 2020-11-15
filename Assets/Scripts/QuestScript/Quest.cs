@@ -26,14 +26,28 @@ public class Quest : MonoBehaviour
     [Tooltip("Temp - Bool for test for complete a level")]
     public bool Completed = false;
 
-    int[] QuestLevelComplete;
-    int[] QuestNoKill;
-    int[] QuestAllKill;
+    public static int[] QuestLevelComplete;
+    public static int[] QuestNoKill;
+    public static int[] QuestAllKill;
 
     [Header("Total amount of quest")]
 
     [Tooltip("Total amount of quest of game")]
     public int AmountQuest;
+
+    public static int TotalQuest;
+    public bool OnlyOnce = false;
+
+    public static bool[] LevelQuest = new bool[5];
+
+
+
+
+
+
+
+
+
     #endregion
 
     void Start()
@@ -44,7 +58,7 @@ public class Quest : MonoBehaviour
     void Update()
     {
         ControlQuest();
-        ResetQuest();
+        //ResetQuest();
     }
 
     #region Method
@@ -86,16 +100,67 @@ public class Quest : MonoBehaviour
         {
             QuestLevelComplete[ID] = 1;
             PlayerPrefs.SetInt("QuestLevelComplete" + ID, QuestLevelComplete[ID]);
+
+            if(OnlyOnce == false)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    if(ID == i)
+                    {
+                        if(LevelQuest[ID] == false)
+                        {
+                            LevelQuest[ID] = true;
+                            OnlyOnce = true;
+                            TotalQuest += 1;
+                            PlayerPrefs.SetInt("TotalQuest", TotalQuest);
+                        }
+                    }
+                }
+            }
         }
         if (QS.NoKill == true && Completed == true)
         {
             QuestNoKill[ID] = 1;
             PlayerPrefs.SetInt("QuestNoKill" + ID, QuestNoKill[ID]);
+
+            if (OnlyOnce == false)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    if (ID == i)
+                    {
+                        if (LevelQuest[ID] == false)
+                        {
+                            LevelQuest[ID] = true;
+                            OnlyOnce = true;
+                            TotalQuest += 1;
+                            PlayerPrefs.SetInt("TotalQuest", TotalQuest);
+                        }
+                    }
+                }
+            }
         }
         if (QS.AllKill == true && Completed == true)
         {
             QuestAllKill[ID] = 1;
             PlayerPrefs.SetInt("QuestAllKill" + ID, QuestAllKill[ID]);
+
+            if (OnlyOnce == false)
+            {
+                for (int i = 0; i < 5; i++)
+                {
+                    if (ID == i)
+                    {
+                        if (LevelQuest[ID] == false)
+                        {
+                            LevelQuest[ID] = true;
+                            OnlyOnce = true;
+                            TotalQuest += 1;
+                            PlayerPrefs.SetInt("TotalQuest", TotalQuest);
+                        }
+                    }
+                }
+            }
         }
     }
 
