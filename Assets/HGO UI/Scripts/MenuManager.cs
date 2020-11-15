@@ -14,7 +14,9 @@ public class MenuManager : MonoBehaviour
 
     public void GoToExitScreen()
     {
-        AudioManager.instance.Play("Selection Sound");
+        if (PlayerPrefs.GetInt("setSound") == 1)
+            AudioManager.instance.Play("Selection Sound");
+
         if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             exitScreenPC.SetActive(true);
@@ -26,7 +28,9 @@ public class MenuManager : MonoBehaviour
 
     public void GoToStartingScreen()
     {
-        AudioManager.instance.Play("Selection Sound");
+        if (PlayerPrefs.GetInt("setSound") == 1)
+            AudioManager.instance.Play("Selection Sound");
+
         if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             startingScreenPC.SetActive(true);
@@ -45,7 +49,9 @@ public class MenuManager : MonoBehaviour
 
     public void GoToSettingScreen()
     {
-        AudioManager.instance.Play("Selection Sound");
+        if (PlayerPrefs.GetInt("setSound") == 1)
+            AudioManager.instance.Play("Selection Sound");
+
         if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             settingScreenPC.SetActive(true);
@@ -64,7 +70,9 @@ public class MenuManager : MonoBehaviour
 
     public void GoToStageSelectionScreen()
     {
-        AudioManager.instance.Play("Selection Sound");
+        if (PlayerPrefs.GetInt("setSound") == 1)
+            AudioManager.instance.Play("Selection Sound");
+
         if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             settingScreenPC.SetActive(false);
@@ -83,7 +91,9 @@ public class MenuManager : MonoBehaviour
 
     public void GoToCreditsScreen()
     {
-        AudioManager.instance.Play("Selection Sound");
+        if (PlayerPrefs.GetInt("setSound") == 1)
+            AudioManager.instance.Play("Selection Sound");
+
         if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             settingScreenPC.SetActive(false);
@@ -102,7 +112,9 @@ public class MenuManager : MonoBehaviour
 
     public void GoToLevelSelectionScreen()
     {
-        AudioManager.instance.Play("Selection Sound");
+        if (PlayerPrefs.GetInt("setSound") == 1)
+            AudioManager.instance.Play("Selection Sound");
+
         if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             settingScreenPC.SetActive(false);
@@ -121,19 +133,25 @@ public class MenuManager : MonoBehaviour
 
     public void GoToStageSelection()
     {
-        AudioManager.instance.Play("Selection Sound");
+        if (PlayerPrefs.GetInt("setSound") == 1)
+            AudioManager.instance.Play("Selection Sound");
+        
         SceneManager.LoadScene("StageSelection");
     }
 
     public void ExitApllication()
     {
-        AudioManager.instance.Play("Selection Sound");
+        if (PlayerPrefs.GetInt("setSound") == 1)
+            AudioManager.instance.Play("Selection Sound");
+        
         Application.Quit();
     }
 
     public void ReloadScene()
     {
-        AudioManager.instance.Play("Selection Sound");
+        if (PlayerPrefs.GetInt("setSound") == 1)
+            AudioManager.instance.Play("Selection Sound");
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

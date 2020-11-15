@@ -13,7 +13,9 @@ public class UiManager : MonoBehaviour
 
     public void GoToGameScreen()
     {
-        AudioManager.instance.Play("Selection Sound");
+        if (PlayerPrefs.GetInt("setSound") == 1)
+            AudioManager.instance.Play("Selection Sound");
+        
         playerMovement.Enable();
         if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
@@ -30,7 +32,9 @@ public class UiManager : MonoBehaviour
 
     public void GoToPauseScreen()
     {
-        AudioManager.instance.Play("Selection Sound");
+        if (PlayerPrefs.GetInt("setSound") == 1)
+            AudioManager.instance.Play("Selection Sound");
+        
         playerMovement.Disable();
         if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
@@ -47,17 +51,24 @@ public class UiManager : MonoBehaviour
 
     public void ReloadScene()
     {
-        AudioManager.instance.Play("Selection Sound");
+        if (PlayerPrefs.GetInt("setSound") == 1)
+            AudioManager.instance.Play("Selection Sound");
+       
         playerMovement.Enable();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void GoToLevelSelection()
-    {       
+    {
+        if(PlayerPrefs.GetInt("setSound") == 1)
+            AudioManager.instance.Play("Selection Sound");
+        
         AudioManager.instance.Stop("Water Sound");
         AudioManager.instance.Stop("Bird Sound");
-        AudioManager.instance.Play("Selection Sound");
-        AudioManager.instance.Play("Soundtrack");
+        
+        if (PlayerPrefs.GetInt("setMusic") == 1)
+            AudioManager.instance.Play("Soundtrack");
+        
         playerMovement.Enable();
         SceneManager.LoadScene("LevelSelection");
     }
