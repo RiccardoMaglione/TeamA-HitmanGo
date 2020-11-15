@@ -352,6 +352,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PATH 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6959720145802758774, guid: 662e395f28e72894287646e165a3f084,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6959720145802758772, guid: 662e395f28e72894287646e165a3f084,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -409,6 +414,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 662e395f28e72894287646e165a3f084, type: 3}
+--- !u!1 &107378364 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6959720145802758774, guid: 662e395f28e72894287646e165a3f084,
+    type: 3}
+  m_PrefabInstance: {fileID: 107378363}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &115260101
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3149,6 +3160,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   RotDef: {x: 0, y: 0, z: 0}
+  Path: {fileID: 107378364}
   CanStart: 1
   NumWaypoint: 1
   SpeedMultiplier: 17

@@ -678,6 +678,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PATH 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6755891243576144137, guid: f0aa832fc28b14b4bbf79ab28e92b3da,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6755891243576144136, guid: f0aa832fc28b14b4bbf79ab28e92b3da,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4498,6 +4503,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   RotDef: {x: 0, y: 0, z: 0}
+  Path: {fileID: 1597829886}
   CanStart: 0
   NumWaypoint: 1
   SpeedMultiplier: 17

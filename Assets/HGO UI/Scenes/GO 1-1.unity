@@ -1742,6 +1742,7 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   RotDef: {x: 0, y: 0, z: 0}
+  Path: {fileID: 1022040280}
   CanStart: 0
   NumWaypoint: 1
   SpeedMultiplier: 10
@@ -3481,6 +3482,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PATH 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453824989080588468, guid: 2034d4282a346394f9d304a0e44959d5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3453824989080588470, guid: 2034d4282a346394f9d304a0e44959d5,
         type: 3}

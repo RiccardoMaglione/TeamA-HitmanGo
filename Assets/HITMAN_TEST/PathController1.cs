@@ -11,10 +11,13 @@ public class PathController1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Path1.SetActive(true);
-        Path2.SetActive(false);
+        
+            Path1.SetActive(true);
+            Path2.SetActive(false);
 
-        StartCoroutine(Percorso2());
+            StartCoroutine(Percorso2());
+        
+       
     }
 
     private IEnumerator Percorso2()

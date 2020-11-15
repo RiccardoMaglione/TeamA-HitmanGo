@@ -14,6 +14,7 @@ public class CameraCinematic : MonoBehaviour
     public Vector3[] RotCamera;
     public Vector3 RotDef;
     public object Kill;
+    public GameObject Path;
 
     public static bool CanTarget;
     public bool CanStart = false;
@@ -29,6 +30,12 @@ public class CameraCinematic : MonoBehaviour
 
     void Start()
     {
+        if (Path != null)
+        {
+            Path.SetActive(false);
+        }
+       
+
         DOTween.timeScale = SpeedInitial;
         CanStart = false;
         CanTarget = false;
@@ -90,6 +97,11 @@ public class CameraCinematic : MonoBehaviour
         }
         if (waypointIndex >= CameraPosition.Length - 1)
         {
+            if (Path != null)
+            {
+                Path.SetActive(true);
+            }
+
             if (ActivateCamereDevice.PCVersion == true)
             {
                 MainCamera.GetComponent<ScroolTopDown>().enabled = true;
@@ -105,7 +117,14 @@ public class CameraCinematic : MonoBehaviour
     public IEnumerator ActiveScript()
     {
         yield return new WaitForSeconds(2.25f);
-        if(ActivateCamereDevice.PCVersion == true)
+
+        if (Path != null)
+        {
+            Path.SetActive(true);
+        }
+        
+
+        if (ActivateCamereDevice.PCVersion == true)
         {
             MainCamera.GetComponent<ScroolTopDown>().enabled = true;
             MainCamera.GetComponent<CameraMoveAxis>().enabled = true;
