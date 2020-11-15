@@ -1235,6 +1235,7 @@ GameObject:
   - component: {fileID: 407837686}
   - component: {fileID: 407837685}
   - component: {fileID: 407837687}
+  - component: {fileID: 407837688}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -1292,6 +1293,20 @@ MonoBehaviour:
   - {fileID: 783109054}
   - {fileID: 398331827}
   - {fileID: 1533633885}
+--- !u!114 &407837688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407837684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29b11148fc1bbdb48ad02116f50c4ab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TotQuestCompletedPC: {fileID: 526328031}
+  TotQuestCompletedMOBILE: {fileID: 526328031}
 --- !u!1 &526328029
 GameObject:
   m_ObjectHideFlags: 0
