@@ -50,6 +50,7 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        Play("Soundtrack");
+        if(PlayerPrefs.GetInt("setMusic") == 1)
+            Play("Soundtrack");
     }
 }
