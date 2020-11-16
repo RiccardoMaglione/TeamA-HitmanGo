@@ -10,7 +10,10 @@ public class Fullscreen : MonoBehaviour
 
     public void SetFullscreen()
     {
-        if(Screen.fullScreen == true)
+        if (PlayerPrefs.GetInt("setSound") == 1)
+            AudioManager.instance.Play("Selection Sound");
+
+        if (Screen.fullScreen == true)
             image.sprite = spriteActive;
 
         if (Screen.fullScreen == false)

@@ -12,7 +12,8 @@ public class MovePlayer : StateMachineBehaviour
         if (!levelManager) levelManager = FindObjectOfType<LevelManager>();
 
         pc.movementComponent.Move();
-        AudioManager.instance.Play("Move Sound");
+        if (PlayerPrefs.GetInt("setSound") == 1)
+            AudioManager.instance.Play("Move Sound");
         animator.SetTrigger("Check Player Node");
         return;
     }

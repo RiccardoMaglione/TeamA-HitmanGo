@@ -12,6 +12,8 @@ public class ResetScreen : MonoBehaviour
 
     public void ActivateResetScreen()
     {
+        if (PlayerPrefs.GetInt("setSound") == 1)
+            AudioManager.instance.Play("Selection Sound");
         if (Application.platform == RuntimePlatform.WindowsEditor)
         {
             ResetScreenPc.SetActive(true);
@@ -26,6 +28,9 @@ public class ResetScreen : MonoBehaviour
 
     public void BackReset()
     {
+        if (PlayerPrefs.GetInt("setSound") == 1)
+            AudioManager.instance.Play("Selection Sound");
+
         if (Application.platform == RuntimePlatform.WindowsEditor)
         {
             ResetScreenPc.SetActive(false);
@@ -40,6 +45,8 @@ public class ResetScreen : MonoBehaviour
 
     public void AcceptReset()
     {
+        if (PlayerPrefs.GetInt("setSound") == 1)
+            AudioManager.instance.Play("Selection Sound");
         for (int i = 0; i < 6; i++)
         {
             PlayerPrefs.SetInt("QuestLevelComplete" + i, 0);

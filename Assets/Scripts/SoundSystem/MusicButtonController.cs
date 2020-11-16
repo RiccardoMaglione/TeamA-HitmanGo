@@ -10,6 +10,9 @@ public class MusicButtonController : MonoBehaviour
 
     public void SetMusic()
     {
+        if (PlayerPrefs.GetInt("setSound") == 1)
+            AudioManager.instance.Play("Selection Sound");
+
         if (PlayerPrefs.GetInt("setMusic") == 1)
         {
             PlayerPrefs.SetInt("setMusic", 0);
@@ -24,8 +27,7 @@ public class MusicButtonController : MonoBehaviour
             musicText.text = "MUSIC - ON";
             image.sprite = spriteActive;
             AudioManager.instance.Play("Soundtrack");
-        }
-            
+        }         
     }
 
     void Start()

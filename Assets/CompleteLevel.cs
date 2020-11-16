@@ -15,6 +15,8 @@ public class CompleteLevel : StateMachineBehaviour
         CompleteQuestLevel.isFinishLevel = true;
         Debug.Log("Entrata");
         //WaitTime = 0;
+        if (PlayerPrefs.GetInt("setSound") == 1)
+            AudioManager.instance.Play("End Sound");
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

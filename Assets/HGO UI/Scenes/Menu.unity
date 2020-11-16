@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -451,6 +451,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reset Screen (MOBILE)
       objectReference: {fileID: 0}
+    - target: {fileID: 9006978491459815285, guid: 9239ddd41c8924e4088d9c23b17d9b8c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9006978491459815273, guid: 9239ddd41c8924e4088d9c23b17d9b8c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -575,6 +580,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: AcceptReset
+      objectReference: {fileID: 0}
+    - target: {fileID: 9006978491665163261, guid: 9239ddd41c8924e4088d9c23b17d9b8c,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9239ddd41c8924e4088d9c23b17d9b8c, type: 3}
@@ -4909,8 +4919,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1593794289}
   m_HandleRect: {fileID: 1593794288}
   m_Direction: 2
-  m_Value: 0.9999995
-  m_Size: 0.26921874
+  m_Value: 0.9999996
+  m_Size: 0.26952267
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7620,6 +7630,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Reset Screen (PC)
       objectReference: {fileID: 0}
+    - target: {fileID: 9058888765416399740, guid: 3bdc53a82f766794ebb29ea011fdd2cd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9058888765416399736, guid: 3bdc53a82f766794ebb29ea011fdd2cd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -7730,20 +7745,15 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1972842974}
-    - target: {fileID: 9058888766720130454, guid: 3bdc53a82f766794ebb29ea011fdd2cd,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AcceptReset
-      objectReference: {fileID: 0}
     - target: {fileID: 9058888766925155967, guid: 3bdc53a82f766794ebb29ea011fdd2cd,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1972842974}
-    - target: {fileID: 9058888766925155967, guid: 3bdc53a82f766794ebb29ea011fdd2cd,
+    - target: {fileID: 9058888765535610547, guid: 3bdc53a82f766794ebb29ea011fdd2cd,
         type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BackReset
+      propertyPath: m_AnchoredPosition.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3bdc53a82f766794ebb29ea011fdd2cd, type: 3}
@@ -8027,7 +8037,7 @@ RectTransform:
   m_Father: {fileID: 1829016950}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.73078096}
+  m_AnchorMin: {x: 0, y: 0.73047704}
   m_AnchorMax: {x: 1, y: 0.9999997}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -9088,6 +9098,11 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Throw Sound
     clip: {fileID: 8300000, guid: 330b19ff8c297dc44bce3a5ae21de818, type: 3}
+    volume: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: End Sound
+    clip: {fileID: 8300000, guid: 5ab6e0ca60f86f64c9bf7637ad7828a6, type: 3}
     volume: 1
     loop: 0
     source: {fileID: 0}

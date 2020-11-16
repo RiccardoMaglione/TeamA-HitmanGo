@@ -25,6 +25,9 @@ public class Vsync : MonoBehaviour
 
     public void SetVSync()
     {
+        if (PlayerPrefs.GetInt("setSound") == 1)
+            AudioManager.instance.Play("Selection Sound");
+
         if (Sync == 1)
         {
             image.sprite = spriteNotActive;

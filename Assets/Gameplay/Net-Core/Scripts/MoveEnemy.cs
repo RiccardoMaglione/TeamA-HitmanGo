@@ -41,7 +41,8 @@ public class MoveEnemy : StateMachineBehaviour
             foreach(AI_Controller ai in movingEnemies)
             {
                 ai.AI_MOVE();
-                AudioManager.instance.Play("Move Sound");
+                if (PlayerPrefs.GetInt("setSound") == 1)
+                    AudioManager.instance.Play("Move Sound");
             }
 
         }

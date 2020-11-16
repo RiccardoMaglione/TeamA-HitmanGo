@@ -11,6 +11,9 @@ public class SoundButtonController : MonoBehaviour
     public void SetSound()
     {
         if (PlayerPrefs.GetInt("setSound") == 1)
+            AudioManager.instance.Play("Selection Sound");
+        
+        if (PlayerPrefs.GetInt("setSound") == 1)
         {
             PlayerPrefs.SetInt("setSound", 0);
             soundText.text = "SOUND - OFF";

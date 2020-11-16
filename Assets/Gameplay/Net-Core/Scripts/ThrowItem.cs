@@ -24,7 +24,8 @@ public class ThrowItem : StateMachineBehaviour
 
         /* ITEM LAUNCH */
         obj.transform.DOJump(targetNode.transform.position, data.launch_force, 1, data.throw_duration);
-        AudioManager.instance.Play("Throw Sound");
+        if (PlayerPrefs.GetInt("setSound") == 1)
+            AudioManager.instance.Play("Throw Sound");
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

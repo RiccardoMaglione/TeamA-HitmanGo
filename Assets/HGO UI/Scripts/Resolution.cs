@@ -57,6 +57,9 @@ public class Resolution : MonoBehaviour
 
     public void SetResolutionPlus()
     {
+        if (PlayerPrefs.GetInt("setSound") == 1)
+            AudioManager.instance.Play("Selection Sound");
+        
         ID += 1;
         if (ID > 9)
             ID = 0;
@@ -65,6 +68,9 @@ public class Resolution : MonoBehaviour
     }
     public void SetResolutionMinum()
     {
+        if (PlayerPrefs.GetInt("setSound") == 1)
+            AudioManager.instance.Play("Selection Sound");
+        
         ID -= 1;
         if (ID < 0)
             ID = 9;

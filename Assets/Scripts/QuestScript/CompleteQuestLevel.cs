@@ -37,6 +37,10 @@ public class CompleteQuestLevel : MonoBehaviour
     }
     public void ChangeScene()
     {
+        if (PlayerPrefs.GetInt("setMusic") == 1)
+            AudioManager.instance.Play("Soundtrack");
+        AudioManager.instance.Stop("Bird Sound");
+        AudioManager.instance.Stop("Water Sound");
         SceneManager.LoadScene("LevelSelection");
     }
 }
