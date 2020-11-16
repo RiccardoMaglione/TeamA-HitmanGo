@@ -3,6 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelection : MonoBehaviour
 {
+    LoadingLevel LoadLev;
+
+    private void Start()
+    {
+        LoadLev = GetComponent<LoadingLevel>();
+    }
+
     public void GoToLevelSelection()
     {
         if (PlayerPrefs.GetInt("setSound") == 1)
@@ -37,7 +44,8 @@ public class LevelSelection : MonoBehaviour
         if (PlayerPrefs.GetInt("setSound") == 1)
             AudioManager.instance.Play("Bird Sound");
         
-        SceneManager.LoadScene("GO 1-1");
+        //SceneManager.LoadScene("GO 1-1");
+        LoadLev.LoadLevel1();
     }
 
     public void SceneLevel2()
@@ -50,7 +58,8 @@ public class LevelSelection : MonoBehaviour
         if (PlayerPrefs.GetInt("setSound") == 1)
             AudioManager.instance.Play("Bird Sound");
         
-        SceneManager.LoadScene("GO 1-2");
+        //SceneManager.LoadScene("GO 1-2");
+        LoadLev.LoadLevel2();
     }
 
     public void SceneLevel3()
@@ -63,7 +72,8 @@ public class LevelSelection : MonoBehaviour
         if (PlayerPrefs.GetInt("setSound") == 1)
             AudioManager.instance.Play("Bird Sound");
         
-        SceneManager.LoadScene("GO 1-3");
+        //SceneManager.LoadScene("GO 1-3");
+        LoadLev.LoadLevel3();
     }
 
     public void SceneLevel4()
@@ -76,7 +86,8 @@ public class LevelSelection : MonoBehaviour
         if (PlayerPrefs.GetInt("setSound") == 1)
             AudioManager.instance.Play("Bird Sound");
        
-        SceneManager.LoadScene("GO 1-4");
+        //SceneManager.LoadScene("GO 1-4");
+        LoadLev.LoadLevel4();
     }
 
     public void SceneLevel5()
@@ -92,7 +103,8 @@ public class LevelSelection : MonoBehaviour
         if (PlayerPrefs.GetInt("setSound") == 1)
             AudioManager.instance.Play("Water Sound");
        
-        SceneManager.LoadScene("GO 1-5");
+        //SceneManager.LoadScene("GO 1-5");
+        LoadLev.LoadLevel5();
     }
 
     public void SceneLevel6()
@@ -105,6 +117,7 @@ public class LevelSelection : MonoBehaviour
         if (PlayerPrefs.GetInt("setSound") == 1)
             AudioManager.instance.Play("Bird Sound");
         
-        SceneManager.LoadScene("GO 1-6");
+        //SceneManager.LoadScene("GO 1-6");
+        LoadLev.LoadLevel6();
     }
 }
