@@ -23,7 +23,7 @@ public class ActivateCamereDevice : MonoBehaviour
         if(Application.platform == RuntimePlatform.Android)
         {
             MobileVersion = true;
-            PCorMobile.text = "Mobile Versione";
+            PCorMobile.text = "Mobile Version";
         }
     }
 
