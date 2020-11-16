@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9063,47 +9063,47 @@ MonoBehaviour:
   sounds:
   - name: Bird Sound
     clip: {fileID: 8300000, guid: 7be1ade375252244aaf7e95942fb65a1, type: 3}
-    volume: 1
+    volume: 0.2
     loop: 1
     source: {fileID: 0}
   - name: Water Sound
     clip: {fileID: 8300000, guid: 478acdaaddf2a9b4e9c338659d20de8a, type: 3}
-    volume: 1
+    volume: 0.15
     loop: 1
     source: {fileID: 0}
   - name: Soundtrack
     clip: {fileID: 8300000, guid: 501cda5e591b3a745af3583921d582bc, type: 3}
-    volume: 1
+    volume: 0.5
     loop: 1
     source: {fileID: 0}
   - name: Selection Sound
     clip: {fileID: 8300000, guid: 3fbfd0f9c3b07774fb6fb4a7e765dbd6, type: 3}
-    volume: 1
+    volume: 0.2
     loop: 0
     source: {fileID: 0}
   - name: Kill Sound
     clip: {fileID: 8300000, guid: 3a50832e5b2a81c4fa1019ee3106796d, type: 3}
-    volume: 1
+    volume: 0.2
     loop: 0
     source: {fileID: 0}
   - name: Move Sound
     clip: {fileID: 8300000, guid: 751fc741da2708b4e85e68ca9d233660, type: 3}
-    volume: 1
+    volume: 0.2
     loop: 0
     source: {fileID: 0}
   - name: Pick Rock Sound
     clip: {fileID: 8300000, guid: d987aac2fd1ca9d4e9cd104ce5e63dfd, type: 3}
-    volume: 1
+    volume: 0.5
     loop: 0
     source: {fileID: 0}
   - name: Throw Sound
     clip: {fileID: 8300000, guid: 330b19ff8c297dc44bce3a5ae21de818, type: 3}
-    volume: 1
+    volume: 0.5
     loop: 0
     source: {fileID: 0}
   - name: End Sound
     clip: {fileID: 8300000, guid: 5ab6e0ca60f86f64c9bf7637ad7828a6, type: 3}
-    volume: 1
+    volume: 0.2
     loop: 0
     source: {fileID: 0}
 --- !u!4 &1878556426
