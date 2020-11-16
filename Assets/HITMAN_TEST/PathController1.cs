@@ -24,8 +24,6 @@ public class PathController1 : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(0.1f);
         Path2.SetActive(true);
-
-        Debug.Log("DioPorco");
     }
 
     private void Update()

@@ -41,16 +41,16 @@ public class Quest : MonoBehaviour
 
     public static bool[] LevelQuest = new bool[5];
 
-    public GameObject EndLevelScreenPc;
-    public GameObject EndLevelScreenMobile;
-
-    public static bool isFinishLevel;
+    //public GameObject EndLevelScreenPc;
+    //public GameObject EndLevelScreenMobile;
+    //
+    //public static bool isFinishLevel;
 
     #endregion
 
     void Start()
     {
-        isFinishLevel = false;
+        //isFinishLevel = false;
         InitializedSaveQuest();
     }
 
@@ -58,10 +58,10 @@ public class Quest : MonoBehaviour
     {
         ControlQuest();
         //ResetQuest();
-        if(isFinishLevel == true)
-        {
-            CompleteQuestLevel();
-        }
+        //if(isFinishLevel == true)
+        //{
+        //    CompleteQuestLevel();
+        //}
     }
 
     #region Method
@@ -189,20 +189,20 @@ public class Quest : MonoBehaviour
         }
     }
 
-    public void CompleteQuestLevel()
-    {
-        if (Application.platform == RuntimePlatform.WindowsEditor)
-        {
-            EndLevelScreenPc.SetActive(true);
-        }
-        if (Application.platform == RuntimePlatform.Android)
-        {
-            EndLevelScreenMobile.SetActive(true);
-        }
-    }
-    public void ChangeScene()
-    {
-        SceneManager.LoadScene("LevelSelection");
-    }
+    //public void CompleteQuestLevel()
+    //{
+    //    if (Application.platform == RuntimePlatform.WindowsEditor)
+    //    {
+    //        EndLevelScreenPc.SetActive(true);
+    //    }
+    //    if (Application.platform == RuntimePlatform.Android)
+    //    {
+    //        EndLevelScreenMobile.SetActive(true);
+    //    }
+    //}
+    //public void ChangeScene()
+    //{
+    //    SceneManager.LoadScene("LevelSelection");
+    //}
     #endregion
 }

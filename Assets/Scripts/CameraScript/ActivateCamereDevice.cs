@@ -15,7 +15,7 @@ public class ActivateCamereDevice : MonoBehaviour
     {
         PCVersion = false;
         MobileVersion = false;
-        if(Application.platform == RuntimePlatform.WindowsEditor)
+        if(Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             PCVersion = true;
             PCorMobile.text = "PC Version";

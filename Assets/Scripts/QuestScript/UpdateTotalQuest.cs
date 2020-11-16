@@ -10,7 +10,7 @@ public class UpdateTotalQuest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {   
-        if (Application.platform == RuntimePlatform.WindowsEditor)
+        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             TotQuestCompletedPC.text = PlayerPrefs.GetInt("TotalQuest").ToString();
         }

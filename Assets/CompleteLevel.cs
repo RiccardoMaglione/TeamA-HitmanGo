@@ -12,8 +12,9 @@ public class CompleteLevel : StateMachineBehaviour
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        WaitTime = 0;
-        Quest.isFinishLevel = true;
+        CompleteQuestLevel.isFinishLevel = true;
+        Debug.Log("Entrata");
+        //WaitTime = 0;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -23,7 +24,8 @@ public class CompleteLevel : StateMachineBehaviour
         //
         //if (WaitTime > 1)
         //{
-        //    SceneManager.LoadScene("LevelSelection");
+        //    Quest.isFinishLevel = true;
+        //    //SceneManager.LoadScene("LevelSelection");
         //    WaitTime = 0;
         //}
     }
