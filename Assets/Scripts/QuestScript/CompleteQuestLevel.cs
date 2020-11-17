@@ -10,9 +10,11 @@ public class CompleteQuestLevel : MonoBehaviour
     public GameObject EndLevelScreenPc;
     public GameObject EndLevelScreenMobile;
     public static bool isFinishLevel;
+    Loading Load;
 
     void Start()
     {
+        Load = GetComponent<Loading>();
         isFinishLevel = false;
     }
     private void Update()
@@ -41,6 +43,7 @@ public class CompleteQuestLevel : MonoBehaviour
             AudioManager.instance.Play("Soundtrack");
         AudioManager.instance.Stop("Bird Sound");
         AudioManager.instance.Stop("Water Sound");
-        SceneManager.LoadScene("LevelSelection");
+        Load.LoadLevel();
+        //SceneManager.LoadScene("LevelSelection");
     }
 }
