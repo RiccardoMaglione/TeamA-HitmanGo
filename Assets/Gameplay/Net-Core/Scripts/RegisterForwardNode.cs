@@ -16,16 +16,13 @@ public class RegisterForwardNode : StateMachineBehaviour
             if (ai.behaviour != AI_STATE.NONE && ai.eyes.forwardNode != null)
             {
                 ai.eyes.RegisterForwardNode();
-                if(pc.movementComponent.currentNode == ai.eyes.forwardNode)
-                {
-                    animator.SetTrigger("Check Player Node");
-                    return;
-                }
+                //if(pc.movementComponent.currentNode == ai.eyes.forwardNode)
+                //{
+                //    animator.SetTrigger("Check Player Node");
+                //    return;
+                //}
             }
         }
-
-
-
 
         animator.SetTrigger("Start Player Round");
         return;
