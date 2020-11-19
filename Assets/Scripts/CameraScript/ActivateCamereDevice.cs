@@ -26,5 +26,4 @@ public class ActivateCamereDevice : MonoBehaviour
             PCorMobile.text = "Mobile Version";
         }
     }
-
 }
