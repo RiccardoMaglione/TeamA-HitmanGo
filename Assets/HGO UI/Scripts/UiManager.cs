@@ -73,6 +73,39 @@ public class UiManager : MonoBehaviour
         SceneManager.LoadScene("LevelSelection");
     }
 
+    public void ReloadHint()
+    {
+        if(SceneManager.GetActiveScene().name == "Level1-1+hint")
+        {
+            SceneManager.LoadScene(3);
+        }
+
+        if (SceneManager.GetActiveScene().name == "Level1-2+hint")
+        {
+            SceneManager.LoadScene(4);
+        }
+
+        if (SceneManager.GetActiveScene().name == "Level1-3+hint")
+        {
+            SceneManager.LoadScene(5);
+        }
+
+        if (SceneManager.GetActiveScene().name == "Level1-4+hint")
+        {
+            SceneManager.LoadScene(6);
+        }
+
+        if (SceneManager.GetActiveScene().name == "Level1-5+hint")
+        {
+            SceneManager.LoadScene(7);
+        }
+
+        if (SceneManager.GetActiveScene().name == "Level1-6+hint")
+        {
+            SceneManager.LoadScene(8);
+        }
+    }
+
 
     void Awake()
     {
