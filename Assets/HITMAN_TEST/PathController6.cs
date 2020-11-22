@@ -29,13 +29,22 @@ public class PathController6 : MonoBehaviour
         Path9.SetActive(false);
 
         StartCoroutine(Percorso2());
+
+        /*Invoke("Percorso2", 0.2f);
+        Invoke("Percorso3", 0.3f);
+        Invoke("Percorso4", 0.4f);
+        Invoke("Percorso5", 0.5f);
+        Invoke("Percorso6", 0.6f);
+        Invoke("Percorso7", 0.7f);
+        Invoke("Percorso8", 0.8f);
+        Invoke("Percorso9", 0.9f);*/
     }
 
     private IEnumerator Percorso2()
     {
         yield return new WaitForSecondsRealtime(0.1f);
         Path2.SetActive(true);
-
+        
         StartCoroutine(Percorso3());
 
         Debug.Log("DioPorco");
@@ -45,7 +54,7 @@ public class PathController6 : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(0.1f);
         Path3.SetActive(true);
-
+        
         StartCoroutine(Percorso4());
     }
 
@@ -78,7 +87,7 @@ public class PathController6 : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(0.1f);
         Path7.SetActive(true);
-        
+
         StartCoroutine(Percorso8());
     }
 

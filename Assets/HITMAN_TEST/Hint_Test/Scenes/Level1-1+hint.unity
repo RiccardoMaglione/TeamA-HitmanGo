@@ -437,7 +437,6 @@ Transform:
   m_Children:
   - {fileID: 898915732}
   - {fileID: 1970580625}
-  - {fileID: 600464810}
   - {fileID: 1442424756}
   m_Father: {fileID: 0}
   m_RootOrder: 12
@@ -1915,12 +1914,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 742935382}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &600464810 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3453824989080588470, guid: 2034d4282a346394f9d304a0e44959d5,
-    type: 3}
-  m_PrefabInstance: {fileID: 742935382}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &600464811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2515,12 +2508,17 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 104180148}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3453824989080588468, guid: 2034d4282a346394f9d304a0e44959d5,
         type: 3}
       propertyPath: m_Name
       value: PATH 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3453824989080588468, guid: 2034d4282a346394f9d304a0e44959d5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3453824989080588470, guid: 2034d4282a346394f9d304a0e44959d5,
         type: 3}
@@ -2530,7 +2528,7 @@ PrefabInstance:
     - target: {fileID: 3453824989080588470, guid: 2034d4282a346394f9d304a0e44959d5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3453824989080588470, guid: 2034d4282a346394f9d304a0e44959d5,
         type: 3}
@@ -2560,7 +2558,7 @@ PrefabInstance:
     - target: {fileID: 3453824989080588470, guid: 2034d4282a346394f9d304a0e44959d5,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3453824989080588470, guid: 2034d4282a346394f9d304a0e44959d5,
         type: 3}
@@ -5074,7 +5072,7 @@ Transform:
   - {fileID: 1269169275}
   - {fileID: 318891855}
   m_Father: {fileID: 104180148}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1458229272
 PrefabInstance:
@@ -6132,11 +6130,11 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   RotDef: {x: 0, y: 0, z: 0}
-  Path: {fileID: 0}
+  Path: {fileID: 600464809}
   CanStart: 0
   NumWaypoint: 1
-  SpeedMultiplier: 10
-  SpeedInitial: 2
+  SpeedMultiplier: 20
+  SpeedInitial: 20
   DurationRotation: 5
   PathCatmullRom: 0
   PathLinear: 1

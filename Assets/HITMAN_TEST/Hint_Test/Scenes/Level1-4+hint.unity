@@ -476,11 +476,11 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   RotDef: {x: 0, y: 0, z: 0}
-  Path: {fileID: 0}
+  Path: {fileID: 564132974}
   CanStart: 0
   NumWaypoint: 1
-  SpeedMultiplier: 8
-  SpeedInitial: 1.2
+  SpeedMultiplier: 20
+  SpeedInitial: 20
   DurationRotation: 5
   PathCatmullRom: 0
   PathLinear: 1
@@ -2501,6 +2501,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PATH 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 859836868648271973, guid: 882488346f2d96248917ad94f2d03545,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 859836868648271995, guid: 882488346f2d96248917ad94f2d03545,
         type: 3}
@@ -4692,6 +4697,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 160647195485707634, guid: 449666484cb45014eb48c20c1eac129a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8011726280920316789, guid: 449666484cb45014eb48c20c1eac129a,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -4715,11 +4725,6 @@ PrefabInstance:
     - target: {fileID: 8011726280920316789, guid: 449666484cb45014eb48c20c1eac129a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 160647195485707634, guid: 449666484cb45014eb48c20c1eac129a,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

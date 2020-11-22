@@ -2753,6 +2753,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: LEVEL 1-2
       objectReference: {fileID: 0}
+    - target: {fileID: 160647195485707634, guid: 449666484cb45014eb48c20c1eac129a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8011726280920316789, guid: 449666484cb45014eb48c20c1eac129a,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -2776,11 +2781,6 @@ PrefabInstance:
     - target: {fileID: 8011726280920316789, guid: 449666484cb45014eb48c20c1eac129a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 160647195485707634, guid: 449666484cb45014eb48c20c1eac129a,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3365,11 +3365,11 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   RotDef: {x: 0, y: 0, z: 0}
-  Path: {fileID: 0}
+  Path: {fileID: 1120884201}
   CanStart: 0
   NumWaypoint: 1
-  SpeedMultiplier: 10
-  SpeedInitial: 1.65
+  SpeedMultiplier: 20
+  SpeedInitial: 20
   DurationRotation: 10
   PathCatmullRom: 0
   PathLinear: 1
@@ -6626,6 +6626,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PATH 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7824354490465651484, guid: deb42467a4cbb8f48a953bc60b1f6635,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7824354490465651486, guid: deb42467a4cbb8f48a953bc60b1f6635,
         type: 3}
