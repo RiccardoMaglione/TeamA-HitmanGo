@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class ActivateLevelSelection : MonoBehaviour
 {
+    public GameObject ScreenLevelSelectionPc;
+    public GameObject ScreenLevelSelectionMobile;
     void Start()
     {
-        GetComponent<CameraLevelSelection>().enabled = false;
-        GetComponent<CameraSelectionMobile>().enabled = false;
-        if (Application.platform == RuntimePlatform.WindowsEditor)
+        ScreenLevelSelectionPc.SetActive(false);
+        ScreenLevelSelectionMobile.SetActive(false);
+        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
-            GetComponent<CameraLevelSelection>().enabled = true;
+            ScreenLevelSelectionPc.SetActive(true);
         }
         if (Application.platform == RuntimePlatform.Android)
         {
-            GetComponent<CameraSelectionMobile>().enabled = true;
+            ScreenLevelSelectionMobile.SetActive(true);
         }
     }
 }

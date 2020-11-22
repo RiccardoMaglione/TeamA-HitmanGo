@@ -1208,11 +1208,6 @@ PrefabInstance:
       propertyPath: m_Text
       value: LEVEL 1-3
       objectReference: {fileID: 0}
-    - target: {fileID: 160647195485707634, guid: 449666484cb45014eb48c20c1eac129a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8011726280920316789, guid: 449666484cb45014eb48c20c1eac129a,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1236,6 +1231,11 @@ PrefabInstance:
     - target: {fileID: 8011726280920316789, guid: 449666484cb45014eb48c20c1eac129a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 160647195485707634, guid: 449666484cb45014eb48c20c1eac129a,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -2265,11 +2265,11 @@ MonoBehaviour:
   Path: {fileID: 0}
   CanStart: 1
   NumWaypoint: 1
-  SpeedMultiplier: 7
-  SpeedInitial: 7
+  SpeedMultiplier: 17
+  SpeedInitial: 1.5
   DurationRotation: 5
-  PathCatmullRom: 1
-  PathLinear: 0
+  PathCatmullRom: 0
+  PathLinear: 1
 --- !u!114 &846539964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3991,11 +3991,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: GoToPauseScreen
       objectReference: {fileID: 0}
-    - target: {fileID: 6915893536302234371, guid: 6a10d055434a9714f9be6d7518147cb6,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6915893534547517469, guid: 6a10d055434a9714f9be6d7518147cb6,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -4025,6 +4020,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6915893536302234371, guid: 6a10d055434a9714f9be6d7518147cb6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a10d055434a9714f9be6d7518147cb6, type: 3}
@@ -4453,6 +4453,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5224502454951026927, guid: 452a744ee6b1487459f9983507a0e42e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5224502454951026927, guid: 452a744ee6b1487459f9983507a0e42e,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.91
+      objectReference: {fileID: 0}
     - target: {fileID: 5459842484150119489, guid: 452a744ee6b1487459f9983507a0e42e,
         type: 3}
       propertyPath: currentNode
@@ -4488,16 +4498,6 @@ PrefabInstance:
       propertyPath: FinalPosition.Array.data[0]
       value: 
       objectReference: {fileID: 1262872082}
-    - target: {fileID: 5224502454951026927, guid: 452a744ee6b1487459f9983507a0e42e,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5224502454951026927, guid: 452a744ee6b1487459f9983507a0e42e,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0.91
-      objectReference: {fileID: 0}
     - target: {fileID: 6573237114755345864, guid: 452a744ee6b1487459f9983507a0e42e,
         type: 3}
       propertyPath: m_LocalPosition.y

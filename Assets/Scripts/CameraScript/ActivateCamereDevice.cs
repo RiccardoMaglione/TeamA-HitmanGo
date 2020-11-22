@@ -18,12 +18,12 @@ public class ActivateCamereDevice : MonoBehaviour
         if(Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             PCVersion = true;
-            PCorMobile.text = "PC Version";
+            //PCorMobile.text = "PC Version";
         }
         if(Application.platform == RuntimePlatform.Android)
         {
             MobileVersion = true;
-            PCorMobile.text = "Mobile Version";
+            //PCorMobile.text = "Mobile Version";
         }
     }
 }
