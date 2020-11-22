@@ -14,7 +14,7 @@ public class ResetScreen : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("setSound") == 1)
             AudioManager.instance.Play("Selection Sound");
-        if (Application.platform == RuntimePlatform.WindowsEditor)
+        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             ResetScreenPc.SetActive(true);
             SettingsScreenPc.SetActive(false);
@@ -31,7 +31,7 @@ public class ResetScreen : MonoBehaviour
         if (PlayerPrefs.GetInt("setSound") == 1)
             AudioManager.instance.Play("Selection Sound");
 
-        if (Application.platform == RuntimePlatform.WindowsEditor)
+        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
             ResetScreenPc.SetActive(false);
             SettingsScreenPc.SetActive(true);
@@ -55,5 +55,10 @@ public class ResetScreen : MonoBehaviour
             PlayerPrefs.SetInt("TotalQuest",0);
             Debug.Log("dsaaaaaaaaaaa");
         }
+        PlayerPrefs.SetInt("UnblockTwo", 0);
+        PlayerPrefs.SetInt("UnblockThree", 0);
+        PlayerPrefs.SetInt("UnblockFour", 0);
+        PlayerPrefs.SetInt("UnblockFive", 0);
+        PlayerPrefs.SetInt("UnblockSix", 0);
     }
 }

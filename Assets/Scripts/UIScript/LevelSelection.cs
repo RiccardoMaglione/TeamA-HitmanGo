@@ -4,10 +4,128 @@ using UnityEngine.SceneManagement;
 public class LevelSelection : MonoBehaviour
 {
     LoadingLevel LoadLev;
+    public GameObject[] IconPC = new GameObject[5];
+    public GameObject[] IconMobile = new GameObject[5];
 
     private void Start()
     {
         LoadLev = GetComponent<LoadingLevel>();
+        #region If Statement
+        if (PlayerPrefs.GetInt("UnblockTwo") == 0)
+        {
+            if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+            {
+                IconPC[0].SetActive(false);
+            }
+            if (Application.platform == RuntimePlatform.Android)
+            {
+                IconMobile[0].SetActive(false);
+            }
+        }
+        else if (PlayerPrefs.GetInt("UnblockTwo") == 1)
+        {
+            if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+            {
+                IconPC[0].SetActive(true);
+            }
+            if (Application.platform == RuntimePlatform.Android)
+            {
+                IconMobile[0].SetActive(true);
+            }
+        }
+
+        if (PlayerPrefs.GetInt("UnblockThree") == 0)
+        {
+            if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+            {
+                IconPC[1].SetActive(false);
+            }
+            if (Application.platform == RuntimePlatform.Android)
+            {
+                IconMobile[1].SetActive(false);
+            }
+        }
+        else if (PlayerPrefs.GetInt("UnblockThree") == 1)
+        {
+            if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+            {
+                IconPC[1].SetActive(true);
+            }
+            if (Application.platform == RuntimePlatform.Android)
+            {
+                IconMobile[1].SetActive(true);
+            }
+        }
+
+        if (PlayerPrefs.GetInt("UnblockFour") == 0)
+        {
+            if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+            {
+                IconPC[2].SetActive(false);
+            }
+            if (Application.platform == RuntimePlatform.Android)
+            {
+                IconMobile[2].SetActive(false);
+            }
+        }
+        else if (PlayerPrefs.GetInt("UnblockFour") == 1)
+        {
+            if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+            {
+                IconPC[2].SetActive(true);
+            }
+            if (Application.platform == RuntimePlatform.Android)
+            {
+                IconMobile[2].SetActive(true);
+            }
+        }
+
+        if (PlayerPrefs.GetInt("UnblockFive") == 0)
+        {
+            if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+            {
+                IconPC[3].SetActive(false);
+            }
+            if (Application.platform == RuntimePlatform.Android)
+            {
+                IconMobile[3].SetActive(false);
+            }
+        }
+        else if (PlayerPrefs.GetInt("UnblockFive") == 1)
+        {
+            if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+            {
+                IconPC[3].SetActive(true);
+            }
+            if (Application.platform == RuntimePlatform.Android)
+            {
+                IconMobile[3].SetActive(true);
+            }
+        }
+
+        if (PlayerPrefs.GetInt("UnblockSix") == 0)
+        {
+            if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+            {
+                IconPC[4].SetActive(false);
+            }
+            if (Application.platform == RuntimePlatform.Android)
+            {
+                IconMobile[4].SetActive(false);
+            }
+        }
+        else if (PlayerPrefs.GetInt("UnblockSix") == 1)
+        {
+            if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+            {
+                IconPC[4].SetActive(true);
+            }
+            if (Application.platform == RuntimePlatform.Android)
+            {
+                IconMobile[4].SetActive(true);
+            }
+        }
+        #endregion
     }
 
     public void GoToLevelSelection()
