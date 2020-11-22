@@ -69,7 +69,7 @@ public class WaitNodeSelection : StateMachineBehaviour
         List<Node> list = new List<Node>();
         foreach(Node n in lm.levelNodes)
         {
-            if(IsValid(n) && n != pc.movementComponent.currentNode)
+            if(IsValid(n) && n != pc.movementComponent.currentNode && n.nodeData.overlappedEnemiesCount == 0)
             {
                 list.Add(n);
             }

@@ -20,6 +20,7 @@ public class EnemyAttack : StateMachineBehaviour
             if(AI.CheckObservedNode(pc.movementComponent.targetNode) && AI.behaviour != AI_STATE.NONE)
             {   
                 var direction = (pc.gameObject.transform.position - AI.transform.position).normalized;
+                DeathManager.RegisterEnemyDirection((pc.gameObject.transform.position - AI.gameObject.transform.position).normalized);
                 pc.gameObject.transform.DOMove(pc.gameObject.transform.position + direction * 1f, 0.1f);
                 AI.AI_ATTACK();
                 animator.SetTrigger("Play Player Death Animation");
