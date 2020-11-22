@@ -31,7 +31,7 @@ public class PlayPlayerDeathAnimation : StateMachineBehaviour
         if (!pc) pc = FindObjectOfType<PlayerController>();
 
         DeathManager.KillPlayer(ref pc);
-        //animator.SetTrigger("Reset Level");
+        animator.SetTrigger("Reset Level");
     }
 
     public override void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
