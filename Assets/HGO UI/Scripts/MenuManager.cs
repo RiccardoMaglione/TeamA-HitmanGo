@@ -154,4 +154,24 @@ public class MenuManager : MonoBehaviour
         
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    public void RickRolling() 
+    {
+        Application.OpenURL("https://youtu.be/oHg5SJYRHA0");  
+    }
+
+    public void BakaMitai() 
+    {
+        Application.OpenURL("https://youtu.be/e6sBECDG0MU");
+    }
+
+    public void FanPageEvent() 
+    {
+        Application.OpenURL("https://youtu.be/WLaqtzFEfRY");
+    }
+
+    public void CatVibing() 
+    {
+        Application.OpenURL("https://youtu.be/NUYvbT6vTPs");
+    }
 }
