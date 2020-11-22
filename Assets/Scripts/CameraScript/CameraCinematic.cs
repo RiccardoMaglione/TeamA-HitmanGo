@@ -52,9 +52,9 @@ public class CameraCinematic : MonoBehaviour
     {
         if (CanStart == true)
         {
-            DOTween.timeScale = SpeedInitial;
+            
             CanStart = false;
-            DOTween.timeScale = SpeedInitial;
+            
             if (PathCatmullRom == true)
             {
                 PathLinear = false;
@@ -65,7 +65,7 @@ public class CameraCinematic : MonoBehaviour
                 PathCatmullRom = false;
                 MainCamera.transform.DOPath(CameraPosition, 30, PathType.Linear, PathMode.Full3D, 10, Color.black).OnWaypointChange(MyCallback).id = 1;
             }
-
+            DOTween.timeScale = SpeedInitial;
         }
         if (Input.GetKeyDown(KeyCode.L))
         {
@@ -116,7 +116,7 @@ public class CameraCinematic : MonoBehaviour
     }
     public IEnumerator ActiveScript()
     {
-        yield return new WaitForSeconds(2.25f);
+        yield return new WaitForSeconds(3.25f);
 
         if (Path != null)
         {
