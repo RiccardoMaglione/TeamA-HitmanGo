@@ -21,8 +21,8 @@ public class ResetScreen : MonoBehaviour
         }
         if (Application.platform == RuntimePlatform.Android)
         {
-            SettingsScreenMobile.SetActive(true);
-            ResetScreenMobile.SetActive(false);
+            SettingsScreenMobile.SetActive(false);
+            ResetScreenMobile.SetActive(true);
         }
     }
 
