@@ -26,7 +26,7 @@ public class CameraMoveAxis : MonoBehaviour
     [Header("Camera Parameters")]
     [Tooltip("Rappresent the center of screen")]
     public GameObject Target;
-    Vector3 InitialPosition;
+    public static Vector3 InitialPosition;
     Quaternion InitialRotation;
     [Tooltip("Indicates velocity of rotation")]
     public float TurnSpeed = 3.0f;
@@ -51,11 +51,12 @@ public class CameraMoveAxis : MonoBehaviour
 
     private void Update()
     {
-        if (ChangeCameraNode.CanChange == true)
+       /* if (ChangeCameraNode.CanChange == true)
         {
             InitialPosition = ChangeCameraNode.InitialPos;
             ChangeCameraNode.CanChange = false;
-        }
+            print("Giusto500"+InitialPosition);
+        }*/
         Debug.Log("Il target è "+ CameraCinematic.CanTarget);
         if (CameraCinematic.CanTarget == true)
         {
