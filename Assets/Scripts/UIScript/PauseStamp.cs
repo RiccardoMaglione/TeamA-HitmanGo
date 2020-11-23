@@ -14,7 +14,7 @@ public class PauseStamp : MonoBehaviour
     void Start()
     {
         Scene scene = SceneManager.GetActiveScene();
-        if (scene.name == "GO 1-1" || scene.name == "Leve1-1+hint")
+        if (scene.name == "GO 1-1" || scene.name == "Level1-1+hint")
         {
             if(PlayerPrefs.GetInt("QuestLevelComplete" + 0) == 1)
             {
@@ -43,7 +43,7 @@ public class PauseStamp : MonoBehaviour
                 }
             }
         }
-        if (scene.name == "GO 1-2" || scene.name == "Leve1-2+hint")
+        if (scene.name == "GO 1-2" || scene.name == "Level1-2+hint")
         {
             if (PlayerPrefs.GetInt("QuestLevelComplete" + 1) == 1)
             {
@@ -72,7 +72,7 @@ public class PauseStamp : MonoBehaviour
                 }
             }
         }
-        if (scene.name == "GO 1-3" || scene.name == "Leve1-3+hint")
+        if (scene.name == "GO 1-3" || scene.name == "Level1-3+hint")
         {
             if (PlayerPrefs.GetInt("QuestLevelComplete" + 2) == 1)
             {
@@ -101,7 +101,7 @@ public class PauseStamp : MonoBehaviour
                 }
             }
         }
-        if (scene.name == "GO 1-4" || scene.name == "Leve1-4+hint")
+        if (scene.name == "GO 1-4" || scene.name == "Level1-4+hint")
         {
             if (PlayerPrefs.GetInt("QuestLevelComplete" + 3) == 1)
             {
@@ -130,7 +130,7 @@ public class PauseStamp : MonoBehaviour
                 }
             }
         }
-        if (scene.name == "GO 1-5" || scene.name == "Leve1-5+hint")
+        if (scene.name == "GO 1-5" || scene.name == "Level1-5+hint")
         {
             if (PlayerPrefs.GetInt("QuestLevelComplete" + 4) == 1)
             {

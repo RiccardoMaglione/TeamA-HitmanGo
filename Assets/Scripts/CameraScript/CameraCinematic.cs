@@ -30,9 +30,12 @@ public class CameraCinematic : MonoBehaviour
 
     void Start()
     {
+        GameObject.Find("Player").GetComponent<CharacterController>().enabled = false;
+
         if (Path != null)
         {
             Path.SetActive(false);
+            GameObject.Find("Player").GetComponent<CharacterController>().enabled = false;
         }
        
 
@@ -100,6 +103,7 @@ public class CameraCinematic : MonoBehaviour
             if (Path != null)
             {
                 Path.SetActive(true);
+                GameObject.Find("Player").GetComponent<CharacterController>().enabled = true;
             }
 
             if (ActivateCamereDevice.PCVersion == true)
@@ -121,6 +125,7 @@ public class CameraCinematic : MonoBehaviour
         if (Path != null)
         {
             Path.SetActive(true);
+            GameObject.Find("Player").GetComponent<CharacterController>().enabled = true;
         }
         
 
