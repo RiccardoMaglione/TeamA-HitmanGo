@@ -297,7 +297,7 @@ PrefabInstance:
     - target: {fileID: 1857529882451312587, guid: 7026f5a1b8b89ea43af19eb2ba268448,
         type: 3}
       propertyPath: m_Radius
-      value: 1
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 1494966822454747690, guid: 7026f5a1b8b89ea43af19eb2ba268448,
         type: 3}
@@ -1760,15 +1760,15 @@ PrefabInstance:
       propertyPath: m_Text
       value: LEVEL 1-1
       objectReference: {fileID: 0}
-    - target: {fileID: 2414568703591952355, guid: cd44e40f91030a041bdbe072677d8385,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1251803430608167669, guid: cd44e40f91030a041bdbe072677d8385,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2414568703591952355, guid: cd44e40f91030a041bdbe072677d8385,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2812158331480711290, guid: cd44e40f91030a041bdbe072677d8385, type: 3}
@@ -2090,10 +2090,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90db48aaec4815240a831a3945b9f2fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanChange: 0
   CameraMain: {fileID: 744318257}
   newPositionCamera: {x: -5.08, y: 12.07, z: -10.62}
-  InitialPos: {x: 0, y: 0, z: 0}
 --- !u!1001 &340286437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3868,10 +3866,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90db48aaec4815240a831a3945b9f2fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CanChange: 0
   CameraMain: {fileID: 744318257}
   newPositionCamera: {x: -7.56, y: 12.07, z: -12.21}
-  InitialPos: {x: 0, y: 0, z: 0}
 --- !u!1001 &931539411
 PrefabInstance:
   m_ObjectHideFlags: 0
