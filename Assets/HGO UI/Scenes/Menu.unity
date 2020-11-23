@@ -7498,6 +7498,7 @@ GameObject:
   - component: {fileID: 1519037294}
   - component: {fileID: 1519037293}
   - component: {fileID: 1519037292}
+  - component: {fileID: 1519037295}
   m_Layer: 5
   m_Name: ' GO Button'
   m_TagString: Untagged
@@ -7619,6 +7620,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1519037290}
   m_CullTransparentMesh: 0
+--- !u!114 &1519037295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1519037290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 844d3c1d18ff6b543a1a530866807588, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xVec3: 0.1
+  yVec3: 0.1
+  zVec3: 0.1
+  WaitTime: 2
+  Duration: 0.5
+  NumLoops: 2
+  isYoyo: 1
 --- !u!1 &1543091899
 GameObject:
   m_ObjectHideFlags: 0
