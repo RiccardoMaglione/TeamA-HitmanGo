@@ -4892,11 +4892,6 @@ PrefabInstance:
       propertyPath: m_Text
       value: LEVEL 1-4
       objectReference: {fileID: 0}
-    - target: {fileID: 160647195485707634, guid: 449666484cb45014eb48c20c1eac129a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8011726280920316789, guid: 449666484cb45014eb48c20c1eac129a,
         type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -4922,6 +4917,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 160647195485707634, guid: 449666484cb45014eb48c20c1eac129a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 449666484cb45014eb48c20c1eac129a, type: 3}
 --- !u!1 &1017074275 stripped
@@ -4933,6 +4933,18 @@ GameObject:
 --- !u!224 &1017074276 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8825372290562573060, guid: 449666484cb45014eb48c20c1eac129a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1017074274}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1017074277 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5050489958402337609, guid: 449666484cb45014eb48c20c1eac129a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1017074274}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1017074278 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8011726280920316790, guid: 449666484cb45014eb48c20c1eac129a,
     type: 3}
   m_PrefabInstance: {fileID: 1017074274}
   m_PrefabAsset: {fileID: 0}
@@ -9195,6 +9207,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1650326710}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1650326713 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1251803430608167669, guid: cd44e40f91030a041bdbe072677d8385,
+    type: 3}
+  m_PrefabInstance: {fileID: 1650326710}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1650326714 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2414568703591952355, guid: cd44e40f91030a041bdbe072677d8385,
+    type: 3}
+  m_PrefabInstance: {fileID: 1650326710}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1658332512 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9209401217069359959, guid: c433f00f6515b924aa960a8446dab4ef,
@@ -10863,6 +10887,7 @@ GameObject:
   - component: {fileID: 2007495279}
   - component: {fileID: 2007495278}
   - component: {fileID: 2007495277}
+  - component: {fileID: 2007495281}
   m_Layer: 0
   m_Name: UI Manager
   m_TagString: Untagged
@@ -10941,6 +10966,22 @@ MonoBehaviour:
   pauseScreeenPC: {fileID: 1017074275}
   gameScreenMobile: {fileID: 948149232}
   pauseScreeenMobile: {fileID: 1650326711}
+--- !u!114 &2007495281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2007495275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c26cbdf379439a4a8715ff4d0c1ad94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PCNotFinishLevelStamp: {fileID: 1017074278}
+  PCFinishLevelStamp: {fileID: 1017074277}
+  MobileNotFinishLevelStamp: {fileID: 1650326714}
+  MobileFinishLevelStamp: {fileID: 1650326713}
 --- !u!1001 &2035687545
 PrefabInstance:
   m_ObjectHideFlags: 0
