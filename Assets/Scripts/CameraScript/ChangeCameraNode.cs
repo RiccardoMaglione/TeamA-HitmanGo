@@ -5,10 +5,10 @@ using DG.Tweening;
 using HGO.core;
 public class ChangeCameraNode : MonoBehaviour
 {
-    public  bool CanChange = false;
+    bool CanChange = false;
     public GameObject CameraMain;
     public Vector3 newPositionCamera;
-    public  Vector3 InitialPos;
+    Vector3 InitialPos;
     private void OnTriggerEnter(Collider other)
     {
         var character = other.gameObject.GetComponent<HGO.core.CharacterController>();

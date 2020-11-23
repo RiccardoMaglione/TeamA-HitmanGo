@@ -2435,7 +2435,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1056502552}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1056502555}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbc688bdd288f7a4899e867099aab1ce, type: 3}
@@ -2663,13 +2663,33 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1056502552}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1056502555 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7639863316749716443, guid: c433f00f6515b924aa960a8446dab4ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 1056502552}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1056502556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1056502555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90db48aaec4815240a831a3945b9f2fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CameraMain: {fileID: 1189833811}
+  newPositionCamera: {x: -10.89, y: 13.48066, z: -5.195971}
 --- !u!114 &1071019659 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7639863316749716440, guid: c433f00f6515b924aa960a8446dab4ef,
     type: 3}
   m_PrefabInstance: {fileID: 1686869705}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1686869708}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fbc688bdd288f7a4899e867099aab1ce, type: 3}
@@ -5348,6 +5368,26 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1686869705}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1686869708 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7639863316749716443, guid: c433f00f6515b924aa960a8446dab4ef,
+    type: 3}
+  m_PrefabInstance: {fileID: 1686869705}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1686869709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686869708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90db48aaec4815240a831a3945b9f2fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CameraMain: {fileID: 1189833811}
+  newPositionCamera: {x: -4.262953, y: 13.48066, z: -5.195971}
 --- !u!1 &1704867776
 GameObject:
   m_ObjectHideFlags: 0
