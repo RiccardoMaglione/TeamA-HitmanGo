@@ -124,22 +124,25 @@ public class Quest : MonoBehaviour
         }
         if (QS.NoKill == true && Completed == true)
         {
-            QuestNoKill[ID] = 1;
-            PlayerPrefs.SetInt("QuestNoKill" + ID, QuestNoKill[ID]);
-
-            if (OnlyOnce == false)
+            if (EnemyCemetery.CountEnemy == 0)
             {
-                for (int i = 0; i < 5; i++)
+                QuestNoKill[ID] = 1;
+                PlayerPrefs.SetInt("QuestNoKill" + ID, QuestNoKill[ID]);
+
+                if (OnlyOnce == false)
                 {
-                    if (ID == i)
+                    for (int i = 0; i < 5; i++)
                     {
-                        if (LevelQuest[ID] == false)
+                        if (ID == i)
                         {
-                            LevelQuest[ID] = true;
-                            OnlyOnce = true;
-                            TotalQuest += 1;
-                            Debug.Log("ciao2");
-                            PlayerPrefs.SetInt("TotalQuest", TotalQuest);
+                            if (LevelQuest[ID] == false)
+                            {
+                                LevelQuest[ID] = true;
+                                OnlyOnce = true;
+                                TotalQuest += 1;
+                                Debug.Log("ciao2");
+                                PlayerPrefs.SetInt("TotalQuest", TotalQuest);
+                            }
                         }
                     }
                 }
@@ -147,22 +150,25 @@ public class Quest : MonoBehaviour
         }
         if (QS.AllKill == true && Completed == true)
         {
-            QuestAllKill[ID] = 1;
-            PlayerPrefs.SetInt("QuestAllKill" + ID, QuestAllKill[ID]);
-
-            if (OnlyOnce == false)
+            if (EnemyCemetery.CountEnemy == 4)
             {
-                for (int i = 0; i < 5; i++)
+                QuestAllKill[ID] = 1;
+                PlayerPrefs.SetInt("QuestAllKill" + ID, QuestAllKill[ID]);
+
+                if (OnlyOnce == false)
                 {
-                    if (ID == i)
+                    for (int i = 0; i < 5; i++)
                     {
-                        if (LevelQuest[ID] == false)
+                        if (ID == i)
                         {
-                            LevelQuest[ID] = true;
-                            OnlyOnce = true;
-                            TotalQuest += 1;
-                            Debug.Log("ciao1");
-                            PlayerPrefs.SetInt("TotalQuest", TotalQuest);
+                            if (LevelQuest[ID] == false)
+                            {
+                                LevelQuest[ID] = true;
+                                OnlyOnce = true;
+                                TotalQuest += 1;
+                                Debug.Log("ciao1");
+                                PlayerPrefs.SetInt("TotalQuest", TotalQuest);
+                            }
                         }
                     }
                 }

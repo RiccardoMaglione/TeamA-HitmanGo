@@ -37,8 +37,31 @@ public class IconLevel : MonoBehaviour
         {
             StartCoroutine(IconLevel5());
         }
-        
+
         //StartCoroutine(IconLevel6());
+        #region If 6
+
+        if (PlayerPrefs.GetInt("QuestLevelComplete" + 5) == 1 && PlayerPrefs.GetInt("QuestNoKill" + 5) == 0 && PlayerPrefs.GetInt("QuestAllKill" + 5) == 0)
+        {
+            StartCoroutine(IconLevel6Quest());
+        }
+        if (PlayerPrefs.GetInt("QuestLevelComplete" + 5) == 1 && PlayerPrefs.GetInt("QuestNoKill" + 5) == 1 && PlayerPrefs.GetInt("QuestAllKill" + 5) == 0)
+        {
+            StartCoroutine(IconLevel6QuestNoKill());
+        }
+        if (PlayerPrefs.GetInt("QuestLevelComplete" + 5) == 1 && PlayerPrefs.GetInt("QuestNoKill" + 5) == 0 && PlayerPrefs.GetInt("QuestAllKill" + 5) == 1)
+        {
+            StartCoroutine(IconLevel6QuestAllKill());
+        }
+        if (PlayerPrefs.GetInt("QuestLevelComplete" + 5) == 1 && PlayerPrefs.GetInt("QuestNoKill" + 5) == 1 && PlayerPrefs.GetInt("QuestAllKill" + 5) == 1)
+        {
+            print(PlayerPrefs.GetInt("QuestLevelComplete" + 5));
+            print(PlayerPrefs.GetInt("QuestNoKill" + 5));
+            print(PlayerPrefs.GetInt("QuestAllKill" + 5));
+            StartCoroutine(IconLevel6All());
+        }
+
+        #endregion
     }
 
     // Update is called once per frame
@@ -121,7 +144,24 @@ public class IconLevel : MonoBehaviour
             IconNotCompleteMobile[4].SetActive(false);
         }
     }
-    public IEnumerator IconLevel6()
+    /*public IEnumerator IconLevel6()
+    {
+        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+        {
+            IconCompletePC[5].transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 1);
+            yield return new WaitForSeconds(0.75f);
+            IconNotCompletePC[5].SetActive(false);
+        }
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            IconCompleteMobile[5].transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 1);
+            yield return new WaitForSeconds(0.75f);
+            IconNotCompleteMobile[5].SetActive(false);
+        }
+    }*/
+    #region Coroutine 6
+
+    public IEnumerator IconLevel6Quest()
     {
         if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
         {
@@ -136,5 +176,54 @@ public class IconLevel : MonoBehaviour
             IconNotCompleteMobile[5].SetActive(false);
         }
     }
+
+    public IEnumerator IconLevel6QuestNoKill()
+    {
+        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+        {
+            IconCompletePC[6].transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 1);
+            yield return new WaitForSeconds(0.75f);
+            IconNotCompletePC[5].SetActive(false);
+        }
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            IconCompleteMobile[6].transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 1);
+            yield return new WaitForSeconds(0.75f);
+            IconNotCompleteMobile[5].SetActive(false);
+        }
+    }
+
+    public IEnumerator IconLevel6QuestAllKill()
+    {
+        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+        {
+            IconCompletePC[7].transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 1);
+            yield return new WaitForSeconds(0.75f);
+            IconNotCompletePC[5].SetActive(false);
+        }
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            IconCompleteMobile[7].transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 1);
+            yield return new WaitForSeconds(0.75f);
+            IconNotCompleteMobile[5].SetActive(false);
+        }
+    }
+    public IEnumerator IconLevel6All()
+    {
+        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+        {
+            IconCompletePC[8].transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 1);
+            yield return new WaitForSeconds(0.75f);
+            IconNotCompletePC[5].SetActive(false);
+        }
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            IconCompleteMobile[8].transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 1);
+            yield return new WaitForSeconds(0.75f);
+            IconNotCompleteMobile[5].SetActive(false);
+        }
+    }
+
+    #endregion
 
 }
