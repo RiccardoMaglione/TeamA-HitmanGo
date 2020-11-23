@@ -3,25 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PauseStamp6 : MonoBehaviour
+public class FinishStamp6 : MonoBehaviour
 {
-    public GameObject PCNotFinishLevelStampCompleted;
-    public GameObject PCNotFinishLevelStampNoKill;
-    public GameObject PCNotFinishLevelStampAllKill;
-
     public GameObject PCFinishLevelStampCompleted;
     public GameObject PCFinishLevelStampNoKill;
     public GameObject PCFinishLevelStampAllKill;
-
-    public GameObject MobileNotFinishLevelStampCompleted;
-    public GameObject MobileNotFinishLevelStampNoKill;
-    public GameObject MobileNotFinishLevelStampAllKill;
 
     public GameObject MobileFinishLevelStampCompleted;
     public GameObject MobileFinishLevelStampNoKill;
     public GameObject MobileFinishLevelStampAllKill;
 
-    // Start is called before the first frame update
     void Start()
     {
         Scene scene = SceneManager.GetActiveScene();
@@ -29,19 +20,6 @@ public class PauseStamp6 : MonoBehaviour
         {
             if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
             {
-                if (PlayerPrefs.GetInt("QuestLevelComplete" + 5) == 1)
-                {
-                    PCNotFinishLevelStampCompleted.SetActive(false);
-                }
-                if (PlayerPrefs.GetInt("QuestNoKill" + 5) == 1)
-                {
-                    PCNotFinishLevelStampNoKill.SetActive(false);
-                }
-                if (PlayerPrefs.GetInt("QuestAllKill" + 5) == 1)
-                {
-                    PCNotFinishLevelStampAllKill.SetActive(false);
-                }
-
                 if (PlayerPrefs.GetInt("QuestLevelComplete" + 5) == 1)
                 {
                     PCFinishLevelStampCompleted.SetActive(true);
@@ -59,19 +37,6 @@ public class PauseStamp6 : MonoBehaviour
             {
                 if (PlayerPrefs.GetInt("QuestLevelComplete" + 5) == 1)
                 {
-                    MobileNotFinishLevelStampCompleted.SetActive(false);
-                }
-                if (PlayerPrefs.GetInt("QuestNoKill" + 5) == 1)
-                {
-                    MobileNotFinishLevelStampNoKill.SetActive(false);
-                }
-                if (PlayerPrefs.GetInt("QuestAllKill" + 5) == 1)
-                {
-                    MobileNotFinishLevelStampAllKill.SetActive(false);
-                }
-
-                if (PlayerPrefs.GetInt("QuestLevelComplete" + 5) == 1)
-                {
                     MobileFinishLevelStampCompleted.SetActive(true);
                 }
                 if (PlayerPrefs.GetInt("QuestNoKill" + 5) == 1)
@@ -87,19 +52,6 @@ public class PauseStamp6 : MonoBehaviour
             {
                 if (PlayerPrefs.GetInt("QuestLevelComplete" + 5) == 0)
                 {
-                    PCNotFinishLevelStampCompleted.SetActive(true);
-                }
-                if (PlayerPrefs.GetInt("QuestNoKill" + 5) == 0)
-                {
-                    PCNotFinishLevelStampNoKill.SetActive(true);
-                }
-                if (PlayerPrefs.GetInt("QuestAllKill" + 5) == 0)
-                {
-                    PCNotFinishLevelStampAllKill.SetActive(true);
-                }
-
-                if (PlayerPrefs.GetInt("QuestLevelComplete" + 5) == 0)
-                {
                     PCFinishLevelStampCompleted.SetActive(false);
                 }
                 if (PlayerPrefs.GetInt("QuestNoKill" + 5) == 0)
@@ -113,19 +65,6 @@ public class PauseStamp6 : MonoBehaviour
             }
             if (Application.platform == RuntimePlatform.Android)
             {
-                if (PlayerPrefs.GetInt("QuestLevelComplete" + 5) == 0)
-                {
-                    MobileNotFinishLevelStampCompleted.SetActive(true);
-                }
-                if (PlayerPrefs.GetInt("QuestNoKill" + 5) == 0)
-                {
-                    MobileNotFinishLevelStampNoKill.SetActive(true);
-                }
-                if (PlayerPrefs.GetInt("QuestAllKill" + 5) == 0)
-                {
-                    MobileNotFinishLevelStampAllKill.SetActive(true);
-                }
-
                 if (PlayerPrefs.GetInt("QuestLevelComplete" + 5) == 0)
                 {
                     MobileFinishLevelStampCompleted.SetActive(false);

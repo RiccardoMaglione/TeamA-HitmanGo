@@ -454,7 +454,7 @@ PrefabInstance:
     - target: {fileID: 9006978491459815285, guid: 9239ddd41c8924e4088d9c23b17d9b8c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9006978491459815273, guid: 9239ddd41c8924e4088d9c23b17d9b8c,
         type: 3}
@@ -1507,6 +1507,7 @@ GameObject:
   - component: {fileID: 169521137}
   - component: {fileID: 169521136}
   - component: {fileID: 169521135}
+  - component: {fileID: 169521138}
   m_Layer: 5
   m_Name: Sound Button
   m_TagString: Untagged
@@ -1630,6 +1631,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 169521133}
   m_CullTransparentMesh: 0
+--- !u!114 &169521138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169521133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 805474649}
+          m_MethodName: SetSound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &226041922
 GameObject:
   m_ObjectHideFlags: 0
@@ -4851,6 +4882,7 @@ GameObject:
   - component: {fileID: 1019081881}
   - component: {fileID: 1019081880}
   - component: {fileID: 1019081879}
+  - component: {fileID: 1019081882}
   m_Layer: 5
   m_Name: Music Button
   m_TagString: Untagged
@@ -4973,6 +5005,115 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1019081877}
   m_CullTransparentMesh: 0
+--- !u!114 &1019081882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1019081877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1937371584}
+          m_MethodName: SetMusic
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+--- !u!1 &1029249795
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1029249798}
+  - component: {fileID: 1029249797}
+  - component: {fileID: 1029249796}
+  m_Layer: 5
+  m_Name: Quality Text (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1029249796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029249795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: c0236d4eab3fb2743bedfcdba824a380, type: 3}
+    m_FontSize: 85
+    m_FontStyle: 0
+    m_BestFit: 1
+    m_MinSize: 8
+    m_MaxSize: 85
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
+--- !u!222 &1029249797
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029249795}
+  m_CullTransparentMesh: 0
+--- !u!224 &1029249798
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029249795}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000122, y: 1.0000122, z: 1.0000122}
+  m_Children: []
+  m_Father: {fileID: 1130149932}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 801.7, y: 7.8}
+  m_SizeDelta: {x: 612.8, y: 84.3}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!1 &1029703982
 GameObject:
   m_ObjectHideFlags: 0
@@ -5578,6 +5719,7 @@ GameObject:
   - component: {fileID: 1130149935}
   - component: {fileID: 1130149934}
   - component: {fileID: 1130149933}
+  - component: {fileID: 1130149936}
   m_Layer: 5
   m_Name: Quality Button
   m_TagString: Untagged
@@ -5597,6 +5739,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1869408554}
+  - {fileID: 1029249798}
   m_Father: {fileID: 1579732213}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5647,7 +5790,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1130149934}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1972842977}
+        m_MethodName: ChangeQuality
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1130149934
@@ -5689,6 +5843,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1130149931}
   m_CullTransparentMesh: 0
+--- !u!114 &1130149936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130149931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1972842977}
+          m_MethodName: ChangeQuality
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!1 &1157100082
 GameObject:
   m_ObjectHideFlags: 0
@@ -9163,8 +9347,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 330, y: 0}
-  m_SizeDelta: {x: 1000, y: 100}
+  m_AnchoredPosition: {x: 330, y: 7.8}
+  m_SizeDelta: {x: 471.7, y: 84.3}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1869408555
 MonoBehaviour:
@@ -9190,7 +9374,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: c0236d4eab3fb2743bedfcdba824a380, type: 3}
     m_FontSize: 85
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 8
     m_MaxSize: 85
     m_Alignment: 3
@@ -9199,7 +9383,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: QUALITY
+  m_Text: 'QUALITY - '
 --- !u!222 &1869408556
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10198,6 +10382,7 @@ GameObject:
   - component: {fileID: 1972842975}
   - component: {fileID: 1972842976}
   - component: {fileID: 1972842974}
+  - component: {fileID: 1972842977}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -10254,6 +10439,20 @@ MonoBehaviour:
   startingScreenMobile: {fileID: 1419478607}
   settingScreenMobile: {fileID: 127272491}
   creditsScreenMobile: {fileID: 1129102271}
+--- !u!114 &1972842977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972842973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f80a21f13be224a4db604661fccc3de8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GetQuality: 0
+  TextQuality: {fileID: 1029249796}
 --- !u!1 &2002208386
 GameObject:
   m_ObjectHideFlags: 0

@@ -39,7 +39,7 @@ public class ResetScreen : MonoBehaviour
         if (Application.platform == RuntimePlatform.Android)
         {
             ResetScreenMobile.SetActive(false);
-            ResetScreenMobile.SetActive(true);
+            SettingsScreenMobile.SetActive(true);
         }
     }
 
@@ -60,5 +60,15 @@ public class ResetScreen : MonoBehaviour
         PlayerPrefs.SetInt("UnblockFour", 0);
         PlayerPrefs.SetInt("UnblockFive", 0);
         PlayerPrefs.SetInt("UnblockSix", 0);
+        if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+        {
+            ResetScreenPc.SetActive(false);
+            SettingsScreenPc.SetActive(true);
+        }
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            ResetScreenMobile.SetActive(false);
+            SettingsScreenMobile.SetActive(true);
+        }
     }
 }
