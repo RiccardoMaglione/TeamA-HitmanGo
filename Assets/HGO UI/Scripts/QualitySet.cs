@@ -38,12 +38,14 @@ public class QualitySet : MonoBehaviour
             QualitySettings.SetQualityLevel(3, true);
             TextQuality.text = "High";
             PlayerPrefs.SetInt("QualitySet", 3);
+            GetQuality = PlayerPrefs.GetInt("QualitySet");
         }
         if (GetQuality == 3)
         {
             QualitySettings.SetQualityLevel(1, true);
             TextQuality.text = "Low";
             PlayerPrefs.SetInt("QualitySet", 1);
+            GetQuality = PlayerPrefs.GetInt("QualitySet");
         }
     }
 }
