@@ -12,10 +12,14 @@ public class FinishStamp6 : MonoBehaviour
     public GameObject MobileFinishLevelStampCompleted;
     public GameObject MobileFinishLevelStampNoKill;
     public GameObject MobileFinishLevelStampAllKill;
+    Scene scene;
 
-    void Start()
+    private void Start()
     {
-        Scene scene = SceneManager.GetActiveScene();
+        scene = SceneManager.GetActiveScene();
+    }
+    void Update()
+    {
         if (scene.name == "GO 1-6" || scene.name == "Level1-6+hint")
         {
             if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
