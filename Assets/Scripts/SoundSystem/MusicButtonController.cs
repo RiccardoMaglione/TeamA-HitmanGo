@@ -8,6 +8,10 @@ public class MusicButtonController : MonoBehaviour
     public Sprite spriteNotActive;
     public Image image;
 
+    public Text musicTextMobile;
+    public Image imageMobile;
+
+
     public void SetMusic()
     {
         if (PlayerPrefs.GetInt("setSound") == 1)
@@ -16,16 +20,38 @@ public class MusicButtonController : MonoBehaviour
         if (PlayerPrefs.GetInt("setMusic") == 1)
         {
             PlayerPrefs.SetInt("setMusic", 0);
-            musicText.text = "MUSIC - OFF";
-            image.sprite=spriteNotActive;
+            
+            if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+            {
+                musicText.text = "MUSIC - OFF";
+                image.sprite = spriteNotActive;
+            }
+
+            else
+            {
+                musicTextMobile.text = "MUSIC - OFF";
+                imageMobile.sprite = spriteNotActive;
+            }
+            
             AudioManager.instance.Stop("Soundtrack");
         }
 
         else
         {
             PlayerPrefs.SetInt("setMusic", 1);
-            musicText.text = "MUSIC - ON";
-            image.sprite = spriteActive;
+            
+            if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+            {
+                musicText.text = "MUSIC - ON";
+                image.sprite = spriteActive;
+            }
+
+            else
+            {
+                musicTextMobile.text = "MUSIC - ON";
+                imageMobile.sprite = spriteActive;
+            }
+            
             AudioManager.instance.Play("Soundtrack");
         }         
     }
@@ -34,14 +60,32 @@ public class MusicButtonController : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("setMusic") == 1)
         {
-            musicText.text = "MUSIC - ON";
-            image.sprite = spriteActive;
+            if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+            {
+                musicText.text = "MUSIC - ON";
+                image.sprite = spriteActive;
+            }
+            
+            else
+            {
+                musicTextMobile.text = "MUSIC - ON";
+                imageMobile.sprite = spriteActive;
+            }
         }
 
         else
         {
-            musicText.text = "MUSIC - OFF";
-            image.sprite = spriteNotActive;
+            if (Application.platform == RuntimePlatform.WindowsEditor || Application.platform == RuntimePlatform.WindowsPlayer)
+            {
+                musicText.text = "MUSIC - OFF";
+                image.sprite = spriteNotActive;
+            }
+
+            else
+            {
+                musicTextMobile.text = "MUSIC - OFF";
+                imageMobile.sprite = spriteNotActive;
+            }
         }           
     }
 }
