@@ -26,7 +26,7 @@ public class CameraAndroidAxis : MonoBehaviour
     public Quaternion InitRot;
     public float DelayTime = 20;
     public bool CanLerp;
-
+    bool CanMoveMobile = false;
     IEnumerator IEnumMoveCam()
     {
         float timeSinceStarted = 0f;
@@ -91,6 +91,11 @@ public class CameraAndroidAxis : MonoBehaviour
         this.eulerAngles_y = eulerAngles.x;
     }
 
+    public void WaitMove()
+    {
+        CanMoveMobile = false;
+    }
+
     void Update()
     {
         //No touch  
@@ -105,34 +110,55 @@ public class CameraAndroidAxis : MonoBehaviour
 
             StartCoroutine(IEnumMoveCam());
             StartCoroutine(IEnumRotCam());
+
+            Invoke("WaitMove", 0.5f);
             return;
         }
         // single touch, horizontal up and down rotation
-        if (1 == Input.touchCount)
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit))
         {
-            CanLerp = false;
-            Touch touch = Input.GetTouch(0);
-            Vector2 deltaPos = touch.deltaPosition;
-
-            //No dead angle rotation
-            //transform.RotateAround(target.transform.position, Vector3.up, deltaPos.x);
-            //transform.RotateAround(target.transform.position, -1 * transform.right, deltaPos.y);
-
-            float sum = Vector3.Distance(this.transform.position, target.transform.position);
-
-            if (this.target != null)
+            if (hit.collider != null)
             {
-                this.eulerAngles_x += ((deltaPos.x * this.xSpeed) * sum) * 0.005f;
-                this.eulerAngles_y -= (deltaPos.y * this.ySpeed) * 0.005f;
-                this.eulerAngles_y = ClampAngle(this.eulerAngles_y, (float)this.yMinLimit, (float)this.yMaxLimit);
-                this.eulerAngles_x = ClampAngle(this.eulerAngles_x, (float)this.xMinLimit, (float)this.xMaxLimit);
-                Quaternion quaternion = Quaternion.Euler(this.eulerAngles_y, this.eulerAngles_x, (float)0);
-                Vector3 vector = ((Vector3)(quaternion * new Vector3((float)0, (float)0, -sum))) + this.target.transform.position;
-                // Change the rotation angle and position of the main camera
-                this.transform.rotation = quaternion;
-                this.transform.position = vector;
-            }
+                if (hit.collider.tag != "Player" && CanMoveMobile == false)
+                {
+                    if (1 == Input.touchCount)
+                    {
+                        CanLerp = false;
+                        Touch touch = Input.GetTouch(0);
+                        Vector2 deltaPos = touch.deltaPosition;
 
+                        //No dead angle rotation
+                        //transform.RotateAround(target.transform.position, Vector3.up, deltaPos.x);
+                        //transform.RotateAround(target.transform.position, -1 * transform.right, deltaPos.y);
+
+                        float sum = Vector3.Distance(this.transform.position, target.transform.position);
+
+                        if (this.target != null)
+                        {
+                            this.eulerAngles_x += ((deltaPos.x * this.xSpeed) * sum) * 0.005f;
+                            this.eulerAngles_y -= (deltaPos.y * this.ySpeed) * 0.005f;
+                            this.eulerAngles_y = ClampAngle(this.eulerAngles_y, (float)this.yMinLimit, (float)this.yMaxLimit);
+                            this.eulerAngles_x = ClampAngle(this.eulerAngles_x, (float)this.xMinLimit, (float)this.xMaxLimit);
+                            Quaternion quaternion = Quaternion.Euler(this.eulerAngles_y, this.eulerAngles_x, (float)0);
+                            Vector3 vector = ((Vector3)(quaternion * new Vector3((float)0, (float)0, -sum))) + this.target.transform.position;
+                            // Change the rotation angle and position of the main camera
+                            this.transform.rotation = quaternion;
+                            this.transform.position = vector;
+                        }
+
+                    }
+                }
+                if (hit.collider.tag == "Player")
+                {
+                    if (1 == Input.touchCount)
+                    {
+                        CanMoveMobile = true;
+                    }
+                }
+            }
         }
 
         //Multiple touch, zoom in and out  
