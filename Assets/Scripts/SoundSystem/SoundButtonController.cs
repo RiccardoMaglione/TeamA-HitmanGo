@@ -26,7 +26,7 @@ public class SoundButtonController : MonoBehaviour
                 image.sprite = spriteNotActive;
             }
             
-            else
+            if(Application.platform == RuntimePlatform.Android)
             {
                 soundTextMobile.text = "SOUND - OFF";
                 imageMobile.sprite = spriteNotActive;
@@ -43,7 +43,7 @@ public class SoundButtonController : MonoBehaviour
                 image.sprite = spriteActive;
             }
 
-            else
+            if (Application.platform == RuntimePlatform.Android)
             {
                 soundTextMobile.text = "SOUND - ON";
                 imageMobile.sprite = spriteActive;
@@ -61,8 +61,8 @@ public class SoundButtonController : MonoBehaviour
                 soundText.text = "SOUND - ON";
                 image.sprite = spriteActive;
             }
-            
-            else
+
+            if (Application.platform == RuntimePlatform.Android)
             {
                 soundTextMobile.text = "SOUND - ON";
                 imageMobile.sprite = spriteActive;
@@ -76,8 +76,8 @@ public class SoundButtonController : MonoBehaviour
                 soundText.text = "SOUND - OFF";
                 image.sprite = spriteNotActive;
             }
-            
-            else
+
+            if (Application.platform == RuntimePlatform.Android)
             {
                 soundTextMobile.text = "SOUND - OFF";
                 imageMobile.sprite = spriteNotActive;

@@ -27,7 +27,7 @@ public class MusicButtonController : MonoBehaviour
                 image.sprite = spriteNotActive;
             }
 
-            else
+            if (Application.platform == RuntimePlatform.Android)
             {
                 musicTextMobile.text = "MUSIC - OFF";
                 imageMobile.sprite = spriteNotActive;
@@ -46,7 +46,7 @@ public class MusicButtonController : MonoBehaviour
                 image.sprite = spriteActive;
             }
 
-            else
+            if (Application.platform == RuntimePlatform.Android)
             {
                 musicTextMobile.text = "MUSIC - ON";
                 imageMobile.sprite = spriteActive;
@@ -65,8 +65,8 @@ public class MusicButtonController : MonoBehaviour
                 musicText.text = "MUSIC - ON";
                 image.sprite = spriteActive;
             }
-            
-            else
+
+            if (Application.platform == RuntimePlatform.Android)
             {
                 musicTextMobile.text = "MUSIC - ON";
                 imageMobile.sprite = spriteActive;
@@ -81,7 +81,7 @@ public class MusicButtonController : MonoBehaviour
                 image.sprite = spriteNotActive;
             }
 
-            else
+            if (Application.platform == RuntimePlatform.Android)
             {
                 musicTextMobile.text = "MUSIC - OFF";
                 imageMobile.sprite = spriteNotActive;
