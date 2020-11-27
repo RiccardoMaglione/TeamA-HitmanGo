@@ -27,9 +27,10 @@ public class CameraCinematic : MonoBehaviour
     public bool PathCatmullRom = true;
     public bool PathLinear = false;
 
-
+    bool isClick = true;
     void Start()
     {
+        isClick = true;
         GameObject.Find("Player").GetComponent<CharacterController>().enabled = false;
 
         if (Path != null)
@@ -70,8 +71,9 @@ public class CameraCinematic : MonoBehaviour
             }
             DOTween.timeScale = SpeedInitial;
         }
-        if (Input.GetKeyDown(KeyCode.L))
+        if ((Input.GetMouseButtonDown(0) || Input.touchCount == 1) && isClick == true)
         {
+            isClick = false;
             //DOTween.Kill(1);
             DOTween.KillAll();
             MainCamera.transform.DOMove(CameraPosition[CameraPosition.Length - 1], 1);
@@ -100,6 +102,7 @@ public class CameraCinematic : MonoBehaviour
         }
         if (waypointIndex >= CameraPosition.Length - 1)
         {
+            isClick = false;
             if (Path != null)
             {
                 Path.SetActive(true);
